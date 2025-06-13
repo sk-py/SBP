@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+
+* {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Animation Styles */
+.slide-from-left {
+  animation: slideFromLeft 1s ease-out forwards;
+  opacity: 0.2;
+}
+
+.slide-from-right {
+  animation: slideFromRight 1s ease-out forwards;
+  opacity: 0.2;
+}
+
+.slide-from-bottom {
+  animation: slideFromBottom 1s ease-out forwards;
+  opacity: 0.2;
+}
+
+.slide-from-top {
+  animation: slideFromTop 1s ease-out forwards;
+  opacity: 0.2;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Ensure content is visible after animation */
+.animated {
+  opacity: 1;
+}
+
+/* Fixed Slideshow Styles */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slideshow .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #003366;
+  opacity: 0.4;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* Logo positioning fix */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 25%;
+  z-index: 4;
+}
