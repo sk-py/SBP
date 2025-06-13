@@ -10,28 +10,28 @@
 /* Animation Styles */
 .slide-from-left {
   animation: slideFromLeft 1s ease-out forwards;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .slide-from-right {
   animation: slideFromRight 1s ease-out forwards;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .slide-from-bottom {
   animation: slideFromBottom 1s ease-out forwards;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .slide-from-top {
   animation: slideFromTop 1s ease-out forwards;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 @keyframes slideFromBottom {
   0% {
     transform: translateY(100%);
-    opacity: 0.2;
+    opacity: 0.4;
   }
 
   100% {
@@ -43,7 +43,7 @@
 @keyframes slideFromTop {
   0% {
     transform: translateY(-100%);
-    opacity: 0.2;
+    opacity: 0.4;
   }
 
   100% {
@@ -55,7 +55,7 @@
 @keyframes slideFromLeft {
   0% {
     transform: translateX(-100%);
-    opacity: 0.2;
+    opacity: 0.4;
   }
 
   100% {
@@ -67,7 +67,7 @@
 @keyframes slideFromRight {
   0% {
     transform: translateX(100%);
-    opacity: 0.2;
+    opacity: 0.4;
   }
 
   100% {

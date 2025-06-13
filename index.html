@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OK AGENCIES</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./home.css" />
     <!-- Now we will add favicon -->
     <link rel="icon" href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
         type="image/x-icon">
@@ -18,8 +19,6 @@
     <link rel="apple-touch-icon" sizes="32x32"
         href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
     
-    <link rel="stylesheet" href="./home.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,6 +37,148 @@
             }
         }
     </script>
+
+    <style>
+        /* Slideshow Styles */
+        .slideshow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow {
+            width: 100%;
+            max-width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.4rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 51, 102, 0.1), rgba(42, 67, 121, 0.1));
+            pointer-events: none;
+        }
+
+        /* Animation Styles */
+        .slide-from-left {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-from-right {
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-from-bottom {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.6s ease-out;
+        }
+
+        .slide-from-left.animated,
+        .slide-from-right.animated,
+        .slide-from-bottom.animated {
+            transform: translate(0);
+            opacity: 1;
+        }
+
+        /* Client Carousel Styles */
+        .client-carousel {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            background: white;
+        }
+
+        .client-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        .client-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-item {
+            flex: 0 0 auto;
+            margin: 0 2rem;
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .client-item:hover {
+            transform: scale(1.1);
+        }
+
+        .client-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .client-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .client-track {
+                animation-duration: 15s;
+            }
+            
+            .client-item {
+                margin: 0 1rem;
+                width: 80px;
+                height: 60px;
+            }
+        }
+    </style>
   
 </head>
 
@@ -165,7 +306,154 @@
             </div>
         </div>
     </main>
-    
+
+    <!-- Company Overview Section -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <!-- Section Header -->
+            <div class="mb-12 slide-from-left">
+                <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">COMPANY OVERVIEW</p>
+                <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Left Column - Company History -->
+                <div class="slide-from-left">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                        PIONEERING ELECTRICAL SOLUTIONS SINCE 1985
+                    </h2>
+                    
+                    <p class="text-gray-700 text-lg mb-8">
+                        We have started our activities in 1985 with our founder Mr. V.A. Oak and successfully continued the legacy with expertise team led by Mr. Anil Jagtap and Mr. Satish Jagdale.
+                    </p>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-custom mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Larsen & Toubro's Authorised Service Center</h3>
+                        <p class="text-gray-700">
+                            We are Larsen & Toubro's Authorised Service Center providing a wide variety of electrical industrial solutions with major focus on operation of Medium Voltage and Low Voltage switchgear, retrofitting jobs and executing periodical AMCs ranging from 132KV switchyards up to LV PCCs and MCCs.
+                        </p>
+                    </div>
+
+                    <button class="bg-blue-custom hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all">
+                        LEARN MORE
+                    </button>
+                </div>
+
+                <!-- Right Column - Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 slide-from-right">
+                    <!-- Service 1 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="./images/factory.png" alt="Electrical Turnkey" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Electrical Turnkey Project Execution</h3>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="./images/tools.png" alt="Operation & Maintenance" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Operation & Maintenance</h3>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="./images/solar.png" alt="Solar EPC Projects" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Solar EPC Projects</h3>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="./images/gears.png" alt="HTLT Switchgear" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">HTLT Switchgear</h3>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-AoQ8sSxUmJirNv2gyywDIOSa6i7vwr.png" alt="Consulting" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Consulting</h3>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <div class="w-24 h-24 mb-4">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-AoQ8sSxUmJirNv2gyywDIOSa6i7vwr.png" alt="Energy Efficient Solutions" class="w-full h-full object-contain" />
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Energy Efficient Solutions</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Logos with Auto-Moving Carousel -->
+            <div class="mt-16 slide-from-bottom">
+                <p class="text-center text-gray-700 mb-8">Serving multiple businesses to with the best electrical services</p>
+                
+                <!-- Auto-Moving Client Carousel -->
+                <div class="client-carousel">
+                    <div class="client-track">
+                        <!-- First Set of Logos -->
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png" alt="Reliance" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Pfizer_logo.svg/2560px-Pfizer_logo.svg.png" alt="Pfizer" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Tata_Steel_Logo.svg/2560px-Tata_Steel_Logo.svg.png" alt="Tata Steel" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/JSW_Group_logo.svg/2560px-JSW_Group_logo.svg.png" alt="JSW" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/BARC_Logo.svg/1200px-BARC_Logo.svg.png" alt="BARC" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Larsen_%26_Toubro_Logo.svg/2560px-Larsen_%26_Toubro_Logo.svg.png" alt="L&T" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Bajaj_Group_Logo.svg/2560px-Bajaj_Group_Logo.svg.png" alt="Bajaj" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/2560px-Wipro_Primary_Logo_Color_RGB.svg.png" alt="Wipro" />
+                        </div>
+                        
+                        <!-- Duplicate Set for Seamless Loop -->
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png" alt="Reliance" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Pfizer_logo.svg/2560px-Pfizer_logo.svg.png" alt="Pfizer" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Tata_Steel_Logo.svg/2560px-Tata_Steel_Logo.svg.png" alt="Tata Steel" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/JSW_Group_logo.svg/2560px-JSW_Group_logo.svg.png" alt="JSW" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/BARC_Logo.svg/1200px-BARC_Logo.svg.png" alt="BARC" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Larsen_%26_Toubro_Logo.svg/2560px-Larsen_%26_Toubro_Logo.svg.png" alt="L&T" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Bajaj_Group_Logo.svg/2560px-Bajaj_Group_Logo.svg.png" alt="Bajaj" />
+                        </div>
+                        <div class="client-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/2560px-Wipro_Primary_Logo_Color_RGB.svg.png" alt="Wipro" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Trigger animations on page load
@@ -205,6 +493,25 @@
                     const preloadImg = new Image();
                     preloadImg.src = img.src;
                 }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
+                observer.observe(el);
             });
         });
     </script>
