@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=onest");
 
 * {
   font-family: "Onest", sans-serif;
@@ -7,77 +7,34 @@
   font-weight: normal;
 }
 
-/* Animation Styles */
+/* Initial States for Elements */
 .slide-from-left {
-  animation: slideFromLeft 1s ease-out forwards;
-  opacity: 0.4;
+  transform: translateX(-100%);
+  opacity: 0.2;
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
 .slide-from-right {
-  animation: slideFromRight 1s ease-out forwards;
-  opacity: 0.4;
+  transform: translateX(100%);
+  opacity: 0.2;
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
 .slide-from-bottom {
-  animation: slideFromBottom 1s ease-out forwards;
-  opacity: 0.4;
+  transform: translateY(100%);
+  opacity: 0.2;
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
 .slide-from-top {
-  animation: slideFromTop 1s ease-out forwards;
-  opacity: 0.4;
+  transform: translateY(-100%);
+  opacity: 0.2;
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
-@keyframes slideFromBottom {
-  0% {
-    transform: translateY(100%);
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0.4;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Ensure content is visible after animation */
+/* Animated State */
 .animated {
+  transform: translate(0);
   opacity: 1;
 }
 
