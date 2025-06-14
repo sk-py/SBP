@@ -112,18 +112,41 @@
             opacity: 1;
         }
 
-        /* Client Carousel Styles */
+        /* Enhanced Client Carousel Styles with Fade Effect */
         .client-carousel {
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
             width: 100%;
             background: white;
+        }
+
+        /* Fade overlay on both ends */
+        .client-carousel::before,
+        .client-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .client-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+        }
+
+        .client-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
         }
 
         .client-track {
             display: flex;
             width: max-content;
             animation: marquee 20s linear infinite;
+            padding: 1rem;
         }
 
         .client-track:hover {
@@ -139,6 +162,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .client-item:hover {
@@ -176,6 +200,19 @@
                 margin: 0 1rem;
                 width: 80px;
                 height: 60px;
+            }
+
+            /* Smaller fade areas on mobile */
+            .client-carousel::before,
+            .client-carousel::after {
+                width: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .client-carousel::before,
+            .client-carousel::after {
+                width: 30px;
             }
         }
     </style>
@@ -395,7 +432,7 @@
             <div class="mt-16 slide-from-bottom">
                 <p class="text-center text-gray-700 mb-8">Serving multiple businesses to with the best electrical services</p>
                 
-                <!-- Auto-Moving Client Carousel -->
+                <!-- Auto-Moving Client Carousel with Fade Effect -->
                 <div class="client-carousel">
                     <div class="client-track">
                         <!-- First Set of Logos -->
