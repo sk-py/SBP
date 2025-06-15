@@ -7,37 +7,6 @@
   font-weight: normal;
 }
 
-/* Initial States for Elements */
-.slide-from-left {
-  transform: translateX(-100%);
-  opacity: 0.2;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-.slide-from-right {
-  transform: translateX(100%);
-  opacity: 0.2;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-.slide-from-bottom {
-  transform: translateY(100%);
-  opacity: 0.2;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-.slide-from-top {
-  transform: translateY(-100%);
-  opacity: 0.2;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-/* Animated State */
-.animated {
-  transform: translate(0);
-  opacity: 1;
-}
-
 /* Fixed Slideshow Styles */
 .slideshow-container {
   position: relative;
@@ -90,7 +59,389 @@
 /* Logo positioning fix */
 .logo-container {
   position: absolute;
-  top: 20px;
+  top: 12px;
   left: 25%;
   z-index: 4;
+}
+
+/* Animation Styles */
+.slide-from-left {
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.slide-from-right {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.slide-from-bottom {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.slide-from-top {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.slide-from-left.animated,
+.slide-from-right.animated,
+.slide-from-bottom.animated,
+.slide-from-top.animated {
+  transform: translate(0);
+  opacity: 1;
+}
+
+/* Enhanced Client Carousel Styles with Fade Effect */
+.client-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: white;
+}
+
+/* Fade overlay on both ends */
+.client-carousel::before,
+.client-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.client-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+}
+
+.client-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
+}
+
+.client-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  padding: 1rem;
+}
+
+.client-track:hover {
+  animation-play-state: paused;
+}
+
+.client-item {
+  flex: 0 0 auto;
+  margin: 0 2rem;
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.client-item:hover {
+  transform: scale(1.1);
+}
+
+.client-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.client-item:hover img {
+  filter: grayscale(0%);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Values Cards Styles */
+.values-card {
+  background: linear-gradient(135deg, #003366 0%, #2a4379 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.values-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  transition: all 0.3s ease;
+}
+
+.values-card:hover::before {
+  top: -30%;
+  right: -30%;
+}
+
+.values-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
+}
+
+/* Quality Management Grid */
+.quality-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .quality-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Compliance List Styles */
+.compliance-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.compliance-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #003366;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.compliance-item:hover {
+  color: #003366;
+  transform: translateX(5px);
+}
+
+/* Enlistment Grid */
+.enlistment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.enlistment-item {
+  background: linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid #003366;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.enlistment-item:hover {
+  background: linear-gradient(90deg, #003366 0%, #2a4379 100%);
+  color: white;
+  transform: scale(1.02);
+}
+
+/* ISO Certification Badge */
+.iso-badge {
+  background: linear-gradient(135deg, #003366 0%, #2a4379 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.iso-badge::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.iso-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* L&T Switchgear Section Styles */
+.lt-section {
+  background: linear-gradient(135deg, #2a4379 0%, #003366 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.lt-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.lt-logo-container {
+  background: linear-gradient(45deg, #ffffff, #ffffff);
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden; 
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+}
+
+.lt-logo-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: rotate 6s linear infinite;
+}
+
+.lt-logo-content {
+  position: relative;
+  z-index: 2;
+}
+
+.service-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.service-item:hover::before {
+  left: 100%;
+}
+
+.service-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 184, 0, 0.5);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #ffb800, #ff8c00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .client-track {
+    animation-duration: 15s;
+  }
+
+  .client-item {
+    margin: 0 1rem;
+    width: 80px;
+    height: 60px;
+  }
+
+  /* Smaller fade areas on mobile */
+  .client-carousel::before,
+  .client-carousel::after {
+    width: 50px;
+  }
+
+  .enlistment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lt-logo-container {
+    padding: 1.5rem;
+  }
+
+  .service-item {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-carousel::before,
+  .client-carousel::after {
+    width: 30px;
+  }
 }
