@@ -70,9 +70,103 @@
             }
         }
     </script>
+    <style>
+        /* ...existing styles... */
+        .floating-nav {
+            /* ...existing styles... */
+            padding: 0.5rem 2.5rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(.4,2,.6,1);
+            max-width: 900px;
+            width: auto;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+        }
+        .floating-nav .nav-links {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        .floating-nav a {
+            color: #222;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1.1rem;
+            border-radius: 0.7rem;
+            transition: background 0.18s, color 0.18s;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+        /* Loader Overlay Styles */
+        .loader-overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255,255,255,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+        }
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+        .loader-border {
+            position: absolute;
+            top: 0; left: 0;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #003366;
+            border-top: 6px solid #ffb800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+        }
+        .loader-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+            z-index: 2;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
 <body class="font-sans">
+    <!-- Loader Overlay -->
+    <div class="loader-overlay" id="globalLoader">
+        <div class="loader-spinner">
+            <div class="loader-border"></div>
+            <img class="loader-img" src="https://media.licdn.com/dms/image/v2/C5103AQELqDzikHLbeA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1533882560186?e=1755734400&v=beta&t=h3segm7y07O1vjux3c3GE2mLI2i3LR4GLdNQ7-IIPjM" alt="Loading..." />
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="bg-blue-custom relative z-10 text-white py-2">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -103,8 +197,20 @@
         </div>
     </header>
 
+    <!-- Floating Navbar -->
+    <div class="floating-nav">
+        <div class="nav-links">
+            <a href="/" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT US</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+            <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT US</a>
+        </div>
+    </div>
+
     <!-- Main Hero Section -->
-    <main class="bg-blue-dark min-h-screen lg:h-screen overflow-hidden  flex flex-col lg:flex-row">
+    <main id="home" class="bg-blue-dark min-h-screen lg:h-screen overflow-hidden  flex flex-col lg:flex-row">
         <!-- Left Column -->
         <div class="lg:w-[42%] h-[70vh] flex-col relative flex items-center justify-center">
             <!-- Logo -->
@@ -174,7 +280,8 @@
                     <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
                     <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
                     <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
-                    <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT US</a>
+                    <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT
+                        US</a>
                 </div>
                 <button class="bg-accent-color text-white px-6 py-2 rounded-lg font-medium ml-4">LET'S TALK</button>
             </nav>
@@ -678,7 +785,8 @@
         <!-- Call to Action Section (Half on footer, half above) -->
         <!-- Call to Action -->
         <div class="text-center  slide-from-bottom absolute -top-32 w-full z-10">
-            <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-xl overflow-x-hidden transition-all duration-300 border border-transparent cta-section rounded-2xl p-8 max-w-4xl mx-auto">
+            <div
+                class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-xl overflow-x-hidden transition-all duration-300 border border-transparent cta-section rounded-2xl p-8 max-w-4xl mx-auto">
                 <h3 class="text-3xl font-bold text-white mb-4">Ready to Partner with L&T Authorized Service?</h3>
                 <p class="text-white text-lg mb-8 opacity-90">
                     Get expert electrical solutions backed by L&T's trusted technology and our 35+ years of experience.
@@ -697,7 +805,7 @@
         </div>
 
 
-        <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
             <!-- Main Footer Content -->
             <div class="flex items-center justify-center mb-20">
                 <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-96 mr-4 rounded" />
@@ -723,7 +831,7 @@
                             <div>
                                 <p class="font-semibold text-white mb-1">Contact:</p>
                                 <a href="tel:022-25634470" class="text-sm hover:text-yellow-500 transition-colors">
-                                    022-25634470</a><br/>
+                                    022-25634470</a><br />
                                 <a href="tel:25634471" class="text-sm hover:text-yellow-500 transition-colors">
                                     25634471</a>
                             </div>
@@ -998,6 +1106,56 @@
                 el.style.animationPlayState = 'paused';
                 footerObserver.observe(el);
             });
+
+            // Floating Navbar Logic
+            let lastScrollTop = 0;
+            const floatingNav = document.querySelector('.floating-nav');
+            const scrollThreshold = 100; // Show navbar after scrolling this many pixels
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Show navbar when scrolling up and past threshold
+                if (scrollTop < lastScrollTop && scrollTop > scrollThreshold) {
+                    floatingNav.classList.add('visible');
+                } else {
+                    floatingNav.classList.remove('visible');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Update active link in floating navbar
+            function updateFloatingNavActiveLink() {
+                const currentPath = window.location.pathname.replace(/^\//, '').replace(/index\.html$/, '');
+                const floatingNavLinks = document.querySelectorAll('.floating-nav a');
+
+                floatingNavLinks.forEach(link => {
+                    let linkPath = link.getAttribute('href').replace(/^\/?/, '').replace(/index\.html$/, '');
+                    // For home, match both '' and '/'
+                    if ((currentPath === '' && (linkPath === '' || linkPath === '/')) ||
+                        (linkPath !== '' && currentPath === linkPath)) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            // Run when page loads
+            updateFloatingNavActiveLink();
+
+
+            // To show loader: showLoader()
+            // To hide loader: hideLoader()
+            function showLoader() {
+                document.getElementById('globalLoader').classList.remove('hidden');
+            }
+            function hideLoader() {
+                document.getElementById('globalLoader').classList.add('hidden');
+            }
+
+                        document.getElementById('globalLoader').classList.add('hidden');
+
         });
     </script>
 </body>

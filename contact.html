@@ -27,13 +27,68 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* Add active class styling */
-        .active {
-            background-color: #003366;
-            /* Matches your accent-color */
-            color: white !important;
-            border-radius: 0.5rem;
-            padding: 0.5rem 1.5rem;
+        /* Loader Overlay Styles */
+        .loader-overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+
+        .loader-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #003366;
+            border-top: 6px solid #ffb800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+        }
+
+        .loader-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 
@@ -84,6 +139,16 @@
 </head>
 
 <body class="font-sans h-[200vh]">
+    <!-- Loader Overlay -->
+    <div class="loader-overlay" id="globalLoader">
+        <div class="loader-spinner">
+            <div class="loader-border"></div>
+            <img class="loader-img"
+                src="https://media.licdn.com/dms/image/v2/C5103AQELqDzikHLbeA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1533882560186?e=1755734400&v=beta&t=h3segm7y07O1vjux3c3GE2mLI2i3LR4GLdNQ7-IIPjM"
+                alt="Loading..." />
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="bg-blue-custom relative z-10 text-white py-2">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -110,9 +175,21 @@
         </div>
     </header>
 
+    <!-- Floating Navbar -->
+    <div class="floating-nav">
+        <div class="nav-links">
+            <a href="/" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT US</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+            <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT US</a>
+        </div>
+    </div>
+
     <!-- Banner -->
     <div
-        class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(https://xpelectrical.co.nz/wp-content/uploads/2022/11/Commercial-Electrician.jpg)] bg-cover bg-fixed">
+        class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/6c070989-4ccf-40ae-82c8-9c24b4cfc7fd/Leonardo_Kino_XL_Create_a_highresolution_background_image_1920_0.jpg?w=512)] bg-cover bg-fixed bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-blue-light opacity-[60%]"></div>
         <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
             <a href="/" class="animate-slide-in-left">
@@ -123,15 +200,15 @@
                 <div
                     class="flex flex-wrap gap-4 bg-[lightblue] rounded-lg w-fit p-1 px-3 items-center justify-center lg:justify-start">
                     <a href="/" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
-                    <a href="/about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT
+                    <a href="./about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT
                         US</a>
-                    <a href="/services.html"
+                    <a href="./services.html"
                         class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
-                    <a href="/projects.html"
+                    <a href="./projects.html"
                         class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
-                    <a href="/sustainability.html"
+                    <a href="./sustainability.html"
                         class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
-                    <a href="/contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT
+                    <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT
                         US</a>
                 </div>
                 <button class="bg-accent-color text-white px-6 py-2 rounded-lg font-medium ml-4">LET'S TALK</button>
@@ -164,7 +241,7 @@
                             Let's Start a Conversation
                         </h1>
                         <p class="text-lg text-gray-600 leading-relaxed max-w-lg">
-                            Whether you’re planning your next project or simply have a question, the team at <strong>OK
+                            Whether you're planning your next project or simply have a question, the team at <strong>OK
                                 Agencies</strong> is here to help. Reach out to us and discover how our reliable
                             electrical solutions can bring your ideas to life—with safety, precision, and a commitment
                             to excellence.
@@ -470,30 +547,50 @@
     </footer>
 
     <script>
-        // Function to set active link based on URL path
-        function setActiveLink() {
-            // Get the current URL path
-            const currentPath = window.location.pathname;
+        window.addEventListener('load', () => {
+            // setActiveLink();
 
-            // Get all navigation links
-            const navLinks = document.querySelectorAll('nav a');
+            // Floating Navbar Logic
+            let lastScrollTop = 0;
+            const floatingNav = document.querySelector('.floating-nav');
+            const scrollThreshold = 100; // Show navbar after scrolling this many pixels
 
-            // Loop through each link
-            navLinks.forEach(link => {
-                // Get the href attribute of the link
-                const linkPath = link.getAttribute('href');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                // Check if the link's href matches the current path
-                if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
-                    link.classList.add('active');
+                // Show navbar when scrolling up and past threshold
+                if (scrollTop < lastScrollTop && scrollTop > scrollThreshold) {
+                    floatingNav.classList.add('visible');
                 } else {
-                    link.classList.remove('active');
+                    floatingNav.classList.remove('visible');
                 }
-            });
-        }
 
-        // Run the function when the page loads
-        window.addEventListener('load', setActiveLink);
+                lastScrollTop = scrollTop;
+            });
+
+            // Update active link in floating navbar
+            function updateFloatingNavActiveLink() {
+                const currentPath = window.location.pathname.replace("/", "");
+                const floatingNavLinks = document.querySelectorAll('.floating-nav a');
+
+                floatingNavLinks.forEach(link => {
+                    let linkPath = link.getAttribute('href').replace("./", "");
+
+                    // For home, match both '' and '/'
+                    if ((currentPath === '' && (linkPath === '' || linkPath === '/')) ||
+                        (linkPath !== '' && currentPath === linkPath)) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            // Run when page loads
+            updateFloatingNavActiveLink();
+
+            // Loader hide/show logic
+            document.getElementById('globalLoader').classList.add('hidden');
+        });
 
         // Existing IntersectionObserver code
         const observer = new IntersectionObserver((entries) => {
@@ -508,6 +605,14 @@
         document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
             observer.observe(el);
         });
+
+
+        function showLoader() {
+            document.getElementById('globalLoader').classList.remove('hidden');
+        }
+        function hideLoader() {
+            document.getElementById('globalLoader').classList.add('hidden');
+        }
     </script>
 </body>
 
