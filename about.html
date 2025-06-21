@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OK AGENCIES - ABOUT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./about.css" />
+    <!-- Favicon -->
+    <link rel="icon"
+        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
+        type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
+        type="image/x-icon">
+    <link rel="apple-touch-icon"
+        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
+    <link rel="apple-touch-icon" sizes="32x32"
+        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Loader Overlay Styles */
+        .loader-overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+
+        .loader-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #003366;
+            border-top: 6px solid #ffb800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+        }
+
+        .loader-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Modern hover effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #003366, #2A4379);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-custom': '#003366',
+                        'blue-dark': '#FFFFFF',
+                        'blue-light': '#2A4379',
+                        "accent-color": "#003366",
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans h-[200vh]">
+    <!-- Loader Overlay -->
+    <div class="loader-overlay" id="globalLoader">
+        <div class="loader-spinner">
+            <div class="loader-border"></div>
+            <img class="loader-img"
+                src="https://media.licdn.com/dms/image/v2/C5103AQELqDzikHLbeA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1533882560186?e=1755734400&v=beta&t=h3segm7y07O1vjux3c3GE2mLI2i3LR4GLdNQ7-IIPjM"
+                alt="Loading..." />
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-blue-custom relative z-10 text-white py-2">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Contact Info -->
+            <div class="flex flex-row gap-2 text-sm">
+                <a href="tel:09619866401" class="flex items-center gap-2">
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <span>09619866401</span>
+                </a>
+                │
+                <a href="mailto:ok_agencies@yahoo.com" class="flex items-center gap-2">
+                    <span><i class="fa-solid fa-envelope"></i></span>
+                    <span>ok_agencies@yahoo.com</span>
+                </a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex gap-6">
+                <span><i class="fa-brands fa-square-facebook"></i></span>
+                <span><i class="fa-brands fa-instagram"></i></span>
+                <span><i class="fa-brands fa-square-x-twitter"></i></span>
+                <span><i class="fa-brands fa-linkedin"></i></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Navbar -->
+    <div class="floating-nav">
+        <div class="nav-links">
+            <a href="./index.html" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
+            <a href="./about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT US</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
+            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+            <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT US</a>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div
+        class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/8a4e22eb-85a3-40b8-a98e-e9ca0df79fdf/Leonardo_Kino_XL_Safety_ImageStatement_PREPARE_AND_PREVENT_DON_2.jpg?w=512)] bg-cover bg-fixed bg-center bg-no-repeat">
+        <div class="absolute inset-0 bg-blue-light opacity-[60%]"></div>
+        <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
+            <a href="/" class="animate-slide-in-left">
+                <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-80 rounded-lg" />
+            </a>
+            <!-- Navigation -->
+            <nav class="flex z-10 w-fit h-fit animate-slide-in-right">
+                <div
+                    class="flex flex-wrap gap-4 bg-[lightblue] rounded-lg w-fit p-1 px-3 items-center justify-center lg:justify-start">
+                    <a href="/" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
+                    <a href="./about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT
+                        US</a>
+                    <a href="./services.html"
+                        class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
+                    <a href="./projects.html"
+                        class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
+                    <a href="./sustainability.html"
+                        class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+                    <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT
+                        US</a>
+                </div>
+                <button class="bg-accent-color text-white px-6 py-2 rounded-lg font-medium ml-4">LET'S TALK</button>
+            </nav>
+        </div>
+        <div class="w-full relative p-4 pb-8 gap-2 z-10 max-w-[85rem] mx-auto flex flex-col ">
+            <h1 class="text-4xl md:text-6xl text-white font-bold  bottom-10   animate-fade-in-up">
+                About Us
+            </h1>
+            <span
+                class="text-lg md:text-xl text-white  bottom-5  flex flex-row items-center gap-2 pl-1  animate-fade-in-down">
+                <a href="./index.html" class="text-white hover:text-yellow-500 transition-colors">Home</a> <i
+                    class="fas fa-chevron-right text-xs"></i> <span class="">About Us</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Modern Electrical Services Section - Brand Consistent -->
+    <section
+        class="bg-gradient-to-br from-gray-50 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Background decorative elements - Blue theme -->
+        <div
+            class="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float">
+        </div>
+        <!-- <div class="absolute top-[10%] right-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+            style="animation-delay: 2s;"></div> -->
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Hero Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <!-- Left Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="space-y-6 animate-fade-in-up">
+                        <div class="mb-12 slide-from-left">
+                            <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">Our Story</p>
+                            <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+                        </div>
+                        <h2 class="text-4xl lg:text-6xl font-bold text-gray-900">
+                            Building Excellence Since
+                            <span class="gradient-text font-bold">1985</span>
+                        </h2>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            <b>OK Agencies</b> began its journey in 1985 under the visionary leadership of our founder,
+                            Mr.
+                            V.A. Oak. What
+                            started as a commitment to electrical excellence has evolved into a comprehensive solution
+                            provider
+                            serving India's leading industries for nearly four decades.
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            Today, we continue this legacy of excellence under the expert guidance of Mr. Anil Jagtap
+                            and Mr. Satish
+                            Jagdale, who lead our specialized team in delivering cutting-edge electrical solutions
+                            across multiple
+                            sectors.
+                        </p>
+                    </div>
+
+                    <!-- Main Image with modern styling -->
+                    <div class="relative group">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="./images/t2.jpg" alt="Electrical technician working on server equipment"
+                                class="w-full h-96  object-cover transform group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 bg-blue-800/30"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Mission Box with brand colors -->
+                <!-- <div class="relative">
+                    <div class="absolute bottom-0">
+                        <div
+                            class="bg-gradient-to-br from-blue-custom via-blue-light to-blue-custom text-white p-8 rounded-3xl shadow-2xl hover-lift">
+                          
+                            <h3 class="text-2xl font-bold mb-6 text-yellow-400 flex items-center gap-3">
+                                <i class="fas fa-target text-2xl"></i> MISSION
+                            </h3>
+                            <div class="space-y-4 text-sm leading-relaxed relative z-10">
+                                <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 backdrop-blur-sm">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Transforming electrical infrastructure through innovative solutions and
+                                        cutting-edge technology.</p>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 backdrop-blur-sm">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Delivering top-tier reliability, efficiency, and safety in every electrical
+                                        project we undertake.</p>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 backdrop-blur-sm">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Creating a future where electrical systems are smarter, more sustainable, and
+                                        seamlessly integrated.</p>
+                                </div>
+                                <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 backdrop-blur-sm">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Building lasting partnerships with clients by consistently exceeding expectations
+                                        and leading the change.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <section
+                class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                <!-- Background decorative elements -->
+                <!-- <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-float" style="animation-delay: 3s;"></div> -->
+
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-16 animate-fade-in-up">
+                        <div class="mb-12 w-fit mx-auto flex flex-col justify-center items-center slide-from-left">
+                            <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">Who we are</p>
+                            <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+                        </div>
+                        <!-- <div class="w-20 h-1 bg-gradient-to-r from-blue-custom to-blue-light mx-auto mb-8"></div> -->
+                        <h2 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                            <span class="gradient-text">OK Agencies</span> is an
+                            <span class="text-blue-custom">ISO 9001:2015 certified</span>
+                            electrical solutions company
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                            Specializing in comprehensive electrical solutions with expertise spanning multiple domains
+                            of electrical engineering and industrial services.
+                        </p>
+                    </div>
+
+                    <!-- Specializations Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center  gap-8 mb-20">
+                        <!-- Specialization 1 -->
+                        <div
+                            class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Electrical Turnkey Project Execution</h3>
+                            <p class="text-gray-600 leading-relaxed">Complete end-to-end electrical project solutions
+                                from design to commissioning.</p>
+                        </div>
+
+                        <!-- Specialization 2 -->
+                        <div
+                            class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-cogs text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Operation & Maintenance Services</h3>
+                            <p class="text-gray-600 leading-relaxed">Comprehensive O&M services ensuring optimal
+                                performance and longevity of electrical systems.</p>
+                        </div>
+
+                        <!-- Specialization 3 -->
+                        <div
+                            class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-solar-panel text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Solar EPC Projects</h3>
+                            <p class="text-gray-600 leading-relaxed">Engineering, Procurement, and Construction of
+                                sustainable solar energy solutions.</p>
+                        </div>
+                        <!-- Specialization 4 -->
+                        <div
+                            class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-bolt text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">HTLT Switchgear Solutions</h3>
+                            <p class="text-gray-600 leading-relaxed">High Tension and Low Tension switchgear solutions
+                                for industrial applications.</p>
+                        </div>
+
+
+                        <!-- Specialization 5 -->
+                        <div
+                            class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-leaf text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Energy Efficient Consulting</h3>
+                            <p class="text-gray-600 leading-relaxed">Expert consulting services for optimizing energy
+                                consumption and efficiency.</p>
+                        </div>
+                    </div>
+
+                    <!-- Larsen & Toubro Partnership - Hero Section -->
+                    <div class="relative mb-20 overflow-hidden">
+                        <!-- Background with L&T branding colors -->
+                        <div
+                            class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 rounded-3xl p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+                            <!-- Decorative elements -->
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
+
+                            <!-- Content -->
+                            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <!-- Left Content -->
+                                <div class="text-white space-y-6">
+                                    <!-- Badge -->
+                                    <div
+                                        class="inline-flex items-center gap-3 bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-6 py-3 mb-4">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                                        <span
+                                            class="text-yellow-400 font-bold text-sm uppercase tracking-wider">Authorized
+                                            Partnership</span>
+                                    </div>
+
+                                    <!-- Main Heading -->
+                                    <h3 class="text-4xl lg:text-5xl font-bold leading-tight">
+                                        <span class="text-yellow-400">Larsen & Toubro</span><br>
+                                        <span class="text-white">Authorized Service Center</span>
+                                    </h3>
+
+                                    <!-- Description -->
+                                    <p class="text-xl text-blue-100 leading-relaxed">
+                                        As an official L&T Authorized Service Center, we provide comprehensive
+                                        electrical industrial solutions with specialized expertise in Medium Voltage and
+                                        Low Voltage switchgear operations.
+                                    </p>
+
+                                    <!-- Key Services List -->
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                            <span class="text-blue-100">Medium Voltage & Low Voltage Switchgear
+                                                Operations</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                            <span class="text-blue-100">Retrofitting Projects & System Upgrades</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                            <span class="text-blue-100">Annual Maintenance Contracts (AMCs)</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                            <span class="text-blue-100">132KV Switchyards to LV PCCs and MCCs</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- CTA Button -->
+                                    <div class="pt-4">
+                                        <button
+                                            class="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center gap-3">
+                                            <i class="fas fa-certificate text-xl"></i>
+                                            VIEW L&T CERTIFICATION
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Right Visual -->
+                                <div class="relative">
+                                    <!-- Main Image/Logo Area -->
+                                    <div
+                                        class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                                        <!-- L&T Logo Placeholder - Replace with actual L&T logo -->
+                                        <div class="text-center mb-6">
+                                            <div
+                                                class="w-32 h-32 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                                               <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/L%26T.png" />
+                                            </div>
+                                            <h4 class="text-white font-bold text-xl">Authorized Service Partner</h4>
+                                            <p class="text-blue-200 text-sm">Since Partnership Establishment</p>
+                                        </div>
+
+                                        <!-- Trust Indicators -->
+                                        <div class="grid grid-cols-2 gap-4 text-center">
+                                            <div class="bg-white/5 rounded-xl p-4">
+                                                <div class="text-2xl font-bold text-yellow-400">100%</div>
+                                                <div class="text-xs text-blue-200">L&T Certified</div>
+                                            </div>
+                                            <div class="bg-white/5 rounded-xl p-4">
+                                                <div class="text-2xl font-bold text-yellow-400">24/7</div>
+                                                <div class="text-xs text-blue-200">Support</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Floating Elements -->
+                                    <div
+                                        class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400/20 rounded-full blur-xl animate-pulse">
+                                    </div>
+                                    <div
+                                        class="absolute -bottom-4 -left-4 w-16 h-16 bg-white/10 rounded-full blur-lg animate-float">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Banner -->
+                            <div class="mt-12 pt-8 border-t border-white/20">
+                                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-award text-yellow-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white font-bold">Trusted L&T Partner</h5>
+                                            <p class="text-blue-200 text-sm">Delivering excellence with L&T's backing
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-6 text-sm text-blue-200">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-check-circle text-yellow-400"></i>
+                                            <span>ISO 9001:2015</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-check-circle text-yellow-400"></i>
+                                            <span>L&T Authorized</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-check-circle text-yellow-400"></i>
+                                            <span>35+ Years Experience</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mission & Vision Section -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                        <!-- Vision Card -->
+                        <div
+                            class="group hover-lift bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-blue-custom to-blue-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-eye text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-custom mb-4">Our Vision</h3>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-4 top-0 text-6xl text-blue-200 font-serif">"</div>
+                                <p class="text-gray-700 text-lg leading-relaxed italic pl-8">
+                                    To be the most trusted name in the industry delivering innovative solutions to our
+                                    clients with the highest quality.
+                                </p>
+                                <div class="absolute -right-4 bottom-0 text-6xl text-blue-200 font-serif rotate-180">"
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mission Card -->
+                        <div
+                            class="group hover-lift bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-blue-light to-blue-custom rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bullseye text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-custom mb-4">Our Mission</h3>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-4 top-0 text-6xl text-blue-200 font-serif">"</div>
+                                <p class="text-gray-700 text-lg leading-relaxed italic pl-8">
+                                    To design and build environmentally responsible sustainable projects & provide
+                                    cost-effective solutions, which ensure reliability and safety with enhanced
+                                    productivity for our clients.
+                                </p>
+                                <div class="absolute -right-4 bottom-0 text-6xl text-blue-200 font-serif rotate-180">"
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Commitment Card -->
+                        <div
+                            class="group hover-lift bg-gradient-to-br from-blue-custom to-blue-light rounded-3xl p-8 shadow-xl text-white">
+                            <div class="text-center mb-6">
+                                <div
+                                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-shield-alt text-white text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4">Our Commitment</h3>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-4 top-0 text-6xl text-white/20 font-serif">"</div>
+                                <p class="text-white/95 text-lg leading-relaxed italic pl-8">
+                                    We have always ensured safety preparedness in all our projects and sincerely strive
+                                    to achieve our mission of
+                                    <span class="font-bold text-yellow-400">'ZERO'</span> accidents.
+                                </p>
+                                <div class="absolute -right-4 bottom-0 text-6xl text-white/20 font-serif rotate-180">"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom CTA Section -->
+                    <div
+                        class="text-center bg-gradient-to-r from-blue-50 to-white rounded-3xl p-12 shadow-lg border border-blue-100">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">
+                            Ready to Experience <span class="gradient-text">Excellence</span>?
+                        </h3>
+                        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                            Partner with OK Agencies for reliable, innovative, and sustainable electrical solutions
+                            backed by decades of expertise and L&T's trusted technology.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                class="bg-gradient-to-r from-blue-custom to-blue-light hover:from-blue-light hover:to-blue-custom text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+                                <i class="fas fa-phone mr-2"></i>
+                                GET CONSULTATION
+                            </button>
+                            <button
+                                class="bg-transparent border-2 border-blue-custom text-blue-custom hover:bg-blue-custom hover:text-white font-bold py-4 px-8 rounded-xl transition-all">
+                                <i class="fas fa-project-diagram mr-2"></i>
+                                VIEW OUR PROJECTS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Statistics Section with brand colors -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+
+
+
+
+                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+                    <div class="text-6xl font-bold text-blue-custom mb-4">98%</div>
+                    <p class="text-sm text-gray-600"><strong>Service Satisfaction.</strong> Our customers highly
+                        recommend our services.</p>
+                </div>
+                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+                    <div class="text-6xl font-bold text-blue-light mb-4">30%</div>
+                    <p class="text-sm text-gray-600"><strong>Project Efficiency.</strong> We ensure faster project
+                        completion time.</p>
+                </div>
+                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+                    <div class="text-6xl font-bold text-yellow-600 mb-4">$500</div>
+                    <p class="text-sm text-gray-600"><strong>Cost Savings.</strong> We guarantee significant savings on
+                        repairs.</p>
+                </div>
+                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+                    <div class="text-6xl font-bold text-blue-custom mb-4">100%</div>
+                    <p class="text-sm text-gray-600"><strong>Work Quality.</strong> We guarantee our workmanship on all
+                        services.</p>
+                </div>
+            </div>
+
+            <!-- Company Logos with brand styling -->
+            <div class="text-center mb-20">
+                <p class="text-sm text-gray-500 mb-8">We work with 200+ businesses to provide the best electrical
+                    services</p>
+                <div class="flex justify-center items-center gap-8 opacity-60 flex-wrap">
+                    <div
+                        class="w-32 h-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center justify-center hover:opacity-100 transition-opacity border border-blue-200">
+                        <span class="text-xs text-blue-custom font-semibold">RecognitionHub</span>
+                    </div>
+                    <div
+                        class="w-32 h-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center justify-center hover:opacity-100 transition-opacity border border-blue-200">
+                        <span class="text-xs text-blue-custom font-semibold">BuildWith</span>
+                    </div>
+                    <div
+                        class="w-32 h-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center justify-center hover:opacity-100 transition-opacity border border-blue-200">
+                        <span class="text-xs text-blue-custom font-semibold">AlphaWave</span>
+                    </div>
+                    <div
+                        class="w-32 h-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center justify-center hover:opacity-100 transition-opacity border border-blue-200">
+                        <span class="text-xs text-blue-custom font-semibold">StayTrue</span>
+                    </div>
+                    <div
+                        class="w-32 h-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl flex items-center justify-center hover:opacity-100 transition-opacity border border-blue-200">
+                        <span class="text-xs text-blue-custom font-semibold">OfficialSite</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section with brand colors -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div class="space-y-6 animate-fade-in-up">
+                        <p class="text-sm font-bold text-blue-custom tracking-wider uppercase flex items-center gap-2">
+                            <i class="fas fa-users"></i> WHO WE ARE
+                        </p>
+                        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                            Shockingly Smart, <span class="gradient-text">Electrically Unstoppable</span>
+                        </h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            From the first spark of an idea to the final connection, we bring unmatched expertise and
+                            innovation to every electrical project. Our team doesn't just fix problems—we engineer
+                            solutions that power your future.
+                        </p>
+                    </div>
+
+                    <!-- Bottom Image with brand styling -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-blue-light to-blue-custom rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000">
+                        </div>
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2kVInINyMoVHlzZcJq2J0c98DAvRUC.png"
+                                alt="Two electrical workers in safety gear"
+                                class="w-full h-80 object-cover transform group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Features with brand colors -->
+                <div class="space-y-6">
+                    <!-- Feature 1 -->
+                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="text-white font-bold text-lg">01</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Zap Into Innovation</h4>
+                            <p class="text-gray-600">
+                                We harness cutting-edge technology and forward-thinking approaches to deliver electrical
+                                solutions that are years ahead of the competition.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="text-white font-bold text-lg">02</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Unbreachable Current Flow</h4>
+                            <p class="text-gray-600">
+                                Our solutions keep the power on. It's uninterrupted, reliable, and engineered for
+                                maximum performance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="text-white font-bold text-lg">03</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Watt Efficient Genius</h4>
+                            <p class="text-gray-600">
+                                Smart solutions, reduced costs, and long-term savings. We make every watt count and
+                                every dollar stretch further.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="text-white font-bold text-lg">04</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Safety or Nothing</h4>
+                            <p class="text-gray-600">
+                                Zero compromises on safety. Every project meets the highest safety standards and
+                                regulatory compliance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Showcase Section with brand colors -->
+            <div class="text-center mb-12">
+                <p
+                    class="text-sm font-bold text-blue-custom tracking-wider uppercase flex items-center justify-center gap-2 mb-4">
+                    <i class="fas fa-project-diagram"></i> OUR WORK
+                </p>
+                <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                    Powering The Future With <span class="gradient-text">Smart Projects</span>
+                </h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover how we've transformed electrical infrastructure for businesses across industries with our
+                    innovative solutions and expert execution.
+                </p>
+            </div>
+
+            <!-- Project Cards with brand colors -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2kVInINyMoVHlzZcJq2J0c98DAvRUC.png"
+                            alt="Smart Grid Installation"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-custom/80 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h4 class="text-white font-bold text-xl mb-2">Smart Grid Installation</h4>
+                            <p class="text-white/80 text-sm">Advanced grid solutions for efficient power distribution
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <button
+                            class="w-full bg-gradient-to-r from-blue-custom to-blue-light hover:from-blue-light hover:to-blue-custom text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
+                            LEARN MORE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2kVInINyMoVHlzZcJq2J0c98DAvRUC.png"
+                            alt="Industrial Power Upgrade"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-light/80 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h4 class="text-white font-bold text-xl mb-2">Industrial Power Upgrade</h4>
+                            <p class="text-white/80 text-sm">Complete electrical system modernization for manufacturing
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <button
+                            class="w-full bg-gradient-to-r from-blue-light to-blue-custom hover:from-blue-custom hover:to-blue-light text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
+                            LEARN MORE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2kVInINyMoVHlzZcJq2J0c98DAvRUC.png"
+                            alt="Home Automation Systems"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-custom/80 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h4 class="text-white font-bold text-xl mb-2">Home Automation Systems</h4>
+                            <p class="text-white/80 text-sm">Smart home solutions for modern living experiences</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <button
+                            class="w-full bg-gradient-to-r from-blue-custom to-blue-light hover:from-blue-light hover:to-blue-custom text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
+                            LEARN MORE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="h-[20vh]"></div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 pb-8 relative">
+        <!-- Call to Action Section (Half on footer, half above) -->
+        <!-- Call to Action -->
+        <div class="text-center  slide-from-bottom absolute -top-32 w-full z-10">
+            <div
+                class=" bg-blue-light  overflow-x-hidden transition-all duration-300 border border-transparent cta-section rounded-2xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-white mb-4">Ready to Partner with L&T Authorized Service?</h3>
+                <p class="text-white text-lg mb-8 opacity-90">
+                    Get expert electrical solutions backed by L&T's trusted technology and our 35+ years of experience.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                        class="bg-gradient-to-r from-[#ffb800] to-[#ff8c00] hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-105">
+                        CONTACT US
+                    </button>
+                    <button
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-custom font-bold py-4 px-8 rounded-lg transition-all">
+                        VIEW PROJECTS
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
+            <!-- Main Footer Content -->
+            <div class="flex items-center justify-center mb-20">
+                <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-96 mr-4 rounded" />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+                <!-- Company Info -->
+                <div class="animate-slide-in-left col-span-2">
+
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-yellow-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Address:</p>
+                                <p class="text-sm leading-relaxed">101, Nimesh Industrial Premises,
+                                    Bhoirnagar, VidyalayaMarg,
+                                    Gavanpada Mulund (E),
+                                    Mumbai-400 081.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-yellow-600"></i>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Contact:</p>
+                                <a href="tel:022-25634470" class="text-sm hover:text-yellow-500 transition-colors">
+                                    022-25634470</a><br />
+                                <a href="tel:25634471" class="text-sm hover:text-yellow-500 transition-colors">
+                                    25634471</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-yellow-600"></i>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Email:</p>
+                                <a href="mailto:ok_agencies@yahoo.com"
+                                    class="text-sm hover:text-yellow-500 transition-colors">ok_agencies@yahoo.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Links -->
+                <div class="animate-slide-in-left" style="animation-delay: 0.1s;">
+                    <h4 class="text-lg font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-building text-yellow-600 mr-2"></i>
+                        Company
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                About Us
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Services
+                                <!-- <span
+                                    class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full ml-2">New!</span> -->
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Our Team
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Contact Us
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="animate-slide-in-right" style="animation-delay: 0.2s;">
+                    <h4 class="text-lg font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-cogs text-yellow-600 mr-2"></i>
+                        Explore
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Services
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Tips & Guides
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Sustainability
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Visit Blog
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Access -->
+                <div class="animate-slide-in-right" style="animation-delay: 0.3s;">
+                    <h4 class="text-lg font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-tachometer-alt text-yellow-600 mr-2"></i>
+                        Quick Access
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Get a Free Quote
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Book an Appointment
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                FAQ
+                            </a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Emergency Service
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social Media & Copyright -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <!-- Social Media Icons -->
+                    <div class="flex gap-4 animate-fade-in-up">
+                         <a href="#"
+                            class="w-12 h-12 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="text-center md:text-right animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <p class="text-gray-400 text-sm">
+                            Copyright © 2025 OK Agencies | Designed by
+                            <span class="text-yellow-600 font-semibold">Professional Team</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            function setActiveLink() {
+                // Get the current URL path
+                const currentPath = `.${window.location.pathname}`;
+
+                // Get all navigation links
+                const navLinks = document.querySelectorAll('nav a');
+
+                // Loop through each link
+                navLinks.forEach(link => {
+                    // Get the href attribute of the link
+                    const linkPath = link.getAttribute('href');
+
+                    console.log(currentPath, linkPath);
+                    // Check if the link's href matches the current path
+                    if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // Run the function when the page loads
+            setActiveLink();
+
+            // Floating Navbar Logic
+            let lastScrollTop = 0;
+            const floatingNav = document.querySelector('.floating-nav');
+            const scrollThreshold = 100; // Show navbar after scrolling this many pixels
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Show navbar when scrolling up and past threshold
+                if (scrollTop < lastScrollTop && scrollTop > scrollThreshold) {
+                    floatingNav.classList.add('visible');
+                } else {
+                    floatingNav.classList.remove('visible');
+                }
+
+                lastScrollTop = scrollTop;
+            });
+
+            // Update active link in floating navbar
+            function updateFloatingNavActiveLink() {
+                const currentPath = window.location.pathname.replace("/", "");
+                const floatingNavLinks = document.querySelectorAll('.floating-nav a');
+
+                floatingNavLinks.forEach(link => {
+                    let linkPath = link.getAttribute('href').replace("./", "");
+
+                    // For home, match both '' and '/'
+                    if ((currentPath === '' && (linkPath === '' || linkPath === '/')) ||
+                        (linkPath !== '' && currentPath === linkPath)) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            // Run when page loads
+            updateFloatingNavActiveLink();
+
+            // Loader hide/show logic
+            document.getElementById('globalLoader').classList.add('hidden');
+        });
+
+        // Existing IntersectionObserver code
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all animated elements
+        document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        function showLoader() {
+            document.getElementById('globalLoader').classList.remove('hidden');
+        }
+        function hideLoader() {
+            document.getElementById('globalLoader').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>

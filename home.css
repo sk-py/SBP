@@ -435,91 +435,58 @@
 }
 
 
-        /* Add active class styling */
-        .active {
-          background-color: #003366;
-          color: white !important;
-          border-radius: 0.5rem;
-          padding: 0.5rem 1.5rem;
-      }
 
-      /* Modern Floating Navbar Styles */
-      .floating-nav {
-          position: fixed;
-          top: 1.5rem;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-          padding: 0.5rem 2rem;
-          border-radius: 1.2rem;
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-          z-index: 1000;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.3s cubic-bezier(.4,2,.6,1);
-          max-width: 900px;
-          width: auto;
-          background: rgba(255,255,255,0.85);
-          backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
-      }
-      .floating-nav.visible {
-          opacity: 1;
-          visibility: visible;
-      }
-      .floating-nav .nav-content {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-      }
-      /* .floating-nav img {
-          width: 90px;
-          height: auto;
-          margin-right: 1.5rem;
-      } */
-      .floating-nav .nav-links {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          flex: 1;
-      }
-      .floating-nav a {
-          color: #222;
-          text-decoration: none;
-          font-size: 1rem;
-          font-weight: 500;
-          padding: 0.5rem 1.1rem;
-          border-radius: 0.7rem;
-          transition: background 0.18s, color 0.18s;
-          letter-spacing: 0.01em;
-      }
-      .floating-nav a:not(.active):hover {
-          background: rgba(0, 51, 102, 0.07);
-          color: #003366;
-      }
-      .floating-nav .active {
-          background-color: #003366;
-          color: #fff !important;
-          font-weight: 700;
-          box-shadow: 0 2px 8px 0 rgba(0,51,102,0.08);
-      }
-      .floating-nav .bg-accent-color {
-          background: linear-gradient(90deg, #003366 60%, #2A4379 100%);
-          color: #fff;
-          font-weight: 700;
-          border-radius: 0.9rem;
-          box-shadow: 0 2px 8px 0 rgba(0,51,102,0.10);
-          padding: 0.7rem 1.7rem;
-          margin-left: 1.5rem;
-          transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-      }
-      .floating-nav .bg-accent-color:hover {
-          background: linear-gradient(90deg, #2A4379 0%, #003366 100%);
-          color: #fff;
-          box-shadow: 0 4px 16px 0 rgba(0,51,102,0.13);
-      }
+
+       /* Loader Overlay Styles */
+        .loader-overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255,255,255,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+        }
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+        .loader-border {
+            position: absolute;
+            top: 0; left: 0;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #003366;
+            border-top: 6px solid #ffb800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+        }
+        .loader-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+            z-index: 2;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
       @media (max-width: 700px) {
           .floating-nav {
               padding: 0.5rem 0.5rem;
