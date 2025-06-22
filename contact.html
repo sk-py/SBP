@@ -149,70 +149,87 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="bg-blue-custom relative z-10 text-white py-2">
+    <!-- Short Blue Header (Always Sticky) -->
+    <header class="bg-blue-custom text-white py-2 sticky top-0 z-50" id="shortHeader">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <!-- Contact Info -->
             <div class="flex flex-row gap-2 text-sm">
-                <a href="tel:09619866401" class="flex items-center gap-2">
+                <a href="tel:09619866401" class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <span><i class="fa-solid fa-phone"></i></span>
                     <span>09619866401</span>
                 </a>
                 │
-                <a href="mailto:ok_agencies@yahoo.com" class="flex items-center gap-2">
+                <a href="mailto:ok_agencies@yahoo.com"
+                    class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <span><i class="fa-solid fa-envelope"></i></span>
                     <span>ok_agencies@yahoo.com</span>
                 </a>
             </div>
 
             <!-- Social Media Icons -->
-            <div class="flex gap-6">
-                <span><i class="fa-brands fa-square-facebook"></i></span>
-                <span><i class="fa-brands fa-instagram"></i></span>
-                <span><i class="fa-brands fa-square-x-twitter"></i></span>
-                <span><i class="fa-brands fa-linkedin"></i></span>
-            </div>
+            <a href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
+                class="flex hidden sm:block gap-4">
+                <img src="./images/linkedin_logo.png" class="w-20" />
+            </a>
         </div>
     </header>
 
-    <!-- Floating Navbar -->
-    <div class="floating-nav">
-        <div class="nav-links">
-            <a href="./index.html" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
-            <a href="./about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT US</a>
-            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
-            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
-            <a href="#" class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
-            <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT US</a>
+    <!-- Main White Navbar (Appears on scroll up) -->
+    <nav class="main-navbar bg-white shadow-lg py-4 sticky top-8 z-40 transform translate-y-0 transition-transform duration-300"
+        id="mainNavbar">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="./logos/OKA.png" alt="OK Agencies Logo" class="h-12 w-auto" />
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="./index.html"
+                    class="text-blue-custom font-semibold hover:text-blue-light transition-colors">HOME</a>
+                <a href="./about.html" class="text-gray-700 hover:text-blue-custom transition-colors">ABOUT US</a>
+                <a href="#" class="text-gray-700 hover:text-blue-custom transition-colors">SERVICES</a>
+                <a href="#" class="text-gray-700 hover:text-blue-custom transition-colors">PROJECTS</a>
+                <a href="#" class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+            </div>
+
+            <!-- Contact Button -->
+            <div class="flex hidden sm:block items-center">
+                <a href="./contact.html"
+                    class="bg-blue-custom hover:bg-blue-light text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                    CONTACT US
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button class="text-gray-700 hover:text-blue-custom" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-    </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobileMenu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="./index.html" class="block py-2 text-blue-custom font-semibold">HOME</a>
+                <a href="./about.html" class="block py-2 text-gray-700 hover:text-blue-custom">ABOUT US</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-custom">SERVICES</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-custom">PROJECTS</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
+                <a href="./contact.html" class="block py-2 text-blue-custom font-semibold">CONTACT US</a>
+            </div>
+        </div>
+    </nav>
+
+
 
     <!-- Banner -->
     <div
         class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/6c070989-4ccf-40ae-82c8-9c24b4cfc7fd/Leonardo_Kino_XL_Create_a_highresolution_background_image_1920_0.jpg?w=512)] bg-cover bg-fixed bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-blue-light opacity-[60%]"></div>
         <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
-            <a href="/" class="animate-slide-in-left">
-                <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-80 rounded-lg" />
-            </a>
-            <!-- Navigation -->
-            <nav class="flex z-10 w-fit h-fit animate-slide-in-right">
-                <div
-                    class="flex flex-wrap gap-4 bg-[lightblue] rounded-lg w-fit p-1 px-3 items-center justify-center lg:justify-start">
-                    <a href="./index.html" class="text-sm text-black hover:text-blue-custom transition-colors">HOME</a>
-                    <a href="./about.html" class="text-sm text-black hover:text-blue-custom transition-colors">ABOUT
-                        US</a>
-                    <a href="./services.html"
-                        class="text-sm text-black hover:text-blue-custom transition-colors">SERVICES</a>
-                    <a href="./projects.html"
-                        class="text-sm text-black hover:text-blue-custom transition-colors">PROJECTS</a>
-                    <a href="./sustainability.html"
-                        class="text-sm text-black hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
-                    <a href="./contact.html" class="text-sm text-black hover:text-blue-custom transition-colors">CONTACT
-                        US</a>
-                </div>
-                <button class="bg-accent-color text-white px-6 py-2 rounded-lg font-medium ml-4">LET'S TALK</button>
-            </nav>
+
         </div>
         <div class="w-full relative p-4 pb-8 gap-2 z-10 max-w-[85rem] mx-auto flex flex-col ">
             <h1 class="text-4xl md:text-6xl text-white font-bold  bottom-10   animate-fade-in-up">
@@ -342,9 +359,6 @@
                 <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-96 mr-4 rounded" />
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
-                <!-- Company Info -->
-              
-
                 <!-- Company Links -->
                 <div class="animate-slide-in-left" style="animation-delay: 0.1s;">
                     <h4 class="text-lg font-bold text-white mb-6 flex items-center">
@@ -352,7 +366,7 @@
                         Quick Links
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="#"
+                        <li><a href="./about.html"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
@@ -363,8 +377,6 @@
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                 Services
-                                <!-- <span
-                                    class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full ml-2">New!</span> -->
                             </a></li>
                         <li><a href="#"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
@@ -372,7 +384,7 @@
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                 Our Team
                             </a></li>
-                        <li><a href="#"
+                        <li><a href="./contact.html"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
@@ -381,7 +393,7 @@
                     </ul>
                 </div>
 
-                <!-- Contacs -->
+                <!-- Contacts -->
                 <div class="animate-slide-in-right" style="animation-delay: 0.2s;">
                     <h4 class="text-lg font-bold text-white mb-6 flex items-center">
                         <i class="fas fa-phone text-yellow-600 mr-2"></i>
@@ -398,9 +410,8 @@
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                                 25634471
+                                25634471
                             </a></li>
-                     
                     </ul>
                 </div>
 
@@ -411,31 +422,31 @@
                         Email
                     </h4>
                     <ul class="space-y-3">
-                        <li> <a href="mailto:ok_agencies@yahoo.com"
-                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group"><i
-                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>ok_agencies@yahoo.com</a>
-                        </li>
-
+                        <li><a href="mailto:ok_agencies@yahoo.com"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                ok_agencies@yahoo.com
+                            </a></li>
                     </ul>
                 </div>
 
-                  <div class="animate-slide-in-left col-span-2">
-
+                <!-- Address -->
+                <div class="animate-slide-in-left col-span-2">
                     <div class="space-y-4 text-gray-300">
                         <div class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-yellow-600 mt-1"></i>
                             <div>
                                 <p class="font-semibold text-white mb-1">Address:</p>
-                                <p class="text-sm leading-relaxed">101, Nimesh Industrial Premises,
+
+                                <a href="https://maps.app.goo.gl/sCuqsCoXopNiSZZSA"
+                                    class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                    101, Nimesh Industrial Premises,
                                     Bhoirnagar, VidyalayaMarg,
                                     Gavanpada Mulund (E),
-                                    Mumbai-400 081.</p>
+                                    Mumbai-400 081.</a>
                             </div>
                         </div>
-
-                 
-
-                       
                     </div>
                 </div>
             </div>
@@ -445,9 +456,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <!-- Social Media Icons -->
                     <div class="flex gap-4 animate-fade-in-up">
-                        <a href="#"
-                            class="w-12 h-12 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                            <i class="fab fa-linkedin-in text-white"></i>
+                        <a href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
+                            class="px-8 p-2 bg-gray-700 hover:bg-yellow-500 rounded-xl w-36  flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-2">
+                            <img src="./images/linkedin_logo.png" />
                         </a>
                     </div>
 
@@ -461,73 +472,47 @@
                 </div>
             </div>
         </div>
-
     </footer>
 
     <script>
         window.addEventListener('load', () => {
-            function setActiveLink() {
-                // Get the current URL path
-                const currentPath = `.${window.location.pathname}`;
 
-                // Get all navigation links
-                const navLinks = document.querySelectorAll('nav a');
 
-                // Loop through each link
-                navLinks.forEach(link => {
-                    // Get the href attribute of the link
-                    const linkPath = link.getAttribute('href');
-
-                    console.log(currentPath, linkPath);
-                    // Check if the link's href matches the current path
-                    if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-
-            // Run the function when the page loads
-            setActiveLink();
-
-            // Floating Navbar Logic
+            // Navbar Scroll Logic
             let lastScrollTop = 0;
-            const floatingNav = document.querySelector('.floating-nav');
-            const scrollThreshold = 100; // Show navbar after scrolling this many pixels
+            const mainNavbar = document.getElementById('mainNavbar');
+            const scrollThreshold = 100;
+            let navbarVisible = true; // Start with navbar visible
 
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                // Show navbar when scrolling up and past threshold
-                if (scrollTop < lastScrollTop && scrollTop > scrollThreshold) {
-                    floatingNav.classList.add('visible');
-                } else {
-                    floatingNav.classList.remove('visible');
+                // Show navbar when scrolling up or at top, hide when scrolling down past threshold
+                if (scrollTop < lastScrollTop || scrollTop < scrollThreshold) {
+                    if (!navbarVisible) {
+                        mainNavbar.classList.remove('-translate-y-full');
+                        mainNavbar.classList.add('translate-y-0');
+                        navbarVisible = true;
+                    }
+                } else if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    if (navbarVisible) {
+                        mainNavbar.classList.add('-translate-y-full');
+                        mainNavbar.classList.remove('translate-y-0');
+                        navbarVisible = false;
+                    }
                 }
 
                 lastScrollTop = scrollTop;
             });
 
-            // Update active link in floating navbar
-            function updateFloatingNavActiveLink() {
-                const currentPath = window.location.pathname.replace("/", "");
-                const floatingNavLinks = document.querySelectorAll('.floating-nav a');
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
 
-                floatingNavLinks.forEach(link => {
-                    let linkPath = link.getAttribute('href').replace("./", "");
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-                    // For home, match both '' and '/'
-                    if ((currentPath === '' && (linkPath === '' || linkPath === '/')) ||
-                        (linkPath !== '' && currentPath === linkPath)) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-            // Run when page loads
-            updateFloatingNavActiveLink();
 
             // Loader hide/show logic
             document.getElementById('globalLoader').classList.add('hidden');

@@ -208,109 +208,8 @@
   box-shadow: 0 20px 40px rgba(0, 51, 102, 0.3);
 }
 
-/* Quality Management Grid */
-.quality-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
 
-@media (max-width: 1024px) {
-  .quality-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-/* Compliance List Styles */
-.compliance-item {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
-  transition: all 0.3s ease;
-}
-
-.compliance-item::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #003366;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.compliance-item:hover {
-  color: #003366;
-  transform: translateX(5px);
-}
-
-/* Enlistment Grid */
-.enlistment-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.5rem;
-}
-
-.enlistment-item {
-  background: linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border-left: 3px solid #003366;
-  transition: all 0.3s ease;
-  font-size: 0.875rem;
-}
-
-.enlistment-item:hover {
-  background: linear-gradient(90deg, #003366 0%, #2a4379 100%);
-  color: white;
-  transform: scale(1.02);
-}
-
-/* ISO Certification Badge */
-.iso-badge {
-  background: linear-gradient(135deg, #003366 0%, #2a4379 100%);
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.iso-badge::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  animation: rotate 4s linear infinite;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.iso-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* L&T Switchgear Section Styles */
+/* LK Switchgear Section Styles */
 .lt-section {
   background: linear-gradient(135deg, #2a4379 0%, #003366 100%);
   position: relative;
@@ -430,7 +329,6 @@
 
 .cta-section:hover {
   transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 184, 0, 0.5);
 }
 
