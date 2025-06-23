@@ -192,29 +192,7 @@
                     </a>
                 </div>
 
-                <!-- Stats -->
-                <div class="flex justify-center gap-8 mt-12 animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <div class="text-center">
-                        <span class="flex items-baseline justify-end gap-2">
-
-                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 countervalue" counternumber="5000">0</div>
-                            <p class="text-3xl md:text-4xl font-bold text-yellow-400">+</p>
-                        </span>
-                        <div class="text-sm md:text-base opacity-80">Projects Completed</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-yellow-400 countervalue" counternumber="39">0</div>
-                        <div class="text-sm md:text-base opacity-80">Years of Excellence</div>
-                    </div>
-                    <div class="text-center">
-                        <span class="flex items-baseline justify-center gap-2">
-                            <div class="text-3xl md:text-4xl font-bold text-yellow-400 countervalue" counternumber="98">0</div>
-                            <p class="text-3xl md:text-4xl font-bold text-yellow-400">+</p>
-                        </span>
-                        <!-- <div class="text-3xl md:text-4xl font-bold text-yellow-400 countervalue" counternumber="100">0</div> -->
-                        <div class="text-sm md:text-base opacity-80">Certified Experts</div>
-                    </div>
-                </div>
+         
             </div>
         </div>
 
@@ -310,156 +288,177 @@
     </section>
 
     <!-- Company Overview Section (Original) -->
-    <section class="py-16 lg:py-24 bg-white overflow-x-hidden">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <!-- Section Header -->
-            <div class="mb-12 slide-from-left">
-                <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">COMPANY OVERVIEW</p>
-                <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+   <section class="py-16 lg:py-24 bg-white overflow-x-hidden">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <!-- Section Header -->
+        <div class="mb-12 slide-from-left">
+            <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">COMPANY OVERVIEW</p>
+            <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Left Column - Company History -->
+            <div class="slide-from-left sticky top-8 self-start">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                    PIONEERING ELECTRICAL SOLUTIONS SINCE 1985
+                </h2>
+
+             <!-- Highlighted LK Authorized Service Center -->
+<div class="relative bg-blue-600 p-6 rounded-lg shadow-lg mb-8 lk-highlight">
+    <!-- Logo Placeholder (Simplified to match the image's icon) -->
+    <!-- <div class="flex justify-center mb-4">
+        <span class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-check"></i>
+        </span>
+    </div> -->
+    <!-- Authorized Badge -->
+    <div class="absolute top-4 right-4">
+        <span class="bg-yellow-500 text-white text-xs gap-1 font-bold px-3 py-1 rounded-full flex items-center">
+           <i class="fa-solid fa-certificate"></i> AUTHORIZED
+        </span>
+    </div>
+    <span class="flex items-center gap-4 mb-4">
+        <img src="./images/lk.png" class="w-32 mb-2 bg-white rounded" />
+        <span>
+
+            <h3 class="text-2xl font-bold text-white mb-2">Lauritz Knudsen's</h3>
+            <h3 class="text-xl font-bold text-yellow-500">AUTHORISED SERVICE CENTER</h3>
+        </span>
+    </span>
+    <p class="text-white text-sm opacity-90 mb-4">
+        We are Lauritz Knudsen's Authorised Service Center providing a wide variety of electrical industrial solutions with major focus on operation of Medium Voltage and Low Voltage switchgear, retrofitting jobs and executing periodical AMCs ranging from 132KV switchyards up to LV PCCs and MCCs.
+    </p>
+    <!-- Buttons -->
+   <div id="lkbtn" class="flex justify-between">
+    <span class="bg-transparent border-yellow-400 backdrop-blur-md bg-white/10 border  text-white text-sm font-medium px-4 py-4 rounded-lg hover:bg-blue-600/50 transition-colors duration-300">
+        132KV Switchyards
+    </span>
+    <span class="bg-transparent border-yellow-400 backdrop-blur-md bg-white/10 border text-white text-sm font-medium px-4 py-4 rounded-lg hover:bg-blue-600/50 transition-colors duration-300">
+        MV/LV Solutions
+    </span>
+</div>
+</div>
+
+                <button class="bg-blue-custom hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all">
+                    LEARN MORE
+                </button>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Left Column - Company History -->
-                <div class="slide-from-left sticky top-8 self-start">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                        PIONEERING ELECTRICAL SOLUTIONS SINCE 1985
-                    </h2>
-
-                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-custom mb-8">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Lauritz Knudsen's Authorised Service Center</h3>
-                        <p class="text-gray-700">
-                            We are Lauritz Knudsen's Authorised Service Center providing a wide variety of electrical
-                            industrial solutions with major focus on operation of Medium Voltage and Low Voltage
-                            switchgear, retrofitting jobs and executing periodical AMCs ranging from 132KV switchyards
-                            up to LV PCCs and MCCs.
-                        </p>
+            <!-- Right Column - Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 slide-from-right">
+                <!-- Service 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/factory.png" alt="Electrical Turnkey" class="w-full h-full object-contain" />
                     </div>
-
-                    <button
-                        class="bg-blue-custom hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all">
-                        LEARN MORE
-                    </button>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Electrical Turnkey Project Execution</h3>
                 </div>
 
-                <!-- Right Column - Services Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 slide-from-right">
-                    <!-- Service 1 -->
-                    <div class="flex flex-col items-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/factory.png" alt="Electrical Turnkey"
-                                class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Electrical Turnkey Project Execution</h3>
+                <!-- Service 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/tools.png" alt="Operation & Maintenance" class="w-full h-full object-contain" />
                     </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Operation & Maintenance</h3>
+                </div>
 
-                    <!-- Service 2 -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/tools.png" alt="Operation & Maintenance"
-                                class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Operation & Maintenance</h3>
+                <!-- Service 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/solar.png" alt="Solar EPC Projects" class="w-full h-full object-contain" />
                     </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Solar EPC Projects</h3>
+                </div>
 
-                    <!-- Service 3 -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/solar.png" alt="Solar EPC Projects"
-                                class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Solar EPC Projects</h3>
+                <!-- Service 4 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/gears.png" alt="HTLT Switchgear" class="w-full h-full object-contain" />
                     </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">HTLT Switchgear</h3>
+                </div>
 
-                    <!-- Service 4 -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/gears.png" alt="HTLT Switchgear" class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">HTLT Switchgear</h3>
+                <!-- Service 5 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/consult.png" alt="Consulting" class="w-full h-full object-contain" />
                     </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Consulting</h3>
+                </div>
 
-                    <!-- Service 5 -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/consult.png" alt="Consulting" class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Consulting</h3>
+                <!-- Service 6 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-24 h-24 mb-4">
+                        <img src="./images/energy.png" alt="Energy Efficient Solutions" class="w-full h-full object-contain" />
                     </div>
-
-                    <!-- Service 6 -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-24 h-24 mb-4">
-                            <img src="./images/energy.png" alt="Energy Efficient Solutions"
-                                class="w-full h-full object-contain" />
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Energy Efficient Solutions</h3>
-                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Energy Efficient Solutions</h3>
                 </div>
             </div>
+        </div>
 
-            <!-- Client Logos with Auto-Moving Carousel -->
-            <div class="mt-16 slide-from-bottom">
-                <p class="text-center text-gray-700 mb-8">Serving multiple businesses to with the best electrical services</p>
+        <!-- Client Logos with Auto-Moving Carousel -->
+        <div class="mt-16 slide-from-bottom">
+            <p class="text-center text-gray-700 mb-8">Serving multiple businesses with the best electrical services</p>
 
-                <!-- Auto-Moving Client Carousel with Fade Effect -->
-                <div class="client-carousel">
-                    <div class="client-track">
-                        <!-- First Set of Logos -->
-                        <div class="client-item">
-                            <img src="./logos/reliance.png" alt="Reliance" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/pfizer.png" alt="Pfizer" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/tatasteel.png" alt="Tata Steel" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/jsw.png" alt="JSW" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/barc.png" alt="BARC" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/mahatransco.png" alt="Maha Transco" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/hp.png" alt="Hindustan Petroleum" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/aaoi.png" alt="Airports Authority Of India" />
-                        </div>
+            <!-- Auto-Moving Client Carousel with Fade Effect -->
+            <div class="client-carousel">
+                <div class="client-track">
+                    <!-- First Set of Logos -->
+                    <div class="client-item">
+                        <img src="./logos/reliance.png" alt="Reliance" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/pfizer.png" alt="Pfizer" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/tatasteel.png" alt="Tata Steel" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/jsw.png" alt="JSW" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/barc.png" alt="BARC" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/mahatransco.png" alt="Maha Transco" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/hp.png" alt="Hindustan Petroleum" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/aaoi.png" alt="Airports Authority Of India" />
+                    </div>
 
-                        <!-- Duplicate Set for Seamless Loop -->
-                        <div class="client-item">
-                            <img src="./logos/reliance.png" alt="Reliance" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/pfizer.png" alt="Pfizer" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/tatasteel.png" alt="Tata Steel" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/jsw.png" alt="JSW" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/barc.png" alt="BARC" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/mahatransco.png" alt="Maha Transco" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/hp.png" alt="Hindustan Petroleum" />
-                        </div>
-                        <div class="client-item">
-                            <img src="./logos/aaoi.png" alt="Airports Authority Of India" />
-                        </div>
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="client-item">
+                        <img src="./logos/reliance.png" alt="Reliance" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/pfizer.png" alt="Pfizer" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/tatasteel.png" alt="Tata Steel" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/jsw.png" alt="JSW" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/barc.png" alt="BARC" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/mahatransco.png" alt="Maha Transco" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/hp.png" alt="Hindustan Petroleum" />
+                    </div>
+                    <div class="client-item">
+                        <img src="./logos/aaoi.png" alt="Airports Authority Of India" />
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Values, Compliance & Quality Management Section -->
     <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-x-hidden">
@@ -765,145 +764,167 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script>
-        // Register ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
+   <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
 
-        // Trigger animations on page load
-        window.addEventListener('load', () => {
-            const counters = document.querySelectorAll('.countervalue');
-            const speed = 300;
+    // Trigger animations on page load
+    window.addEventListener('load', () => {
+        const counters = document.querySelectorAll('.countervalue');
+        const speed = 300;
+        let countersAnimated = false; // Flag to ensure counters animate only once
 
-            // Enhanced Slideshow Logic
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
+        // Enhanced Slideshow Logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
 
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                slides[index].classList.add('active');
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Start slideshow - change image every 4 seconds
+        setInterval(nextSlide, 4000);
+
+        // Preload images for better performance
+        slides.forEach((slide, index) => {
+            const img = slide.querySelector('img');
+            if (img && img.src) {
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
             }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Start slideshow - change image every 4 seconds
-            setInterval(nextSlide, 4000);
-
-            // Preload images for better performance
-            slides.forEach((slide, index) => {
-                const img = slide.querySelector('img');
-                if (img && img.src) {
-                    const preloadImg = new Image();
-                    preloadImg.src = img.src;
-                }
-            });
-
-            // Counter Animation Logic
-            counters.forEach(counter => {
-                const animate = () => {
-                    const value = +counter.getAttribute('counternumber');
-                    const data = +counter.innerText;
-                    const time = value / speed;
-                    if (data < value) {
-                        counter.innerText = Math.ceil(data + time);
-                        setTimeout(animate, 1);
-                    } else {
-                        counter.innerText = value;
-                    }
-                }
-                animate();
-            });
-
-            // Navbar Scroll Logic
-            let lastScrollTop = 0;
-            const mainNavbar = document.getElementById('mainNavbar');
-            const scrollThreshold = 100;
-            let navbarVisible = true; // Start with navbar visible
-
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-                // Show navbar when scrolling up or at top, hide when scrolling down past threshold
-                if (scrollTop < lastScrollTop || scrollTop < scrollThreshold) {
-                    if (!navbarVisible) {
-                        mainNavbar.classList.remove('-translate-y-full');
-                        mainNavbar.classList.add('translate-y-0');
-                        navbarVisible = true;
-                    }
-                } else if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
-                    if (navbarVisible) {
-                        mainNavbar.classList.add('-translate-y-full');
-                        mainNavbar.classList.remove('translate-y-0');
-                        navbarVisible = false;
-                    }
-                }
-
-                lastScrollTop = scrollTop;
-            });
-
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // GSAP ScrollTrigger for LK section
-            const ltSection = document.querySelector('.lt-section');
-            const ltLeftColumn = document.querySelector('.lt-logo-container').parentElement;
-
-            ScrollTrigger.create({
-                trigger: ltSection,
-                start: "top top",
-                end: "bottom bottom",
-                pin: ltLeftColumn,
-                pinSpacing: true,
-                anticipatePin: 1,
-                markers: false
-            });
-
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all animated elements
-            document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Footer animations on scroll
-            const footerAnimatedElements = document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right, .animate-fade-in-up, .animate-scale-in, .animate-fade-in-down');
-
-            const footerObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            footerAnimatedElements.forEach(el => {
-                el.style.animationPlayState = 'paused';
-                footerObserver.observe(el);
-            });
-
-            // Hide loader
-            document.getElementById('globalLoader').classList.add('hidden');
         });
-    </script>
+
+        // Counter Animation Logic
+        function animateCounter(counter) {
+            const value = +counter.getAttribute('counternumber');
+            const data = +counter.innerText;
+            const time = value / speed;
+            if (data < value) {
+                counter.innerText = Math.ceil(data + time);
+                setTimeout(() => animateCounter(counter), 1);
+            } else {
+                counter.innerText = value;
+            }
+        }
+
+        // Intersection Observer for Counter Section
+        const counterSection = document.querySelector('.py-16.lg\\:py-20.bg-white'); // Target the section with cards
+        const observerOptions = {
+            threshold: 0.3, // Trigger when 30% of the section is visible
+            rootMargin: '0px'
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true; // Prevent re-animation
+                    counters.forEach(counter => animateCounter(counter)); // Start counters
+                    counterObserver.unobserve(entry.target); // Stop observing after animation
+                }
+            });
+        }, observerOptions);
+
+        if (counterSection) {
+            counterObserver.observe(counterSection); // Observe the counter section
+        }
+
+        // Navbar Scroll Logic
+        let lastScrollTop = 0;
+        const mainNavbar = document.getElementById('mainNavbar');
+        const scrollThreshold = 100;
+        let navbarVisible = true; // Start with navbar visible
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Show navbar when scrolling up or at top, hide when scrolling down past threshold
+            if (scrollTop < lastScrollTop || scrollTop < scrollThreshold) {
+                if (!navbarVisible) {
+                    mainNavbar.classList.remove('-translate-y-full');
+                    mainNavbar.classList.add('translate-y-0');
+                    navbarVisible = true;
+                }
+            } else if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                if (navbarVisible) {
+                    mainNavbar.classList.add('-translate-y-full');
+                    mainNavbar.classList.remove('translate-y-0');
+                    navbarVisible = false;
+                }
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // GSAP ScrollTrigger for LK section
+        const ltSection = document.querySelector('.lt-section');
+        const ltLeftColumn = document.querySelector('.lt-logo-container').parentElement;
+
+        ScrollTrigger.create({
+            trigger: ltSection,
+            start: "top top",
+            end: "bottom bottom",
+            pin: ltLeftColumn,
+            pinSpacing: true,
+            anticipatePin: 1,
+            markers: false
+        });
+
+        // Intersection Observer for animations
+        const observerOptionsGeneral = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptionsGeneral);
+
+        // Observe all animated elements
+        document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Footer animations on scroll
+        const footerAnimatedElements = document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right, .animate-fade-in-up, .animate-scale-in, .animate-fade-in-down');
+
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        footerAnimatedElements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            footerObserver.observe(el);
+        });
+
+        // Hide loader
+        document.getElementById('globalLoader').classList.add('hidden');
+    });
+</script>
 </body>
 
 </html>
