@@ -26,7 +26,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-      <style>
+    <style>
         /* Loader Overlay Styles */
         .loader-overlay {
             position: fixed;
@@ -187,6 +187,79 @@
             z-index: 10;
             pointer-events: none;
         }
+
+        /* Certificate Viewer Styles */
+        .certificate-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .certificate-viewer.active {
+            display: flex;
+        }
+
+        .certificate-content {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .certificate-display {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .certificate-display img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .quality-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    
     </style>
 
     <script>
@@ -293,7 +366,8 @@
                     class="text-blue-custom font-semibold hover:text-blue-light transition-colors">ABOUT US</a>
                 <a href="#" class="text-gray-700 hover:text-blue-custom transition-colors">SERVICES</a>
                 <a href="#" class="text-gray-700 hover:text-blue-custom transition-colors">PROJECTS</a>
-                <a href="./sustainability.html" class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+                <a href="./sustainability.html"
+                    class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
             </div>
 
             <!-- Contact Button -->
@@ -319,7 +393,8 @@
                 <a href="./about.html" class="block py-2 text-gray-700 hover:text-blue-custom">ABOUT US</a>
                 <a href="#" class="block py-2 text-gray-700 hover:text-blue-custom">SERVICES</a>
                 <a href="#" class="block py-2 text-gray-700 hover:text-blue-custom">PROJECTS</a>
-                <a href="./sustainability.html" class="block py-2 text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
+                <a href="./sustainability.html"
+                    class="block py-2 text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
                 <a href="./contact.html" class="block py-2 text-blue-custom font-semibold">CONTACT US</a>
             </div>
         </div>
@@ -495,7 +570,7 @@
                         </div>
 
                     </div>
-                    <div class="max-w-3xl mx-auto gap-8 mb-8  flex flex-col sm:flex-row justify-center items-center">
+                    <div class="max-w-3xl mx-auto gap-8 mb-20 flex flex-col sm:flex-row justify-center items-center">
                         <!-- Specialization 4 -->
                         <div
                             class="group hover-lift min-h-[300px] bg-white rounded-3xl p-8 shadow-lg border border-blue-100 hover:border-blue-300 transition-all duration-300">
@@ -523,7 +598,7 @@
                     </div>
 
                     <!-- Larsen & Toubro Partnership - Hero Section -->
-                    <div class="relative mb-20 overflow-hidden">
+                    <div id="authorized-center" class="relative mb-20 overflow-hidden">
                         <!-- Background with LK branding colors -->
                         <div
                             class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 rounded-3xl p-12 lg:p-16 shadow-2xl relative overflow-hidden">
@@ -546,7 +621,7 @@
 
                                     <!-- Main Heading -->
                                     <h3 class="text-4xl lg:text-5xl font-bold leading-tight">
-                                        <span class="text-yellow-400">LAURITZ KNUDSEN</span><br>
+                                        <span class="text-yellow-400 font-bold">LAURITZ KNUDSEN</span><br>
                                         <span class="text-white">Authorized Service Center</span>
                                     </h3>
 
@@ -580,11 +655,12 @@
 
                                     <!-- CTA Button -->
                                     <div class="pt-4">
-                                        <button
-                                            class="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center gap-3">
+                                        <a target="_blank"
+                                            href="./certifications/THN ASC Certificate Ok Agencies 2025.pdf"
+                                            class="bg-gradient-to-r w-fit from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center gap-3">
                                             <i class="fas fa-certificate text-xl"></i>
                                             VIEW LK CERTIFICATION
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -659,73 +735,6 @@
                         </div>
                     </div>
 
-                    <!-- Mission & Vision Section -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-                        <!-- Vision Card -->
-                        <div
-                            class="group hover-lift bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300">
-                            <div class="text-center mb-6">
-                                <div
-                                    class="w-20 h-20 bg-gradient-to-br from-blue-custom to-blue-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-eye text-white text-3xl"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-blue-custom mb-4">Our Vision</h3>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-4 top-0 text-6xl text-blue-200 font-serif">"</div>
-                                <p class="text-gray-700 text-lg leading-relaxed italic pl-8">
-                                    To be the most trusted name in the industry delivering innovative solutions to our
-                                    clients with the highest quality.
-                                </p>
-                                <div class="absolute -right-4 bottom-0 text-6xl text-blue-200 font-serif rotate-180">"
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mission Card -->
-                        <div
-                            class="group hover-lift bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300">
-                            <div class="text-center mb-6">
-                                <div
-                                    class="w-20 h-20 bg-gradient-to-br from-blue-light to-blue-custom rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-bullseye text-white text-3xl"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold text-blue-custom mb-4">Our Mission</h3>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-4 top-0 text-6xl text-blue-200 font-serif">"</div>
-                                <p class="text-gray-700 text-lg leading-relaxed italic pl-8">
-                                    To design and build environmentally responsible sustainable projects & provide
-                                    cost-effective solutions, which ensure reliability and safety with enhanced
-                                    productivity for our clients.
-                                </p>
-                                <div class="absolute -right-4 bottom-0 text-6xl text-blue-200 font-serif rotate-180">"
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Commitment Card -->
-                        <div
-                            class="group hover-lift bg-gradient-to-br from-blue-custom to-blue-light rounded-3xl p-8 shadow-xl text-white">
-                            <div class="text-center mb-6">
-                                <div
-                                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-shield-alt text-white text-3xl"></i>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-4">Our Commitment</h3>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-4 top-0 text-6xl text-white/20 font-serif">"</div>
-                                <p class="text-white/95 text-lg leading-relaxed italic pl-8">
-                                    We have always ensured safety preparedness in all our projects and sincerely strive
-                                    to achieve our mission of
-                                    <span class="font-bold text-yellow-400">'ZERO'</span> accidents.
-                                </p>
-                                <div class="absolute -right-4 bottom-0 text-6xl text-white/20 font-serif rotate-180">"
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
 
@@ -733,33 +742,6 @@
             </section>
 
 
-            <!-- Statistics Section with brand colors -->
-            <!-- <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-
-
-
-
-                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
-                    <div class="text-6xl font-bold text-blue-custom mb-4">98%</div>
-                    <p class="text-sm text-gray-600"><strong>Service Satisfaction.</strong> Our customers highly
-                        recommend our services.</p>
-                </div>
-                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
-                    <div class="text-6xl font-bold text-blue-light mb-4">30%</div>
-                    <p class="text-sm text-gray-600"><strong>Project Efficiency.</strong> We ensure faster project
-                        completion time.</p>
-                </div>
-                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
-                    <div class="text-6xl font-bold text-yellow-600 mb-4">$500</div>
-                    <p class="text-sm text-gray-600"><strong>Cost Savings.</strong> We guarantee significant savings on
-                        repairs.</p>
-                </div>
-                <div class="text-center group hover-lift bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
-                    <div class="text-6xl font-bold text-blue-custom mb-4">100%</div>
-                    <p class="text-sm text-gray-600"><strong>Work Quality.</strong> We guarantee our workmanship on all
-                        services.</p>
-                </div>
-            </div> -->
 
             <!-- Company Logos with brand styling -->
             <div class="">
@@ -773,54 +755,80 @@
                     <div class="relative overflow-hidden mb-8 fade-edges">
                         <div class="flex whitespace-nowrap marquee-left">
                             <div class="flex items-center space-x-16 px-8">
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/acg.png" class="object-contain w-24 h-24" alt="ACG Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Aditya.png" class="object-contain w-24 h-24" alt="Aditya Birla Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Aditya.png" class="object-contain w-24 h-24"
+                                        alt="Aditya Birla Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Airports_Authority_of_India_logo.png" class="object-contain w-24 h-24" alt="Airports Authority of India Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Airports_Authority_of_India_logo.png"
+                                        class="object-contain w-24 h-24" alt="Airports Authority of India Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/ambuja.png" class="object-contain w-24 h-24" alt="Ambuja Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/ambuja.png" class="object-contain w-24 h-24"
+                                        alt="Ambuja Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/basf.png" class="object-contain w-24 h-24" alt="BASF Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/best.jpg" class="object-contain w-24 h-24" alt="BEST Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/SealofMumbai.jpg" class="object-contain w-24 h-24" alt="Seal of Mumbai Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/SealofMumbai.jpg" class="object-contain w-24 h-24"
+                                        alt="Seal of Mumbai Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/solvay.jpg" class="object-contain w-24 h-24" alt="Solvay Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/solvay.jpg" class="object-contain w-24 h-24"
+                                        alt="Solvay Logo" />
                                 </div>
                                 <!-- Duplicate for seamless loop -->
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/acg.png" class="object-contain w-24 h-24" alt="ACG Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Aditya.png" class="object-contain w-24 h-24" alt="Aditya Birla Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Aditya.png" class="object-contain w-24 h-24"
+                                        alt="Aditya Birla Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Airports_Authority_of_India_logo.png" class="object-contain w-24 h-24" alt="Airports Authority of India Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Airports_Authority_of_India_logo.png"
+                                        class="object-contain w-24 h-24" alt="Airports Authority of India Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/ambuja.png" class="object-contain w-24 h-24" alt="Ambuja Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/ambuja.png" class="object-contain w-24 h-24"
+                                        alt="Ambuja Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/basf.png" class="object-contain w-24 h-24" alt="BASF Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/best.jpg" class="object-contain w-24 h-24" alt="BEST Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/SealofMumbai.jpg" class="object-contain w-24 h-24" alt="Seal of Mumbai Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/SealofMumbai.jpg" class="object-contain w-24 h-24"
+                                        alt="Seal of Mumbai Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/solvay.jpg" class="object-contain w-24 h-24" alt="Solvay Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/solvay.jpg" class="object-contain w-24 h-24"
+                                        alt="Solvay Logo" />
                                 </div>
                             </div>
                         </div>
@@ -830,54 +838,82 @@
                     <div class="relative overflow-hidden mb-8 fade-edges">
                         <div class="flex whitespace-nowrap marquee-right">
                             <div class="flex items-center space-x-16 px-8">
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Bhabha_Atomic_Research_Centre_Logo.png" class="object-contain w-24 h-24" alt="Bhabha Atomic Research Centre Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Bhabha_Atomic_Research_Centre_Logo.png"
+                                        class="object-contain w-24 h-24" alt="Bhabha Atomic Research Centre Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Bharat.png" class="object-contain w-24 h-24" alt="Bharat Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Bharat.png" class="object-contain w-24 h-24"
+                                        alt="Bharat Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/bharatpet.png" class="object-contain w-24 h-24" alt="Bharat Petroleum Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/bharatpet.png" class="object-contain w-24 h-24"
+                                        alt="Bharat Petroleum Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/cipla.jpg" class="object-contain w-24 h-24" alt="Cipla Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/cocla.jpg" class="object-contain w-24 h-24" alt="Coca-Cola Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/cocla.jpg" class="object-contain w-24 h-24"
+                                        alt="Coca-Cola Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/exide.png" class="object-contain w-24 h-24" alt="Exide Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/oil-and-natural-gas-ongc-seeklogo.png" class="object-contain w-24 h-24" alt="ONGC Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/oil-and-natural-gas-ongc-seeklogo.png"
+                                        class="object-contain w-24 h-24" alt="ONGC Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/pepsico.png" class="object-contain w-24 h-24" alt="PepsiCo Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/pepsico.png" class="object-contain w-24 h-24"
+                                        alt="PepsiCo Logo" />
                                 </div>
                                 <!-- Duplicate for seamless loop -->
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Bhabha_Atomic_Research_Centre_Logo.png" class="object-contain w-24 h-24" alt="Bhabha Atomic Research Centre Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Bhabha_Atomic_Research_Centre_Logo.png"
+                                        class="object-contain w-24 h-24" alt="Bhabha Atomic Research Centre Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Bharat.png" class="object-contain w-24 h-24" alt="Bharat Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Bharat.png" class="object-contain w-24 h-24"
+                                        alt="Bharat Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/bharatpet.png" class="object-contain w-24 h-24" alt="Bharat Petroleum Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/bharatpet.png" class="object-contain w-24 h-24"
+                                        alt="Bharat Petroleum Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/cipla.jpg" class="object-contain w-24 h-24" alt="Cipla Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/cocla.jpg" class="object-contain w-24 h-24" alt="Coca-Cola Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/cocla.jpg" class="object-contain w-24 h-24"
+                                        alt="Coca-Cola Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/exide.png" class="object-contain w-24 h-24" alt="Exide Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/oil-and-natural-gas-ongc-seeklogo.png" class="object-contain w-24 h-24" alt="ONGC Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/oil-and-natural-gas-ongc-seeklogo.png"
+                                        class="object-contain w-24 h-24" alt="ONGC Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/pepsico.png" class="object-contain w-24 h-24" alt="PepsiCo Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/pepsico.png" class="object-contain w-24 h-24"
+                                        alt="PepsiCo Logo" />
                                 </div>
                             </div>
                         </div>
@@ -887,47 +923,65 @@
                     <div class="relative overflow-hidden mb-8 fade-edges">
                         <div class="flex whitespace-nowrap marquee-left">
                             <div class="flex items-center space-x-16 px-8">
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/garda.png" class="object-contain w-24 h-24" alt="Garda Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Godrej_Logo.svg.png" class="object-contain w-24 h-24" alt="Godrej Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Godrej_Logo.svg.png" class="object-contain w-24 h-24"
+                                        alt="Godrej Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/gsk.png" class="object-contain w-24 h-24" alt="GSK Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/hindustan-petroleum.jpg" class="object-contain w-24 h-24" alt="Hindustan Petroleum Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/hindustan-petroleum.jpg" class="object-contain w-24 h-24"
+                                        alt="Hindustan Petroleum Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/ikea.png" class="object-contain w-24 h-24" alt="IKEA Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/jsw.png" class="object-contain w-24 h-24" alt="JSW Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/tata.png" class="object-contain w-24 h-24" alt="Tata Logo" />
                                 </div>
                                 <!-- Duplicate for seamless loop -->
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/garda.png" class="object-contain w-24 h-24" alt="Garda Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Godrej_Logo.svg.png" class="object-contain w-24 h-24" alt="Godrej Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Godrej_Logo.svg.png" class="object-contain w-24 h-24"
+                                        alt="Godrej Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/gsk.png" class="object-contain w-24 h-24" alt="GSK Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/hindustan-petroleum.jpg" class="object-contain w-24 h-24" alt="Hindustan Petroleum Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/hindustan-petroleum.jpg" class="object-contain w-24 h-24"
+                                        alt="Hindustan Petroleum Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/ikea.png" class="object-contain w-24 h-24" alt="IKEA Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/jsw.png" class="object-contain w-24 h-24" alt="JSW Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/tata.png" class="object-contain w-24 h-24" alt="Tata Logo" />
                                 </div>
                             </div>
@@ -938,54 +992,82 @@
                     <div class="relative overflow-hidden fade-edges">
                         <div class="flex whitespace-nowrap marquee-right">
                             <div class="flex items-center space-x-16 px-8">
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/kellogs.png" class="object-contain w-24 h-24" alt="Kellogg's Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/kellogs.png" class="object-contain w-24 h-24"
+                                        alt="Kellogg's Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/l&t.png" class="object-contain w-24 h-24" alt="L&T Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/mahagenco-maharashtra-state-power-generation-co-ltd-logo-vector.svg" class="object-contain w-24 h-24" alt="Mahagenco Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/mahagenco-maharashtra-state-power-generation-co-ltd-logo-vector.svg"
+                                        class="object-contain w-24 h-24" alt="Mahagenco Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Mahatransco.png" class="object-contain w-24 h-24" alt="Mahatransco Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Mahatransco.png" class="object-contain w-24 h-24"
+                                        alt="Mahatransco Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/mahavitaran-mseb-msedcl-seeklogo.png" class="object-contain w-24 h-24" alt="Mahavitaran Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/mahavitaran-mseb-msedcl-seeklogo.png"
+                                        class="object-contain w-24 h-24" alt="Mahavitaran Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/nocil.png" class="object-contain w-24 h-24" alt="Nocil Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Pfizer.jpg" class="object-contain w-24 h-24" alt="Pfizer Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Pfizer.jpg" class="object-contain w-24 h-24"
+                                        alt="Pfizer Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/RI.png" class="object-contain w-24 h-24" alt="Reliance Industries Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/RI.png" class="object-contain w-24 h-24"
+                                        alt="Reliance Industries Logo" />
                                 </div>
                                 <!-- Duplicate for seamless loop -->
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/kellogs.png" class="object-contain w-24 h-24" alt="Kellogg's Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/kellogs.png" class="object-contain w-24 h-24"
+                                        alt="Kellogg's Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/l&t.png" class="object-contain w-24 h-24" alt="L&T Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/mahagenco-maharashtra-state-power-generation-co-ltd-logo-vector.svg" class="object-contain w-24 h-24" alt="Mahagenco Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/mahagenco-maharashtra-state-power-generation-co-ltd-logo-vector.svg"
+                                        class="object-contain w-24 h-24" alt="Mahagenco Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Mahatransco.png" class="object-contain w-24 h-24" alt="Mahatransco Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Mahatransco.png" class="object-contain w-24 h-24"
+                                        alt="Mahatransco Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/mahavitaran-mseb-msedcl-seeklogo.png" class="object-contain w-24 h-24" alt="Mahavitaran Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/mahavitaran-mseb-msedcl-seeklogo.png"
+                                        class="object-contain w-24 h-24" alt="Mahavitaran Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
                                     <img src="./All Logo/nocil.png" class="object-contain w-24 h-24" alt="Nocil Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/Pfizer.jpg" class="object-contain w-24 h-24" alt="Pfizer Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/Pfizer.jpg" class="object-contain w-24 h-24"
+                                        alt="Pfizer Logo" />
                                 </div>
-                                <div class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
-                                    <img src="./All Logo/RI.png" class="object-contain w-24 h-24" alt="Reliance Industries Logo" />
+                                <div
+                                    class="flex-shrink-0 h-fit rounded-lg flex items-center justify-center shadow-sm p-2">
+                                    <img src="./All Logo/RI.png" class="object-contain w-24 h-24"
+                                        alt="Reliance Industries Logo" />
                                 </div>
                             </div>
                         </div>
@@ -994,306 +1076,242 @@
             </div>
 
 
-              <!-- Bottom Section with brand colors -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
-                <!-- Left Content -->
-                <div class="space-y-8">
-                    <div class="space-y-6 animate-fade-in-up">
-                        <p class="text-sm font-bold text-blue-custom tracking-wider uppercase flex items-center gap-2">
-                            <i class="fas fa-users"></i> WHO WE ARE
-                        </p>
-                        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                            Shockingly Smart, <span class="gradient-text">Electrically Unstoppable</span>
-                        </h3>
-                        <p class="text-xl text-gray-600 leading-relaxed">
-                            From the first spark of an idea to the final connection, we bring unmatched expertise and
-                            innovation to every electrical project. Our team doesn't just fix problems—we engineer
-                            solutions that power your future.
-                        </p>
-                    </div>
 
-                    <!-- Bottom Image with brand styling -->
-                    <div class="relative group">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-blue-light to-blue-custom rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000">
-                        </div>
-                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/8a4e22eb-85a3-40b8-a98e-e9ca0df79fdf/Leonardo_Kino_XL_Safety_ImageStatement_PREPARE_AND_PREVENT_DON_2.jpg?w=512"
-                                alt="Two electrical workers in safety gear"
-                                class="w-full h-80 object-cover transform group-hover:scale-105 transition duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Features with brand colors -->
-                <div class="space-y-6">
-                    <!-- Feature 1 -->
-                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <span class="text-white font-bold text-lg">01</span>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-900 mb-3">Zap Into Innovation</h4>
-                            <p class="text-gray-600">
-                                We harness cutting-edge technology and forward-thinking approaches to deliver electrical
-                                solutions that are years ahead of the competition.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <span class="text-white font-bold text-lg">02</span>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-900 mb-3">Unbreachable Current Flow</h4>
-                            <p class="text-gray-600">
-                                Our solutions keep the power on. It's uninterrupted, reliable, and engineered for
-                                maximum performance.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-blue-custom to-blue-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <span class="text-white font-bold text-lg">03</span>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-900 mb-3">Watt Efficient Genius</h4>
-                            <p class="text-gray-600">
-                                Smart solutions, reduced costs, and long-term savings. We make every watt count and
-                                every dollar stretch further.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="flex gap-6 group hover-lift bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-blue-light to-blue-custom rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                            <span class="text-white font-bold text-lg">04</span>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-900 mb-3">Safety or Nothing</h4>
-                            <p class="text-gray-600">
-                                Zero compromises on safety. Every project meets the highest safety standards and
-                                regulatory compliance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <!-- Compliance and Quality Management Section -->
-
-            <div class="quality-grid">
-                <!-- We Comply With Section -->
-                <div class="slide-from-left">
-                    <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100">
-                        <div class="flex items-center mb-8">
-                            <div class="w-12 h-12 bg-blue-custom rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-certificate text-white text-xl"></i>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900">WE COMPLY WITH</h2>
-                        </div>
-
-                        <div class="space-y-3 mb-10">
-                            <div class="compliance-item"><b>Electrical Contractors License</b> issued by I.E. & L. Dept.
-                            </div>
-                            <div class="compliance-item"><b>Labour License</b> issued by <b>Govt. of Maharashtra</b>.
-                            </div>
-                            <div class="compliance-item"><b>MSME Registration</b>.</div>
-                            <div class="compliance-item"><b>E.S.I.C Registration</b>.</div>
-                            <div class="compliance-item"><b>P.F. Registration</b>.</div>
-                            <div class="compliance-item">Insurance against <b>Workman Compensation Act</b>.</div>
-                            <div class="compliance-item"><b>Registration under GST & PAN</b>.</div>
-                        </div>
-
-                        <!-- Enlistments Section -->
-                        <div class="border-t border-gray-200 pt-8">
-                            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                                <i class="fas fa-handshake text-blue-custom mr-3"></i>
-                                Enlistments with
-                            </h3>
-                            <div class="enlistment-grid">
-                                <div class="enlistment-item">TATA Steel</div>
-                                <div class="enlistment-item">JSW Steel</div>
-                                <div class="enlistment-item">Lauritz Knudsen</div>
-                                <div class="enlistment-item">Reliance Industries</div>
-                                <div class="enlistment-item">Nocil</div>
-                                <div class="enlistment-item">Airports Authority of India</div>
-                                <div class="enlistment-item">HPCL</div>
-                                <div class="enlistment-item">MJP</div>
-                                <div class="enlistment-item">BMC</div>
-                                <div class="enlistment-item">JNPT</div>
-                                <div class="enlistment-item">Glaxo</div>
-                                <div class="enlistment-item">Gharda Chemicals</div>
-                                <div class="enlistment-item">Solvay Group</div>
-                                <div class="enlistment-item">MAHADISCOM</div>
-                                <div class="enlistment-item">MAHAGENCO</div>
-                                <div class="enlistment-item">MAHATRANSCO</div>
-                                <div class="enlistment-item">ACG Worldwide</div>
-                                <div class="enlistment-item">Hindustan Coca Cola</div>
-                            </div>
+            <div>
+                <section class="py-20">
+                    <div class="container mx-auto px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-bold text-gray-900 mb-4">Compliance & Quality Management</h2>
+                            <p class="text-lg text-gray-600">Our commitment to excellence is backed by stringent
+                                compliance
+                                and quality management practices.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Quality Management Section -->
-                <div class="slide-from-right h-full">
-                    <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100 h-full">
-                        <div class="flex items-center mb-8">
-                            <div class="w-12 h-12 bg-blue-custom rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-cogs text-white text-xl"></i>
-                            </div>
-                            <h2 class="text-3xl font-bold text-gray-900">OUR QUALITY MANAGEMENT</h2>
-                        </div>
-
-                        <!-- Work Validation -->
-                        <div class="mb-10">
-                            <h3 class="text-xl font-bold text-blue-custom mb-4 flex items-center">
-                                <i class="fas fa-tasks mr-3"></i>
-                                Work Validation
-                            </h3>
-                            <div class="space-y-3">
-                                <div class="compliance-item">Dedicated team for verifying all the activities before work
-                                    initiation</div>
-                                <div class="compliance-item">Well-defined Work responsibility structure</div>
-                            </div>
-                        </div>
-
-                        <!-- Material Validation & Control -->
-                        <div class="mb-10">
-                            <h3 class="text-xl font-bold text-blue-custom mb-4 flex items-center">
-                                <i class="fas fa-clipboard-check mr-3"></i>
-                                Material Validation & Control
-                            </h3>
-                            <div class="space-y-3">
-                                <div class="compliance-item">Strict quality checks of all the materials used</div>
-                                <div class="compliance-item">Material compliance check with accepted standards</div>
-                                <div class="compliance-item">Constant feedback from site engineers & customers</div>
-                                <div class="compliance-item">Incorporating the feedback to constantly improve our
-                                    Quality Management</div>
-                            </div>
-                        </div>
-
-                        <!-- ISO Certification -->
-                        <div class="iso-badge mt-20">
-                            <div class="iso-content">
-                                <div
-                                    class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-award text-2xl text-white"></i>
+                    <div class="quality-grid">
+                        <!-- We Comply With Section -->
+                        <div class="slide-from-left">
+                            <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100">
+                                <div class="flex items-center mb-8">
+                                    <div
+                                        class="w-12 h-12 bg-blue-custom rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-certificate text-white text-xl"></i>
+                                    </div>
+                                    <h2 class="text-3xl font-bold text-gray-900">WE COMPLY WITH</h2>
                                 </div>
-                                <h3 class="text-xl font-bold mb-2">ISO 9001:2015, OHSAS 18001: 2007</h3>
-                                <p class="text-sm opacity-90 mb-3">Certified Quality & OHS Management</p>
-                                <p class="text-xs opacity-80 leading-relaxed">
-                                    Our commitment to excellence is validated through internationally recognized quality
-                                    and occupational health & safety management system certifications.
-                                </p>
+
+                                <div class="space-y-3 mb-10">
+                                    <div class="compliance-item"><b>Electrical Contractors License</b>&nbsp;issued by
+                                        I.E. &
+                                        L. Dept.
+                                    </div>
+                                    <div class="compliance-item"><b>Labour License</b> issued by <b>&nbsp;Govt. of
+                                            Maharashtra</b>.
+                                    </div>
+                                    <div class="compliance-item"><b>MSME Registration</b>.</div>
+                                    <div class="compliance-item"><b>E.S.I.C Registration</b>.</div>
+                                    <div class="compliance-item"><b>P.F. Registration</b>.</div>
+                                    <div class="compliance-item">Insurance against <b>&nbsp;Workman Compensation
+                                            Act</b>.
+                                    </div>
+                                    <div class="compliance-item"><b>Registration under GST & PAN</b>.</div>
+                                </div>
+
+                                <!-- Enlistments Section -->
+                                <div class="border-t border-gray-200 pt-8">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                                        <i class="fas fa-handshake text-blue-custom mr-3"></i>
+                                        Enlistments with
+                                    </h3>
+                                    <div class="enlistment-grid">
+                                        <div class="enlistment-item">TATA Steel</div>
+                                        <div class="enlistment-item">JSW Steel</div>
+                                        <div class="enlistment-item">Lauritz Knudsen</div>
+                                        <div class="enlistment-item">Reliance Industries</div>
+                                        <div class="enlistment-item">Nocil</div>
+                                        <div class="enlistment-item" title="Airports Authority Of India">Airports Authority Of India</div>
+                                        <div class="enlistment-item">HPCL</div>
+                                        <div class="enlistment-item">MJP</div>
+                                        <div class="enlistment-item">BMC</div>
+                                        <div class="enlistment-item">JNPT</div>
+                                        <div class="enlistment-item">Glaxo</div>
+                                        <div class="enlistment-item">Gharda Chemicals</div>
+                                        <div class="enlistment-item">Solvay Group</div>
+                                        <div class="enlistment-item">MAHADISCOM</div>
+                                        <div class="enlistment-item">MAHAGENCO</div>
+                                        <div class="enlistment-item">MAHATRANSCO</div>
+                                        <div class="enlistment-item">ACG Worldwide</div>
+                                        <div class="enlistment-item">Hindustan Coca Cola</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quality Management Section -->
+                        <div class="slide-from-right h-full">
+                            <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-100 h-full">
+                                <div class="flex items-center mb-8">
+                                    <div
+                                        class="w-12 h-12 bg-blue-custom rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-cogs text-white text-xl"></i>
+                                    </div>
+                                    <h2 class="text-3xl font-bold text-gray-900">OUR QUALITY MANAGEMENT</h2>
+                                </div>
+
+                                <!-- Work Validation -->
+                                <div class="mb-10">
+                                    <h3 class="text-xl font-bold text-blue-custom mb-4 flex items-center">
+                                        <i class="fas fa-tasks mr-3"></i>
+                                        Work Validation
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="compliance-item">Dedicated team for verifying all the activities
+                                            before work
+                                            initiation</div>
+                                        <div class="compliance-item">Well-defined Work responsibility structure</div>
+                                    </div>
+                                </div>
+
+                                <!-- Material Validation & Control -->
+                                <div class="mb-10">
+                                    <h3 class="text-xl font-bold text-blue-custom mb-4 flex items-center">
+                                        <i class="fas fa-clipboard-check mr-3"></i>
+                                        Material Validation & Control
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="compliance-item">Strict quality checks of all the materials used
+                                        </div>
+                                        <div class="compliance-item">Material compliance check with accepted standards
+                                        </div>
+                                        <div class="compliance-item">Constant feedback from site engineers & customers
+                                        </div>
+                                        <div class="compliance-item">Incorporating the feedback to constantly improve
+                                            our
+                                            Quality Management</div>
+                                    </div>
+                                </div>
+
+                                <!-- ISO Certification -->
+                                <div class="iso-badge mt-20">
+                                    <div class="iso-content">
+                                        <div
+                                            class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-award text-2xl text-white"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold mb-2">ISO 9001:2015, OHSAS 18001: 2007</h3>
+                                        <p class="text-sm opacity-90 mb-3">Certified Quality & OHS Management</p>
+                                        <p class="text-xs opacity-80 leading-relaxed">
+                                            Our commitment to excellence is validated through internationally recognized
+                                            quality
+                                            and occupational health & safety management system certifications.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+
+
+
+
+
             </div>
-
-            <!-- Projects Showcase Section with brand colors -->
-            <div class="text-center my-12">
-                <p
-                    class="text-sm font-bold text-blue-custom tracking-wider uppercase flex items-center justify-center gap-2 mb-4">
-                    <i class="fas fa-project-diagram"></i> OUR WORK
-                </p>
-                <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                    Powering The Future With <span class="gradient-text">Smart Projects</span>
-                </h3>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Discover how we've transformed electrical infrastructure for businesses across industries with our
-                    innovative solutions and expert execution.
-                </p>
-            </div>
-
-
-
-            <!-- Project Cards with brand colors -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/6c070989-4ccf-40ae-82c8-9c24b4cfc7fd/Leonardo_Kino_XL_Create_a_highresolution_background_image_1920_0.jpg?w=512"
-                            alt="Smart Grid Installation"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-blue-custom/80 via-transparent to-transparent">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <h4 class="text-white font-bold text-xl mb-2">Smart Grid Installation</h4>
-                            <p class="text-white/80 text-sm">Advanced grid solutions for efficient power distribution
-                            </p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <button
-                            class="w-full bg-gradient-to-r from-blue-custom to-blue-light hover:from-blue-light hover:to-blue-custom text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
-                            LEARN MORE
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/8a4e22eb-85a3-40b8-a98e-e9ca0df79fdf/Leonardo_Kino_XL_Safety_ImageStatement_PREPARE_AND_PREVENT_DON_2.jpg?w=512"
-                            alt="Industrial Power Upgrade"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-blue-light/80 via-transparent to-transparent">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <h4 class="text-white font-bold text-xl mb-2">Industrial Power Upgrade</h4>
-                            <p class="text-white/80 text-sm">Complete electrical system modernization for manufacturing
-                            </p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <button
-                            class="w-full bg-gradient-to-r from-blue-light to-blue-custom hover:from-blue-custom hover:to-blue-light text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
-                            LEARN MORE
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="group hover-lift bg-white rounded-3xl overflow-hidden shadow-xl border border-blue-100">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/6c070989-4ccf-40ae-82c8-9c24b4cfc7fd/Leonardo_Kino_XL_Create_a_highresolution_background_image_1920_0.jpg?w=512"
-                            alt="Home Automation Systems"
-                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-blue-custom/80 via-transparent to-transparent">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <h4 class="text-white font-bold text-xl mb-2">Home Automation Systems</h4>
-                            <p class="text-white/80 text-sm">Smart home solutions for modern living experiences</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <button
-                            class="w-full bg-gradient-to-r from-blue-custom to-blue-light hover:from-blue-light hover:to-blue-custom text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105">
-                            LEARN MORE
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     </section>
+
+    <!-- Certifications Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 slide-from-bottom">
+                <div class="mb-12 w-fit mx-auto flex flex-col justify-center items-center">
+                    <p class="text-gray-600 uppercase tracking-wider text-sm font-medium mb-2">Our Credentials</p>
+                    <div class="w-16 h-1 bg-blue-custom mb-8"></div>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    <span class="gradient-text font-bold">Certifications</span> & Accreditations
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Our commitment to excellence is validated through internationally recognized certifications and
+                    industry accreditations.
+                </p>
+            </div>
+
+            <!-- Certificates Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate Images -->
+                <div class="flex flex-col items-center group justify-center certificate-card">
+
+                    <div class="certificate-image-container mb-8">
+                        <img src="./certifications/ISO 9001.jpeg" alt="ISO 45001 Certificate"
+                            class="certificate-preview-image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">ISO 9001:2015 Certificate</h3>
+                    <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
+                </div>
+                <div class="flex flex-col items-center group justify-center">
+
+                    <div class="certificate-image-container mb-8">
+                        <img src="./certifications/ISO 45001.jpeg" alt="ISO 45001 Certificate"
+                            class="certificate-preview-image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">ISO 45001:2018 Certificate</h3>
+                    <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
+                </div>
+
+                <!-- <div class="certificate-image-container">
+                    <img src="./certifications/THN ASC Certificate Ok Agencies 2025_page-0001.jpg" alt="LK authorized-center Certificate" class="certificate-preview-image">
+                </div> -->
+                <div class="flex flex-col items-center group justify-center">
+
+                    <div class="certificate-image-container mb-8">
+                        <img src="./certifications/ELECTRICAL LICENCE - 13.04.2023 (1)_page-0001.jpg"
+                            alt="ISO 45001 Certificate" class="certificate-preview-image">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Electrical Contractors Licence</h3>
+                    <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
+                </div>
+                <!-- Add more image containers for other image files in the certifications folder -->
+            </div>
+        </div>
+        <!-- Certificate Viewer Overlay -->
+        <div id="certificateViewer" class="certificate-viewer">
+            <div class="certificate-content">
+                <button id="closeCertificate" class="close-button">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="certificate-display">
+                    <!-- Certificate images will be loaded here -->
+                    <img id="certificateImage" src="/placeholder.svg" alt="Certificate" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- OK Team Section with one large landscape image of group and some text -->
+
+   <section>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2 slide-from-left">Meet the OK Team</h2>
+                 <div class="w-52 h-1 bg-blue-custom mb-8 mx-auto slide-from-left "></div>
+                <p class="text-lg text-gray-600">A dedicated team of professionals committed to delivering excellence
+                    in every project.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="./images/team.jpeg" alt="OK Team" class="w-full max-w-4xl rounded-lg shadow-lg mb-8 slide-from-bottom">
+                <!-- <p class="text-gray-700 text-lg max-w-2xl">
+                    Our team is our greatest asset, bringing together diverse skills and experiences to ensure the
+                    success of every project.
+                </p> -->
+            </div>
+        </div>
+   </section>
 
     <div class="h-[20vh]"></div>
 
@@ -1499,6 +1517,81 @@
         function hideLoader() {
             document.getElementById('globalLoader').classList.add('hidden');
         }
+
+        // Certificate Viewer Functionality
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        const certificateViewer = document.getElementById('certificateViewer');
+        const certificateImage = document.getElementById('certificateImage');
+        const closeCertificate = document.getElementById('closeCertificate');
+
+        // Certificate data mapping
+        const certificateData = {
+            'iso-9001': './certifications/iso-9001-certificate.pdf',
+            'ohsas-18001': './certifications/ohsas-18001-certificate.pdf',
+            'lk-auth': './certifications/THN ASC Certificate Ok Agencies 2025.pdf',
+            'electrical-license': './certifications/electrical-license.pdf'
+        };
+
+        certificateCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const certType = card.getAttribute('data-cert');
+                const certPath = certificateData[certType];
+
+                if (certPath) {
+                    // For PDF files, we'll create an iframe
+                    if (certPath.endsWith('.pdf')) {
+                        certificateImage.style.display = 'none';
+                        let iframe = document.getElementById('certificateIframe');
+                        if (!iframe) {
+                            iframe = document.createElement('iframe');
+                            iframe.id = 'certificateIframe';
+                            iframe.style.width = '100%';
+                            iframe.style.height = '100%';
+                            iframe.style.border = 'none';
+                            iframe.style.borderRadius = '12px';
+                            document.querySelector('.certificate-display').appendChild(iframe);
+                        }
+                        iframe.src = certPath;
+                        iframe.style.display = 'block';
+                    } else {
+                        // For image files
+                        let iframe = document.getElementById('certificateIframe');
+                        if (iframe) iframe.style.display = 'none';
+                        certificateImage.src = certPath;
+                        certificateImage.style.display = 'block';
+                    }
+
+                    certificateViewer.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        closeCertificate.addEventListener('click', () => {
+            certificateViewer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Clear the content
+            setTimeout(() => {
+                certificateImage.src = '';
+                const iframe = document.getElementById('certificateIframe');
+                if (iframe) iframe.src = '';
+            }, 300);
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && certificateViewer.classList.contains('active')) {
+                closeCertificate.click();
+            }
+        });
+
+        // Close when clicking outside the certificate
+        certificateViewer.addEventListener('click', (e) => {
+            if (e.target === certificateViewer) {
+                closeCertificate.click();
+            }
+        });
     </script>
 </body>
 

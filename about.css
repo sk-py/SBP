@@ -5,6 +5,8 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: normal;
+    scroll-behavior: smooth;
+
 }
 
 /* Animation Styles */
@@ -195,7 +197,7 @@ textarea:focus {
   content: "✓";
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2;
   color: #003366;
   font-weight: bold;
   font-size: 1.1rem;
@@ -309,4 +311,54 @@ textarea:focus {
   .cta-section {
     padding: 1.5rem;
   }
+}
+
+/* Certificate Image Container */
+.certificate-image-container {
+  background-color: #f0f4f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9dee3;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.certificate-image-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Certificate Preview Image */
+.certificate-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certificate-image-container:hover .certificate-preview-image {
+  transform: scale(1.04);
+}
+
+/* Certificate Viewer */
+.certificate-viewer {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.certificate-viewer.active {
+  opacity: 1;
+  visibility: visible;
+}
+/* Certificate Content */
+.certificate-content {
+  transition: transform 0.3s ease-in-out;
+  transform: scale(0.95); /* Default scale */
+}
+
+.certificate-viewer.active .certificate-content {
+  transform: scale(1); /* Scale when active */
 }
