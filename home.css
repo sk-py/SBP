@@ -394,63 +394,70 @@
   margin-bottom: 1rem;
 }
 
-/* Loader Overlay Styles */
-.loader-overlay {
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s;
-}
-.loader-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.loader-spinner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 110px;
-  height: 110px;
-}
-.loader-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 110px;
-  height: 110px;
-  border: 6px solid #003366;
-  border-top: 6px solid #ffb800;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  box-sizing: border-box;
-}
-.loader-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fff;
-  background: #fff;
-  z-index: 2;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+ /* Loader Overlay Styles */
+        .loader-overlay {
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+
+        .loader-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #003366;
+            border-top: 6px solid #ffb800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+        }
+
+        .loader-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
 
 @media (max-width: 700px) {
   .floating-nav {
