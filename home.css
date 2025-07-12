@@ -337,8 +337,8 @@
   position: relative;
   background: linear-gradient(
     135deg,
-    #2a4379 0%,
-    #003366 100%
+    #ffffff 0%,
+    #f7f7f8 100%
   ); /* Matches the blue shade in the image */
   color: white;
   border-radius: 12px;
@@ -520,4 +520,64 @@
   .client-carousel::after {
     width: 30px;
   }
+}
+
+
+/* styles.css */
+/* @keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    45% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    55% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+} */
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* .rotating-text {
+    animation: fade 1s ease-in-out;
+} */
+
+.rotating-text {
+    animation: flip 1s ease-in-out;
+    perspective: 1000px; 
+}
+
+#rotating-words:after {
+  content: "entrepreneur";
+  animation: flip 12s linear;
+  /* loop */
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
 }

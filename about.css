@@ -219,7 +219,7 @@ textarea:focus {
   background: linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border-left: 3px solid #003366;
+  /* border-left: 3px solid #003366; */
   transition: all 0.3s ease;
   font-size: 0.875rem;
 }
