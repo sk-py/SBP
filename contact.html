@@ -154,9 +154,9 @@
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <!-- Contact Info -->
             <div class="flex flex-row gap-2 text-sm">
-                <a href="tel:09619866401" class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
+                <a href="tel:+91 9619866401" class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <span><i class="fa-solid fa-phone"></i></span>
-                    <span>09619866401</span>
+                    <span>+91 9619866401</span>
                 </a>
                 │
                 <a href="mailto:ok_agencies@yahoo.com"
@@ -210,14 +210,14 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white border-t" id="mobileMenu">
-            <div class="px-4 py-2 space-y-2">
-                <a href="./index.html" class="block py-2 text-gray-700 hover:text-blue-custom font-semibold">HOME</a>
-                <a href="./about.html" class="block py-2 text-gray-700 hover:text-blue-custom">ABOUT US</a>
-                <a href="./services.html" class="block py-2 text-gray-700 hover:text-blue-custom">SERVICES</a>
-                 <a href="./projects.html" class="block py-2 text-gray-700 hover:text-blue-custom">PROJECTS</a>
-                <a href="./services.html" class="block py-2 text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
-                <a href="./contact.html" class="block py-2 text-blue-custom font-semibold">CONTACT US</a>
+        <div class="md:hidden fixed w-full min-h-screen overflow-y-scroll hidden bg-white border-t" id="mobileMenu">
+            <div class="px-4 py-2 space-y-4 flex flex-col items-center h-full justify-center">
+                <a href="./index.html" class="block py-2 text-2xl mt-12 text-gray-700 hover:text-blue-custom">HOME</a>
+                <a href="./about.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">ABOUT US</a>
+                <a href="./services.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SERVICES</a>
+                 <a href="./projects.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">PROJECTS</a>
+                <a href="./sustainability.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
+                <a href="./contact.html" class="block py-2 text-2xl text-blue-custom font-semibold">CONTACT US</a>
             </div>
         </div>
     </nav>
@@ -351,7 +351,7 @@
     <div class="h-[20vh]"></div>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 pb-8 relative">
+    <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 max-sm:pt-96 pb-8 relative">
 
         <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
             <!-- Main Footer Content -->
@@ -505,14 +505,34 @@
                 lastScrollTop = scrollTop;
             });
 
-            // Mobile Menu Toggle
+           // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
 
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    // Toggle the 'hidden' class on mobileMenu
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Get the current icon element inside the button
+                    const icon = mobileMenuBtn.querySelector('i');
+
+                    // Toggle between fa-bars and fa-xmark
+                    setTimeout(() => {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            // Menu is visible, show X icon
+                            icon.className = 'fas fa-xmark text-xl';
+                        } else {
+                            // Menu is hidden, show bars icon
+                            icon.className = 'fas fa-bars text-xl';
+                        }
+                    }, 50);
+                });
+            } else {
+                console.error('Mobile menu button or menu not found in the DOM.');
+            }
 
             // Loader hide/show logic
             document.getElementById('globalLoader').classList.add('hidden');

@@ -88,9 +88,9 @@
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <!-- Contact Info -->
             <div class="flex flex-row gap-2 text-sm">
-                <a href="tel:09619866401" class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
+                <a href="tel:+91 9619866401" class="flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <span><i class="fa-solid fa-phone"></i></span>
-                    <span>09619866401</span>
+                    <span>+91 9619866401</span>
                 </a>
                 │
                 <a href="mailto:ok_agencies@yahoo.com"
@@ -145,14 +145,15 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white border-t" id="mobileMenu">
-            <div class="px-4 py-2 space-y-2">
-                <a href="./index.html" class="block py-2 text-blue-custom font-semibold">HOME</a>
-                <a href="./about.html" class="block py-2 text-gray-700 hover:text-blue-custom">ABOUT US</a>
-                <a href="./services.html" class="block py-2 text-gray-700 hover:text-blue-custom">SERVICES</a>
-                <a href="./services.html" class="block py-2 text-gray-700 hover:text-blue-custom">PROJECTS</a>
-                <a href="./services.html" class="block py-2 text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
-                <a href="./contact.html" class="block py-2 text-blue-custom font-semibold">CONTACT US</a>
+        <div class="md:hidden fixed w-full min-h-screen  overflow-y-scroll hidden bg-white border-t" id="mobileMenu">
+            <div class="px-4 py-2 space-y-4 flex flex-col items-center h-full justify-center">
+                <a href="./index.html" class="block py-2 text-2xl mt-12 text-blue-custom font-semibold">HOME</a>
+                <a href="./about.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">ABOUT US</a>
+                <a href="./services.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SERVICES</a>
+                <a href="./projects.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">PROJECTS</a>
+                <a href="./sustainability.html"
+                    class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
+                <a href="./contact.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">CONTACT US</a>
             </div>
         </div>
     </nav>
@@ -213,15 +214,16 @@
 
     <!-- New Section with 4 Cards - Below Hero -->
     <section class="py-16 lg:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="max-w-7xl mx-auto max-sm:px-2 px-4 md:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left Side - 4 Cards Grid -->
-                <div class="grid grid-cols-2 gap-6 slide-from-left">
+                <div class="grid grid-cols-2 gap-6 max-sm:gap-2 slide-from-left">
                     <!-- Card 1 - Projects Completed -->
                     <div
-                        class="bg-blue-light p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                        <div class="flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
-                            <i class="fas fa-project-diagram text-2xl"></i>
+                        class="bg-blue-light p-6 max-sm:p-4 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="flex items-center justify-center max-sm:w-8 max-sm:h-8 w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
+                            <i class="fas fa-project-diagram text-2xl max-sm:text-xl"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Projects Completed</h3>
                         <p class="text-sm opacity-90 mb-4">Thousands of projects completed with top quality.</p>
@@ -233,23 +235,25 @@
 
                     <!-- Card 2 - Certified Experts -->
                     <div
-                        class="bg-blue-custom p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                        <div class="flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
-                            <i class="fas fa-user-tie text-2xl"></i>
+                        class="bg-blue-custom p-6  max-sm:p-4 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="flex items-center justify-center max-sm:w-8 max-sm:h-8 w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
+                            <i class="fas fa-user-tie max-sm:text-xl text-2xl"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Quality Assurance</h3>
                         <p class="text-sm opacity-90 mb-4">Rigorous quality checks ensure flawless execution.</p>
                         <div class="flex items-baseline">
-                            <div class="text-2xl font-bold " >ISO 9001 Certified</div>
+                            <div class="text-2xl font-bold ">ISO 9001 Certified</div>
                             <!-- <span class="text-2xl opacity-90">+</span> -->
                         </div>
                     </div>
 
                     <!-- Card 3 - Years of Excellence -->
                     <div
-                        class="bg-gradient-to-br from-blue-light to-blue-custom p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                        <div class="flex items-center justify-center w-12 h-12 bg-black bg-opacity-10 rounded-lg mb-4">
-                            <i class="fas fa-calendar-alt text-2xl"></i>
+                        class="bg-gradient-to-br from-blue-light to-blue-custom p-6  max-sm:p-4 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="flex items-center justify-center max-sm:w-8 max-sm:h-8 w-12 h-12 bg-black bg-opacity-10 rounded-lg mb-4">
+                            <i class="fas fa-calendar-alt max-sm:text-xl text-2xl"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Years of Excellence</h3>
                         <p class="text-sm opacity-80 mb-4">Four decades of electrical engineering excellence.</p>
@@ -261,15 +265,19 @@
 
                     <!-- Card 4 - Client Satisfaction -->
                     <div
-                        class="bg-gradient-to-br from-blue-light to-blue-custom p-6 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                        <div class="flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
-                            <i class="fas fa-thumbs-up text-2xl"></i>
+                        class="bg-gradient-to-br from-blue-light to-blue-custom p-6  max-sm:p-4 rounded-xl text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="flex items-center justify-center max-sm:w-8 max-sm:h-8 w-12 h-12 bg-white bg-opacity-20 rounded-lg mb-4">
+                            <i class="fas fa-thumbs-up max-sm:text-xl text-2xl"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Safety Record</h3>
                         <p class="text-sm opacity-90 mb-4">We uphold the highest safety standards on every project.</p>
-                        <div class="flex items-baseline">
-                            <div class="text-3xl font-bold countervalue" counternumber="99">0</div>
-                            <span class="text-2xl">% <small>Accident Free</small></span>
+                        <div class="flex flex-col items-baseline">
+                            <div class="flex items-baseline">
+                                <span class="text-3xl font-bold countervalue" counternumber="99">0</span>
+                                <span class="text-2xl">% <small class="max-sm:hidden">Accident Free</small></span>
+                            </div>
+                            <div class="md:hidden block">Accident Free</div>
                         </div>
                     </div>
                 </div>
@@ -279,7 +287,7 @@
                     <div class="space-y-6">
                         <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                             Electrical Engineering Excellence Since
-                            <span class="text-blue-custom">1985</span>
+                            <span class="text-blue-custom font-bold">1985</span>
                         </h2>
 
                         <p class="text-lg text-gray-600 leading-relaxed">
@@ -319,7 +327,7 @@
                     </h2>
 
                     <!-- Highlighted LK Authorized Service Center -->
-                    <div class="relative bg-white p-6 rounded-lg shadow-lg mb-8 lk-highlight">
+                    <div class="relative bg-white p-6 rounded-lg shadow-xl mb-8 lk-highlight">
                         <!-- Logo Placeholder (Simplified to match the image's icon) -->
                         <!-- <div class="flex justify-center mb-4">
         <span class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
@@ -661,7 +669,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 pb-8 relative">
+    <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 max-sm:pt-96  pb-8 relative">
         <!-- Call to Action -->
         <div class="text-center  slide-from-bottom absolute -top-32 w-full z-10">
             <div
@@ -772,7 +780,7 @@
                                     class="text-gray-300 hover:text-yellow-500 transition-colors break- text-sm flex items-center gap-2 group">
                                     101, Nimesh Industrial Premises,
                                     Bhoirnagar, VidyalayaMarg,
-                                    Gavanpada Mulund (E),<br/>
+                                    Gavanpada Mulund (E),<br />
                                     Mumbai - 400081.</a>
                             </div>
                         </div>
@@ -785,7 +793,8 @@
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <!-- Social Media Icons -->
                     <div class="flex gap-4 animate-fade-in-up">
-                        <a target="_blank" href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
+                        <a target="_blank"
+                            href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
                             class="px-8 p-2 bg-gray-700 hover:bg-yellow-500 rounded-xl w-36  flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-2">
                             <img src="./images/linkedin_logo.png" />
                         </a>
@@ -910,24 +919,73 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
 
-            // GSAP ScrollTrigger for LK section
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    // Toggle the 'hidden' class on mobileMenu
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Get the current icon element inside the button
+                    const icon = mobileMenuBtn.querySelector('i');
+
+                    // Toggle between fa-bars and fa-xmark
+                    setTimeout(() => {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            // Menu is visible, show X icon
+                            icon.className = 'fas fa-xmark text-xl';
+                        } else {
+                            // Menu is hidden, show bars icon
+                            icon.className = 'fas fa-bars text-xl';
+                        }
+                    }, 50);
+                });
+            } else {
+                console.error('Mobile menu button or menu not found in the DOM.');
+            }
+
+
+            // Ensure GSAP and ScrollTrigger are loaded
+            gsap.registerPlugin(ScrollTrigger);
+
             const ltSection = document.querySelector('.lt-section');
             const ltLeftColumn = document.querySelector('.lt-logo-container').parentElement;
 
-            ScrollTrigger.create({
-                trigger: ltSection,
-                start: "top top",
-                end: "bottom bottom",
-                pin: ltLeftColumn,
-                pinSpacing: true,
-                anticipatePin: 1,
-                markers: false
-            });
+            if (ltSection && ltLeftColumn) {
+                gsap.matchMedia().add("(min-width: 1024px)", () => {
+                    // Pinning for desktop (lg and above)
+                    ScrollTrigger.create({
+                        trigger: ltSection,
+                        start: "top top",
+                        end: "bottom bottom",
+                        pin: ltLeftColumn,
+                        pinSpacing: true,
+                        anticipatePin: 1,
+                        markers: false
+                    });
+                });
 
+                gsap.matchMedia().add("(max-width: 1023px)", () => {
+                    // Fallback animation for mobile/tablet: Fade-in and slide-up
+                    gsap.fromTo(ltLeftColumn,
+                        { opacity: 0, y: 50 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: ltSection,
+                                start: "top 80%",
+                                end: "top 20%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                });
+            } else {
+                console.error('LK section or left column not found in the DOM.');
+            }
             // Intersection Observer for animations
             const observerOptionsGeneral = {
                 threshold: 0.1,

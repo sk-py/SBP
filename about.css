@@ -203,10 +203,17 @@ textarea:focus {
   font-size: 1.1rem;
 }
 
+@media (max-width:768px){
+  .compliance-item{
+    font-size: small;
+  }
+}
+
 .compliance-item:hover {
   color: #003366;
   transform: translateX(5px);
 }
+
 
 /* Enlistment Grid */
 .enlistment-grid {
@@ -362,3 +369,5 @@ textarea:focus {
 .certificate-viewer.active .certificate-content {
   transform: scale(1); /* Scale when active */
 }
+
+
