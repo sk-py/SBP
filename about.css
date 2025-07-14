@@ -331,7 +331,24 @@ textarea:focus {
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+.msme-certificate-image-container{
+    background-color: #f0f4f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9dee3;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-left: 4%;
+  scale: 1.15;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
 .certificate-image-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.msme-certificate-image-container:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
 }
@@ -347,6 +364,10 @@ textarea:focus {
 
 .certificate-image-container:hover .certificate-preview-image {
   transform: scale(1.04);
+}
+
+.msme-certificate-image-container:hover .certificate-preview-image {
+  transform: scale(1.10);
 }
 
 /* Certificate Viewer */

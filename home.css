@@ -179,7 +179,7 @@
 
 /* Values Cards Styles */
 .values-card {
-  background: linear-gradient(135deg, #006EC3 0%, #2a4379 100%);
+  background: linear-gradient(135deg, #003366 0%, #2a4379 100%);
   position: relative;
   overflow: hidden;
 }
@@ -211,7 +211,7 @@
 
 /* LK Switchgear Section Styles */
 .lt-section {
-  background: linear-gradient(135deg, #006EC3 0%, #003366 100%);
+  background: linear-gradient(135deg, #2a4379 0%, #003366 100%);
   position: relative;
   overflow: hidden;
 }
@@ -431,7 +431,7 @@
             left: 0;
             width: 110px;
             height: 110px;
-            border: 6px solid #006EC3;
+            border: 6px solid #003366;
             border-top: 6px solid #ffb800;
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -560,7 +560,9 @@
 
 @keyframes fade {
     0% { opacity: 1; }
+    25% { opacity: 0.5; }
     50% { opacity: 0; }
+    75% { opacity: 0.5; }
     100% { opacity: 1; }
 }
 
@@ -569,13 +571,13 @@
 } */
 
 .rotating-text {
-    animation: flip 1s ease-in-out;
+    animation: fade 1s ease-in-out;
     perspective: 1000px; 
 }
 
 #rotating-words:after {
   content: "entrepreneur";
-  animation: flip 12s linear;
+  animation: fade 12s linear;
   /* loop */
   animation-iteration-count: infinite;
   animation-direction: alternate;
