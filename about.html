@@ -347,7 +347,7 @@
             </div>
 
             <!-- Navigation Links -->
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden lg:flex items-center space-x-8">
                 <a href="./index.html" class="text-gray-700 hover:text-blue-custom transition-colors">HOME</a>
                 <a href="./about.html"
                     class="text-blue-custom font-semibold hover:text-blue-light transition-colors">ABOUT US</a>
@@ -358,7 +358,7 @@
             </div>
 
             <!-- Contact Button -->
-            <div class="flex hidden sm:block items-center">
+            <div class="flex hidden lg:block items-center">
                 <a href="./contact.html"
                     class="bg-blue-custom hover:bg-blue-light text-white px-6 py-2 rounded-lg font-medium transition-colors">
                     CONTACT US
@@ -366,7 +366,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
+            <div class="lg:hidden">
                 <button class="text-gray-700 hover:text-blue-custom" id="mobileMenuBtn">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
@@ -374,7 +374,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden fixed w-full min-h-screen overflow-y-scroll hidden bg-white border-t" id="mobileMenu">
+        <div class="lg:hidden fixed w-full min-h-screen overflow-y-scroll hidden bg-white border-t" id="mobileMenu">
             <div class="px-4 py-2 space-y-4 flex flex-col items-center h-full justify-center">
                 <a href="./index.html"
                     class="block py-2 text-2xl mt-12 fade-in-down text-gray-700 hover:to-blue-custom">HOME</a>
@@ -395,7 +395,7 @@
 
     <!-- Banner -->
     <div
-        class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(https://cdn.leonardo.ai/users/7eebfbbb-d6ef-44e6-b0ae-9dcbe5fd90f9/generations/8a4e22eb-85a3-40b8-a98e-e9ca0df79fdf/Leonardo_Kino_XL_Safety_ImageStatement_PREPARE_AND_PREVENT_DON_2.jpg?w=512)] bg-cover bg-fixed bg-center bg-no-repeat">
+        class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(./images/renewal.jpg)] bg-cover bg-fixed bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-blue-light opacity-[60%]"></div>
         <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
         </div>
@@ -1228,9 +1228,10 @@
             </div>
 
             <!-- Certificates Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
+            <div class="flex flex-row flex-wrap items-center justify-center gap-8">
                 <!-- Certificate Images -->
-                <div class="flex flex-col items-center group justify-center certificate-card">
+                <div class="flex max-w-96 flex-col items-center group justify-center certificate-card">
 
                     <div class="certificate-image-container mb-8">
                         <img src="./certifications/ISO 9001.jpeg" alt="ISO 45001 Certificate"
@@ -1239,7 +1240,7 @@
                     <h3 class="text-2xl font-bold mb-2">ISO 9001:2015 Certificate</h3>
                     <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
                 </div>
-                <div class="flex flex-col items-center group justify-center">
+                <div class="flex flex-col items-center group justify-center max-w-96">
 
                     <div class="certificate-image-container mb-8">
                         <img src="./certifications/ISO 45001.jpeg" alt="ISO 45001 Certificate"
@@ -1252,7 +1253,7 @@
                 <!-- <div class="certificate-image-container">
                     <img src="./certifications/THN ASC Certificate Ok Agencies 2025_page-0001.jpg" alt="LK authorized-center Certificate" class="certificate-preview-image">
                 </div> -->
-                <div class="flex flex-col items-center group justify-center">
+                <div class="flex flex-col items-center group justify-center max-w-96">
 
                     <div class="certificate-image-container mb-8">
                         <img src="./certifications/ELECTRICAL LICENCE - 13.04.2023 (1)_page-0001.jpg"
@@ -1261,7 +1262,7 @@
                     <h3 class="text-2xl font-bold mb-2">Electrical Contractors Licence</h3>
                     <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
                 </div>
-                <div class="flex flex-col items-center group justify-center">
+                <div class="flex flex-col items-center group justify-center max-w-96">
 
                     <div class="certificate-image-container mb-8">
                         <img src="./certifications/Udyam Registration Certificate 25-26_page-0001.jpg"
@@ -1270,7 +1271,7 @@
                     <h3 class="text-2xl font-bold mb-2">MSME Certificate</h3>
                     <div class="w-32 group-hover:scale-x-150 transition-all duration-300 h-1 bg-blue-custom mb-8"></div>
                 </div>
-                <div class="flex flex-col items-center group justify-center">
+                <div class="flex flex-col items-center group justify-center max-w-96">
 
                     <div class="certificate-image-container mb-8">
                         <img src="./certifications/CRISIL - grading certificate_page-0001.jpg"
@@ -1367,6 +1368,12 @@
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                 Projects
+                            </a></li>
+                        <li><a href="./sustainability.html"
+                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
+                                <i
+                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                                Sustainability
                             </a></li>
                         <li><a href="./contact.html"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
