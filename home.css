@@ -358,10 +358,9 @@
 #lkbtn span {
   flex: 1;
   margin: 0 0.25rem;
-  
+
   text-align: center;
 }
-
 
 .lk-hightlight::before {
   content: "";
@@ -383,7 +382,6 @@
   left: 100%;
 }
 
-
 /* Ensure text alignment and spacing */
 .lk-highlight h3 {
   margin-bottom: 0.5rem;
@@ -394,70 +392,69 @@
   margin-bottom: 1rem;
 }
 
- /* Loader Overlay Styles */
-        .loader-overlay {
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s;
-        }
+/* Loader Overlay Styles */
+.loader-overlay {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
 
-        .loader-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+.loader-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-        .loader-spinner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 110px;
-            height: 110px;
-        }
+.loader-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 110px;
+  height: 110px;
+}
 
-        .loader-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 110px;
-            height: 110px;
-            border: 6px solid #003366;
-            border-top: 6px solid #ffb800;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-sizing: border-box;
-        }
+.loader-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 110px;
+  border: 6px solid #003366;
+  border-top: 6px solid #ffb800;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-sizing: border-box;
+}
 
-        .loader-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-            background: #fff;
-            z-index: 2;
-        }
+.loader-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  background: #fff;
+  z-index: 2;
+}
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media (max-width: 700px) {
   .floating-nav {
@@ -522,7 +519,6 @@
   }
 }
 
-
 /* styles.css */
 /* @keyframes flip {
     0% {
@@ -544,42 +540,64 @@
 } */
 
 @keyframes flip {
-    0% {
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
-    50% {
-        transform: rotateX(90deg);
-        opacity: 0;
-    }
-    100% {
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-    0% { opacity: 1; }
-    25% { opacity: 0.5; }
-    50% { opacity: 0; }
-    75% { opacity: 0.5; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* .rotating-text {
-    animation: fade 1s ease-in-out;
+  animation: fade 1s ease-in-out;
 } */
 
 .rotating-text {
-    animation: fade 1s ease-in-out;
-    perspective: 1000px; 
+  display: inline-block;
+  font-weight: bold;
+  font-size: 4rem;
+  color: #f1f1f1;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-#rotating-words:after {
-  content: "entrepreneur";
-  animation: fade 12s linear;
-  /* loop */
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-play-state: running;
+@media (max-width: 768px) {
+  .rotating-text {
+    font-size: 3rem;
+  }
+}
+
+.rotating-text.fade-out {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.rotating-text.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }

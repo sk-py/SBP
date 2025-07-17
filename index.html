@@ -164,24 +164,21 @@
         <div class="slideshow-container absolute inset-0">
             <div class="slideshow relative w-full h-full">
                 <div class="slide active">
-                    <img src="./images/projects.jpeg"
-                        alt="Electrical Excellence" class="w-full h-full object-cover">
+                    <img src="./images/projects.jpeg" alt="Electrical Excellence" class="w-full h-full object-cover">
                 </div>
                 <div class="slide">
-                    <img src="./images/home2.jpg"
-                        alt="Commercial Electrician" class="w-full h-full object-cover scale-x-[-1]">
+                    <img src="./images/home2.jpg" alt="Commercial Electrician"
+                        class="w-full h-full object-cover scale-x-[-1]">
                 </div>
                 <div class="slide">
-                    <img src="./images/home3.jpg"
-                        alt="Electrical Work" class="w-full h-full object-cover">
+                    <img src="./images/home3.jpg" alt="Electrical Work" class="w-full h-full object-cover">
                 </div>
                 <div class="slide">
-                    <img src="./images/home4.jpeg"
-                        alt="Electrical Work" class="w-full h-full object-cover">
+                    <img src="./images/home4.jpeg" alt="Electrical Work" class="w-full h-full object-cover">
                 </div>
             </div>
             <!-- Dark Overlay -->
-            <div class="absolute inset-0 z-20 bg-blue-custom bg-opacity-70"></div>
+            <div class="absolute inset-0 z-20 bg-blue-custom bg-opacity-50"></div>
         </div>
 
         <!-- Hero Content -->
@@ -189,7 +186,7 @@
             <div class="text-center text-white max-w-4xl mx-auto px-4">
                 <!-- Main Headline -->
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 min-h-36 leading-tight animate-fade-in-up">
-                    <span id="rotating-text" class="inline-block font-bold"></span>
+                    <span id="rotating-text" class="rotating-text" class="inline-block font-bold"></span>
                     <!-- <span class="text-blue-custom bg-white font-bold rounded-lg px-4">1985</span> -->
                 </h1>
 
@@ -788,7 +785,7 @@
                                 <a target="_blank" href="https://maps.app.goo.gl/sCuqsCoXopNiSZZSA"
                                     class="text-gray-300 hover:text-yellow-500 transition-colors break- text-sm flex items-center gap-2 group">
                                     101, Nimesh Industrial Premises,
-                                    Bhoirnagar,<br/> Vidyalaya Marg,
+                                    Bhoirnagar,<br /> Vidyalaya Marg,
                                     Gavanpada Mulund (E),<br />
                                     Mumbai - 400081.</a>
                             </div>
@@ -852,7 +849,7 @@
             }
 
             // Start slideshow - change image every 4 seconds
-            setInterval(nextSlide, 4000);
+            setInterval(nextSlide, 5000);
 
             // Preload images for better performance
             slides.forEach((slide, index) => {
@@ -1035,33 +1032,48 @@
 
 
             const phrases = [
-                "LK Authorised Service Center",
                 "Trusted Electrical Solutions Since 1985",
+                "LK Authorised Service Center",
                 "ISO Certified Company"
             ];
 
             const rotatingText = document.getElementById("rotating-text");
             let currentPhraseIndex = 0;
+            let isAnimating = false;
 
             function rotateText() {
-                // Start the flip animation
-                rotatingText.classList.add("rotating-text");
+                if (isAnimating) return; // Prevent overlapping animations
 
-                // Update text at the midpoint of the animation (when opacity is 0)
+                isAnimating = true;
+
+                // Start fade out
+                rotatingText.classList.add("fade-out");
+
+                // Change text at the midpoint when opacity is 0
                 setTimeout(() => {
                     currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
                     rotatingText.textContent = phrases[currentPhraseIndex];
-                }, 600); // Half of the 0.8s animation duration
 
-                // Remove the animation class after it completes
-                rotatingText.addEventListener("animationend", () => {
-                    rotatingText.classList.remove("rotating-text");
-                }, { once: true });
+                    // Start fade in
+                    rotatingText.classList.remove("fade-out");
+                    rotatingText.classList.add("fade-in");
+
+                    // Clean up after animation
+                    setTimeout(() => {
+                        rotatingText.classList.remove("fade-in");
+                        isAnimating = false;
+                    }, 600);
+                }, 600);
             }
-            // Start the rotation and repeat every 3 seconds
-            rotateText();
-            setInterval(rotateText, 5000);
 
+            // Initialize first text
+            rotatingText.textContent = phrases[currentPhraseIndex];
+
+            // Start rotation after initial delay
+            setTimeout(() => {
+                rotateText();
+                setInterval(rotateText, 4000); // Rotate every 3 seconds
+            }, 3000); // Wait 2 seconds before starting
         });
     </script>
 </body>

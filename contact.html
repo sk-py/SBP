@@ -66,6 +66,7 @@
             height: 110px;
             border: 6px solid #003366;
             border-top: 6px solid #ffb800;
+            weight: bold;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             box-sizing: border-box;
@@ -88,6 +89,141 @@
 
             100% {
                 transform: rotate(360deg);
+            }
+        }
+
+        /* Toast Styles */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 4px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            min-width: 360px;
+            max-width: 420px;
+            pointer-events: auto;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast.hide {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .toast-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .toast-icon.success {
+            background: #10b981;
+            color: white;
+        }
+
+        .toast-text {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1f2937;
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .toast-description {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .toast-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #9ca3af;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .toast-close:hover {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: #10b981;
+            border-radius: 0 0 12px 12px;
+            animation: progress 4s linear;
+        }
+
+        @keyframes progress {
+            from {
+                width: 100%;
+            }
+            to {
+                width: 0%;
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 640px) {
+            .toast-container {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+            }
+
+            .toast {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+                margin: 0 0 12px 0;
             }
         }
     </style>
@@ -139,6 +275,9 @@
 </head>
 
 <body class="font-sans h-[200vh]">
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
     <!-- Loader Overlay -->
     <div class="loader-overlay" id="globalLoader">
         <div class="loader-spinner">
@@ -185,12 +324,12 @@
 
             <!-- Navigation Links -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="./index.html"
-                    class="text-gray-700 hover:text-blue-custom transition-colors">HOME</a>
+                <a href="./index.html" class="text-gray-700 hover:text-blue-custom transition-colors">HOME</a>
                 <a href="./about.html" class="text-gray-700 hover:text-blue-custom transition-colors">ABOUT US</a>
                 <a href="./services.html" class="text-gray-700 hover:text-blue-custom transition-colors">SERVICES</a>
-                 <a href="./projects.html" class="text-gray-700 hover:text-blue-custom transition-colors">PROJECTS</a>
-                <a href="./sustainability.html" class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
+                <a href="./projects.html" class="text-gray-700 hover:text-blue-custom transition-colors">PROJECTS</a>
+                <a href="./sustainability.html"
+                    class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
             </div>
 
             <!-- Contact Button -->
@@ -215,28 +354,26 @@
                 <a href="./index.html" class="block py-2 text-2xl mt-12 text-gray-700 hover:text-blue-custom">HOME</a>
                 <a href="./about.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">ABOUT US</a>
                 <a href="./services.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SERVICES</a>
-                 <a href="./projects.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">PROJECTS</a>
-                <a href="./sustainability.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
+                <a href="./projects.html" class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">PROJECTS</a>
+                <a href="./sustainability.html"
+                    class="block py-2 text-2xl text-gray-700 hover:text-blue-custom">SUSTAINABILITY</a>
                 <a href="./contact.html" class="block py-2 text-2xl text-blue-custom font-semibold">CONTACT US</a>
             </div>
         </div>
     </nav>
-
-
 
     <!-- Banner -->
     <div
         class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(./images/home3.jpg)] bg-cover bg-fixed bg-center bg-no-repeat">
         <div class="absolute inset-0 bg-blue-light opacity-[60%]"></div>
         <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
-
         </div>
         <div class="w-full relative p-4 pb-8 gap-2 z-10 max-w-[85rem] mx-auto flex flex-col ">
-            <h1 class="text-4xl md:text-6xl text-white font-bold  bottom-10   animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl text-white font-bold bottom-10 animate-fade-in-up">
                 Contact Us
             </h1>
             <span
-                class="text-lg md:text-xl text-white  bottom-5  flex flex-row items-center gap-2 pl-1  animate-fade-in-down">
+                class="text-lg md:text-xl text-white bottom-5 flex flex-row items-center gap-2 pl-1 animate-fade-in-down">
                 <a href="./index.html" class="text-white hover:text-yellow-500 transition-colors">Home</a> <i
                     class="fas fa-chevron-right text-xs"></i> <span class="">Contact Us</span>
             </span>
@@ -265,10 +402,8 @@
                         </p>
                     </div>
 
-
                     <!-- Image -->
                     <div class="rounded-2xl h-96 overflow-hidden">
-                        <!-- <img src="https://xpelectrical.co.nz/wp-content/uploads/2022/11/Commercial-Electrician.jpg" alt="Person working on server equipment" class="w-full h-80 object-cover"> -->
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.958831029546!2d72.9632823040264!3d19.170184661025118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8eed203dcf3%3A0xe24a373eed39ffac!2sOK%20Agencies!5e1!3m2!1sen!2sin!4v1750013970528!5m2!1sen!2sin"
                             width="100%" height="100%" style="border:0;" allowfullscreen="false" loading="lazy"
@@ -278,7 +413,7 @@
 
                 <!-- Right Form -->
                 <div class="bg-blue-50 rounded-2xl p-8 mt-6 lg:p-10">
-                    <form class="space-y-6">
+                    <form onsubmit="handlesubmit(event)" method="post" class="space-y-6">
                         <!-- Name and Email Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -328,16 +463,6 @@
                                 class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder-gray-400 resize-none"></textarea>
                         </div>
 
-                        <!-- Checkbox -->
-                        <!-- <div class="flex items-start space-x-3">
-                            <input type="checkbox" id="terms" name="terms"
-                                class="mt-1 w-4 h-4 text-blue-700 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-                                required>
-                            <label for="terms" class="text-sm text-gray-700">
-                                I have read and accepted terms and privacy
-                            </label>
-                        </div> -->
-
                         <!-- Submit Button -->
                         <button type="submit"
                             class="w-full bg-blue-light hover:bg-blue-custom text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
@@ -348,11 +473,9 @@
             </div>
         </div>
     </section>
-    <!-- <div class="h-[20vh]"></div> -->
 
     <!-- Footer -->
     <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 pb-8 relative">
-
         <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
             <!-- Main Footer Content -->
             <div class="flex items-center justify-center mb-20">
@@ -378,13 +501,13 @@
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                 Services
                             </a></li>
-                         <li><a href="./projects.html"
+                        <li><a href="./projects.html"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                                 Projects
                             </a></li>
-                         <li><a href="./sustainability.html"
+                        <li><a href="./sustainability.html"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
                                     class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
@@ -444,13 +567,13 @@
                             <i class="fas fa-map-marker-alt text-yellow-600 mt-1"></i>
                             <div>
                                 <p class="font-semibold text-white mb-1">Address:</p>
-
                                 <a target="_blank" href="https://maps.app.goo.gl/sCuqsCoXopNiSZZSA"
                                     class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                     101, Nimesh Industrial Premises,
-                                    Bhoirnagar,<br/> Vidyalaya Marg,
-                                Gavanpada Mulund (E),<br/>
-                                    Mumbai - 400081.</a>
+                                    Bhoirnagar,<br /> Vidyalaya Marg,
+                                    Gavanpada Mulund (E),<br />
+                                    Mumbai - 400081.
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -462,8 +585,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <!-- Social Media Icons -->
                     <div class="flex gap-4 animate-fade-in-up">
-                        <a target="_blank" href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
-                            class="px-8 p-2 bg-gray-700 hover:bg-yellow-500 rounded-xl w-36  flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-2">
+                        <a target="_blank"
+                            href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
+                            class="px-8 p-2 bg-gray-700 hover:bg-yellow-500 rounded-xl w-36 flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-2">
                             <img src="./images/linkedin_logo.png" />
                         </a>
                     </div>
@@ -482,18 +606,18 @@
 
     <script>
         window.addEventListener('load', () => {
-
+            // Hide loader when page loads
+            document.getElementById('globalLoader').classList.add('hidden');
 
             // Navbar Scroll Logic
             let lastScrollTop = 0;
             const mainNavbar = document.getElementById('mainNavbar');
             const scrollThreshold = 100;
-            let navbarVisible = true; // Start with navbar visible
+            let navbarVisible = true;
 
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                // Show navbar when scrolling up or at top, hide when scrolling down past threshold
                 if (scrollTop < lastScrollTop || scrollTop < scrollThreshold) {
                     if (!navbarVisible) {
                         mainNavbar.classList.remove('-translate-y-full');
@@ -511,40 +635,26 @@
                 lastScrollTop = scrollTop;
             });
 
-           // Mobile Menu Toggle
+            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
-
-
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
-                    // Toggle the 'hidden' class on mobileMenu
                     mobileMenu.classList.toggle('hidden');
-
-                    // Get the current icon element inside the button
                     const icon = mobileMenuBtn.querySelector('i');
-
-                    // Toggle between fa-bars and fa-xmark
                     setTimeout(() => {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            // Menu is visible, show X icon
-                            icon.className = 'fas fa-xmark text-xl';
-                        } else {
-                            // Menu is hidden, show bars icon
-                            icon.className = 'fas fa-bars text-xl';
-                        }
+                        icon.className = mobileMenu.classList.contains('hidden')
+                            ? 'fas fa-bars text-xl'
+                            : 'fas fa-xmark text-xl';
                     }, 50);
                 });
             } else {
                 console.error('Mobile menu button or menu not found in the DOM.');
             }
-
-            // Loader hide/show logic
-            document.getElementById('globalLoader').classList.add('hidden');
         });
 
-        // Existing IntersectionObserver code
+        // IntersectionObserver for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -553,15 +663,87 @@
             });
         }, { threshold: 0.1 });
 
-        // Observe all animated elements
         document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
             observer.observe(el);
         });
 
+        // Toast function
+        function showToast(message, description, type = 'success') {
+            const toastContainer = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <div class="toast-icon ${type}">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="toast-text">
+                        <div class="toast-title">${message}</div>
+                        <div class="toast-description">${description}</div>
+                    </div>
+                    <button class="toast-close">&times;</button>
+                    <div class="toast-progress"></div>
+                </div>
+            `;
+            toastContainer.appendChild(toast);
 
+            // Show toast
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+
+            // Auto-close after 4 seconds
+            const timeout = setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+
+            // Close button functionality
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                clearTimeout(timeout);
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                setTimeout(() => toast.remove(), 400);
+            });
+        }
+
+        // Form submission handler
+        const handlesubmit = (e) => {
+            e.preventDefault();
+            showLoader();
+
+            // Simulate form submission (e.g., API call)
+            setTimeout(() => {
+                hideLoader();
+
+                // Get form data
+                const formData = new FormData(e.target);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    company: formData.get('company'),
+                    phone: formData.get('phone'),
+                    request: formData.get('request')
+                };
+                console.log('Form Data:', data);
+
+                // Show success toast
+                showToast(
+                    'Form Submitted!',
+                    'Thank you for contacting OK Agencies. We will get back to you soon.'
+                );
+
+                // Reset the form
+                e.target.reset();
+            }, 1000); // Simulate a 1-second delay for form submission
+        };
+
+        // Loader functions
         function showLoader() {
             document.getElementById('globalLoader').classList.remove('hidden');
         }
+
         function hideLoader() {
             document.getElementById('globalLoader').classList.add('hidden');
         }
