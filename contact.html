@@ -21,11 +21,13 @@
         href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
     <link rel="apple-touch-icon" sizes="32x32"
         href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSB7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- Load the Google Maps JavaScript API -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyYZ0CQKvUre8IA-HzfpMex8p_j3yjgQE&libraries=marker&v=beta"
+        defer></script>
     <style>
         /* Loader Overlay Styles */
         .loader-overlay {
@@ -66,7 +68,6 @@
             height: 110px;
             border: 6px solid #003366;
             border-top: 6px solid #ffb800;
-            weight: bold;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             box-sizing: border-box;
@@ -151,6 +152,11 @@
             color: white;
         }
 
+        .toast-icon.error {
+            background: #ef4444;
+            color: white;
+        }
+
         .toast-text {
             flex: 1;
         }
@@ -206,6 +212,7 @@
             from {
                 width: 100%;
             }
+
             to {
                 width: 0%;
             }
@@ -226,8 +233,15 @@
                 margin: 0 0 12px 0;
             }
         }
-    </style>
 
+        /* Style for the map container */
+        .map-container {
+            height: 100%;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -277,7 +291,6 @@
 <body class="font-sans h-[200vh]">
     <!-- Toast Container -->
     <div id="toast-container" class="toast-container"></div>
-
     <!-- Loader Overlay -->
     <div class="loader-overlay" id="globalLoader">
         <div class="loader-spinner">
@@ -287,7 +300,6 @@
                 alt="Loading..." />
         </div>
     </div>
-
     <!-- Short Blue Header (Always Sticky) -->
     <header class="bg-blue-custom text-white py-2 sticky top-0 z-50" id="shortHeader">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -304,7 +316,6 @@
                     <span>ok_agencies@yahoo.com</span>
                 </a>
             </div>
-
             <!-- Social Media Icons -->
             <a target="_blank" href="https://www.linkedin.com/company/ok-agencies-electrical-engineering-and-services/"
                 class="flex hidden sm:block gap-4">
@@ -312,7 +323,6 @@
             </a>
         </div>
     </header>
-
     <!-- Main White Navbar (Appears on scroll up) -->
     <nav class="main-navbar bg-white shadow-lg py-4 sticky top-8 z-40 transform translate-y-0 transition-transform duration-300"
         id="mainNavbar">
@@ -321,7 +331,6 @@
             <div class="flex items-center">
                 <img src="./logos/OKA.png" alt="OK Agencies Logo" class="h-12 w-auto" />
             </div>
-
             <!-- Navigation Links -->
             <div class="hidden lg:flex items-center space-x-8">
                 <a href="./index.html" class="text-gray-700 hover:text-blue-custom transition-colors">HOME</a>
@@ -331,7 +340,6 @@
                 <a href="./sustainability.html"
                     class="text-gray-700 hover:text-blue-custom transition-colors">SUSTAINABILITY</a>
             </div>
-
             <!-- Contact Button -->
             <div class="flex hidden lg:block items-center">
                 <a href="./contact.html"
@@ -339,7 +347,6 @@
                     CONTACT US
                 </a>
             </div>
-
             <!-- Mobile Menu Button -->
             <div class="lg:hidden">
                 <button class="text-gray-700 hover:text-blue-custom" id="mobileMenuBtn">
@@ -347,7 +354,6 @@
                 </button>
             </div>
         </div>
-
         <!-- Mobile Menu -->
         <div class="lg:hidden fixed w-full min-h-screen overflow-y-scroll hidden bg-white border-t" id="mobileMenu">
             <div class="px-4 py-2 space-y-4 flex flex-col items-center h-full justify-center">
@@ -361,7 +367,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Banner -->
     <div
         class="h-[60vh] flex flex-col justify-between overflow-hidden relative bg-[url(./images/home3.jpg)] bg-cover bg-fixed bg-center bg-no-repeat">
@@ -379,7 +384,6 @@
             </span>
         </div>
     </div>
-
     <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
@@ -401,16 +405,11 @@
                             to excellence.
                         </p>
                     </div>
-
-                    <!-- Image -->
+                    <!-- Map -->
                     <div class="rounded-2xl h-96 overflow-hidden">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.958831029546!2d72.9632823040264!3d19.170184661025118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8eed203dcf3%3A0xe24a373eed39ffac!2sOK%20Agencies!5e1!3m2!1sen!2sin!4v1750013970528!5m2!1sen!2sin"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="false" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div id="map" class="map-container"></div>
                     </div>
                 </div>
-
                 <!-- Right Form -->
                 <div class="bg-blue-50 rounded-2xl p-8 mt-6 lg:p-10">
                     <form onsubmit="handlesubmit(event)" method="post" class="space-y-6">
@@ -433,7 +432,6 @@
                                     required>
                             </div>
                         </div>
-
                         <!-- Company and Phone Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -452,7 +450,6 @@
                                     required>
                             </div>
                         </div>
-
                         <!-- Additional Request -->
                         <div>
                             <label for="request" class="block text-sm font-medium text-gray-900 mb-2">
@@ -462,7 +459,6 @@
                                 placeholder="Write your other request here..."
                                 class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder-gray-400 resize-none"></textarea>
                         </div>
-
                         <!-- Submit Button -->
                         <button type="submit"
                             class="w-full bg-blue-light hover:bg-blue-custom text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
@@ -473,7 +469,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-gradient-to-br from-blue-custom via-slate-800 to-blue-custom pt-56 pb-8 relative">
         <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
@@ -521,7 +516,6 @@
                             </a></li>
                     </ul>
                 </div>
-
                 <!-- Contacts -->
                 <div class="animate-slide-in-right" style="animation-delay: 0.2s;">
                     <h4 class="text-lg font-bold text-white mb-6 flex items-center">
@@ -529,12 +523,6 @@
                         Contacts
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="tel:022-25634470"
-                                class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
-                                <i
-                                    class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                                022-25634470
-                            </a></li>
                         <li><a href="tel:+91 9619866401"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
@@ -543,7 +531,6 @@
                             </a></li>
                     </ul>
                 </div>
-
                 <!-- Email -->
                 <div class="animate-slide-in-right" style="animation-delay: 0.3s;">
                     <h4 class="text-lg font-bold text-white mb-6 flex items-center">
@@ -559,7 +546,6 @@
                             </a></li>
                     </ul>
                 </div>
-
                 <!-- Address -->
                 <div class="animate-slide-in-left col-span-2">
                     <div class="space-y-4 text-gray-300">
@@ -579,7 +565,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Social Media & Copyright -->
             <div class="border-t border-gray-700 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -591,7 +576,6 @@
                             <img src="./images/linkedin_logo.png" />
                         </a>
                     </div>
-
                     <!-- Copyright -->
                     <div class="text-center md:text-right animate-fade-in-up" style="animation-delay: 0.2s;">
                         <p class="text-gray-400 text-sm">
@@ -603,10 +587,40 @@
             </div>
         </div>
     </footer>
-
     <script>
+        // Initialize Google Map
+        function initMap() {
+            // Check if Google Maps API is loaded
+            if (typeof google === 'undefined' || !google.maps) {
+                console.error('Google Maps API failed to load.');
+                showToast('Map Error', 'Failed to load Google Maps. Please check your API key or internet connection.', 'error');
+                return;
+            }
+
+            // Initialize the map
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 19.170240235156953, lng: 72.96331727845943 }, // OK Agencies coordinates
+                zoom: 15,
+            });
+
+            // Add a marker
+            const marker = new google.maps.Marker({
+                position: { lat: 19.170240235156953, lng: 72.96331727845943 },
+                map: map,
+                title: 'OK Agencies',
+                clickable: true,
+            });
+
+            // Add click event listener to marker
+            marker.addListener('click', () => {
+                // Google Maps URL for the address or coordinates
+                const googleMapsUrl = 'https://www.google.com/maps/place/OK+Agencies/@19.1701847,72.9632823,823m/data=!3m1!1e3!4m6!3m5!1s0x3be7b8eed203dcf3:0xe24a373eed39ffac!8m2!3d19.1702405!4d72.9633346!16s%2Fg%2F1ptx_np6f?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D';
+                window.open(googleMapsUrl, '_blank');
+            });
+        }
+
         window.addEventListener('load', () => {
-            // Hide loader when page loads
+            // Hide loader
             document.getElementById('globalLoader').classList.add('hidden');
 
             // Navbar Scroll Logic
@@ -614,10 +628,8 @@
             const mainNavbar = document.getElementById('mainNavbar');
             const scrollThreshold = 100;
             let navbarVisible = true;
-
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
                 if (scrollTop < lastScrollTop || scrollTop < scrollThreshold) {
                     if (!navbarVisible) {
                         mainNavbar.classList.remove('-translate-y-full');
@@ -631,14 +643,12 @@
                         navbarVisible = false;
                     }
                 }
-
                 lastScrollTop = scrollTop;
             });
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
@@ -652,6 +662,13 @@
             } else {
                 console.error('Mobile menu button or menu not found in the DOM.');
             }
+
+            // Initialize map
+            if (typeof google !== 'undefined' && google.maps) {
+                initMap();
+            } else {
+                window.initMap = initMap; // Set initMap as a global callback for the API
+            }
         });
 
         // IntersectionObserver for animations
@@ -662,7 +679,6 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.slide-from-left, .slide-from-right, .slide-from-top, .slide-from-bottom').forEach(el => {
             observer.observe(el);
         });
@@ -672,34 +688,29 @@
             const toastContainer = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
+            const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
             toast.innerHTML = `
                 <div class="toast-content">
                     <div class="toast-icon ${type}">
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas ${iconClass}"></i>
                     </div>
                     <div class="toast-text">
                         <div class="toast-title">${message}</div>
                         <div class="toast-description">${description}</div>
                     </div>
-                    <button class="toast-close">&times;</button>
+                    <button class="toast-close">×</button>
                     <div class="toast-progress"></div>
                 </div>
             `;
             toastContainer.appendChild(toast);
-
-            // Show toast
             setTimeout(() => {
                 toast.classList.add('show');
             }, 100);
-
-            // Auto-close after 4 seconds
             const timeout = setTimeout(() => {
                 toast.classList.remove('show');
                 toast.classList.add('hide');
                 setTimeout(() => toast.remove(), 400);
             }, 4000);
-
-            // Close button functionality
             toast.querySelector('.toast-close').addEventListener('click', () => {
                 clearTimeout(timeout);
                 toast.classList.remove('show');
@@ -712,12 +723,8 @@
         const handlesubmit = (e) => {
             e.preventDefault();
             showLoader();
-
-            // Simulate form submission (e.g., API call)
             setTimeout(() => {
                 hideLoader();
-
-                // Get form data
                 const formData = new FormData(e.target);
                 const data = {
                     name: formData.get('name'),
@@ -727,23 +734,18 @@
                     request: formData.get('request')
                 };
                 console.log('Form Data:', data);
-
-                // Show success toast
                 showToast(
                     'Form Submitted!',
                     'Thank you for contacting OK Agencies. We will get back to you soon.'
                 );
-
-                // Reset the form
                 e.target.reset();
-            }, 1000); // Simulate a 1-second delay for form submission
+            }, 1000);
         };
 
         // Loader functions
         function showLoader() {
             document.getElementById('globalLoader').classList.remove('hidden');
         }
-
         function hideLoader() {
             document.getElementById('globalLoader').classList.add('hidden');
         }
