@@ -6,28 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OK AGENCIES - PROJECTS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./projects.css" />
-    <!-- Favicon -->
-    <link rel="icon"
-        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
-        type="image/x-icon">
-    <link rel="shortcut icon"
-        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
-        type="image/x-icon">
-    <link rel="apple-touch-icon"
-        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw"
-        type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
-    <link rel="apple-touch-icon" sizes="32x32"
-        href="https://media.licdn.com/dms/image/v2/C510BAQGgxbuDXNeD4g/company-logo_200_200/company-logo_200_200/0/1631435647282/ok_agencies_electrical_engineering_and_services_logo?e=2147483647&v=beta&t=FcBLEoCl4zZt0i2pW59IBtu56HVhPVFMZJHeKgnYFqw">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* Loader Overlay Styles */
+        @import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=onest");
+
+        * {
+            font-family: "Onest", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: normal;
+            scroll-behavior: smooth;
+        }
+
+        /* Table Animation Styles */
+        .table-row {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .table-row.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .table-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
+        }
+
+        /* Staggered animation delays */
+        .table-row:nth-child(1) { transition-delay: 0.1s; }
+        .table-row:nth-child(2) { transition-delay: 0.2s; }
+        .table-row:nth-child(3) { transition-delay: 0.3s; }
+        .table-row:nth-child(4) { transition-delay: 0.4s; }
+        .table-row:nth-child(5) { transition-delay: 0.5s; }
+        .table-row:nth-child(6) { transition-delay: 0.6s; }
+        .table-row:nth-child(7) { transition-delay: 0.7s; }
+        .table-row:nth-child(8) { transition-delay: 0.8s; }
+        .table-row:nth-child(9) { transition-delay: 0.9s; }
+        .table-row:nth-child(10) { transition-delay: 1.0s; }
+
+        /* Status badge animations */
+        .status-badge {
+            transition: all 0.3s ease;
+        }
+
+        .status-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Table header animations */
+        .table-header {
+            background: linear-gradient(135deg, #003366, #2A4379);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .table-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .table-header:hover::before {
+            left: 100%;
+        }
+
+        /* Loader styles */
         .loader-overlay {
             position: fixed;
             z-index: 2000;
@@ -82,56 +136,8 @@
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Project Card Styles */
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 51, 102, 0.05), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        /* Filter Button Styles */
-        .filter-btn {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(135deg, #003366, #2A4379);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-2px);
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Statistics Animation */
@@ -151,14 +157,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            height: 4px;
-            background: linear-gradient(90deg, #003366, #2A4379);
-            border-radius: 2px;
-            transition: width 0.8s ease;
         }
 
         /* Category Icons */
@@ -190,48 +188,47 @@
             transform: translateY(0);
         }
 
-        /* Timeline Styles */
-        .timeline-item {
+        /* Filter Button Styles */
+        .filter-btn {
+            transition: all 0.3s ease;
             position: relative;
-            padding-left: 2rem;
         }
 
-        .timeline-item::before {
-            content: '';
+        .filter-btn.active {
+            background: linear-gradient(135deg, #003366, #2A4379);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2a4379 0%, #003366 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "";
             position: absolute;
-            left: 0;
             top: 0;
-            width: 2px;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #003366, #2A4379);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -4px;
-            top: 1rem;
-            width: 10px;
-            height: 10px;
-            background: #003366;
-            border-radius: 50%;
+        .cta-section:hover::before {
+            left: 100%;
         }
 
-        /* Search and Filter Styles */
-        .search-container {
-            position: relative;
-        }
-
-        .search-container input {
-            padding-left: 3rem;
-        }
-
-        .search-container .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6b7280;
+        .cta-section:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 184, 0, 0.5);
         }
     </style>
 
@@ -327,7 +324,7 @@
         </div>
     </header>
 
-    <!-- Main White Navbar (Appears on scroll up) -->
+    <!-- Main White Navbar -->
     <nav class="main-navbar bg-white shadow-lg py-4 sticky top-8 z-40 transform translate-y-0 transition-transform duration-300"
         id="mainNavbar">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -384,11 +381,11 @@
         <div class="w-full flex relative z-10 max-w-[85rem] mx-auto px-4 items-center justify-between p-4">
         </div>
         <div class="w-full relative p-4 pb-8 gap-2 z-10 max-w-[85rem] mx-auto flex flex-col ">
-            <h1 class="text-4xl md:text-6xl text-white font-bold  bottom-10   animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl text-white font-bold bottom-10 animate-fade-in-up">
                 Our Projects
             </h1>
             <span
-                class="text-lg md:text-xl text-white  bottom-5  flex flex-row items-center gap-2 pl-1  animate-fade-in-down">
+                class="text-lg md:text-xl text-white bottom-5 flex flex-row items-center gap-2 pl-1 animate-fade-in-down">
                 <a href="./index.html" class="text-white hover:text-yellow-500 transition-colors">Home</a> <i
                     class="fas fa-chevron-right text-xs"></i> <span class="">Projects</span>
             </span>
@@ -428,8 +425,7 @@
                         <i class="fas fa-project-diagram text-white text-2xl"></i>
                     </div>
                     <span class="flex flex-row items-center justify-center gap-1">
-
-                        <p class="stat-number" data-target="5000">0</p>
+                        <p class="stat-number" data-target="2500">0</p>
                         <p class="postfix">+</p>
                     </span>
                     <p class="text-gray-600 font-medium">Total Projects</p>
@@ -441,7 +437,6 @@
                         <i class="fas fa-check-circle text-white text-2xl"></i>
                     </div>
                     <span class="flex flex-row items-center justify-center gap-1">
-
                         <p class="stat-number" data-target="500">0</p>
                         <p class="postfix">+</p>
                     </span>
@@ -454,7 +449,6 @@
                         <i class="fas fa-clock text-white text-2xl"></i>
                     </div>
                     <span class="flex flex-row items-center justify-center gap-1">
-
                         <p class="stat-number" data-target="100">0</p>
                         <p class="postfix">+</p>
                     </span>
@@ -479,10 +473,10 @@
             <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-12">
                 <div class="flex flex-col lg:flex-row gap-6 items-center justify-between">
                     <!-- Search Bar -->
-                    <div class="search-container flex-1 max-w-md">
-                        <i class="fas fa-search search-icon"></i>
+                    <div class="relative flex-1 max-w-md">
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input type="text" id="projectSearch" placeholder="Search projects by client name..."
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-custom focus:border-transparent">
+                            class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-custom focus:border-transparent">
                     </div>
 
                     <!-- Filter Buttons -->
@@ -511,143 +505,225 @@
                 </div>
             </div>
 
-            <!-- Completed Projects Section - Mixed Layouts -->
-            <div class="mb-20 project-section" id="completed-section" data-category="completed">
-                <div class="text-center mb-16">
-                    <div class="inline-flex items-center bg-green-50 rounded-full px-6 py-3 mb-6">
-                        <i class="fas fa-check-circle text-green-600 mr-3"></i>
-                        <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">Successfully
-                            Completed</span>
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-6">
-                        <span class="bg-gradient-to-r from-blue-custom to-blue-light bg-clip-text text-transparent">
-                            Major Works Executed (2020-2025)
-                        </span>
-                    </h3>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Successfully completed projects across various industries and sectors
-                    </p>
-                </div>
-
-                <!-- Turnkey Projects - All with same card design -->
-                <div class="mb-16 project-subsection" data-subcategory="turnkey">
-                    <div
-                        class="bg-gradient-to-r from-blue-custom to-blue-light rounded-3xl p-8 md:p-12 text-white mb-8">
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <h4 class="text-2xl md:text-3xl font-bold mb-2 flex items-center">
-                                    <i class="fas fa-industry mr-4"></i>
-                                    Turnkey Projects
-                                </h4>
-                                <p class="text-blue-100">Complete end-to-end electrical solutions</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-3xl font-bold">19</div>
-                                <div class="text-blue-100 text-sm">Projects</div>
-                            </div>
+            <!-- Projects Tables Section -->
+            <div class="space-y-16">
+                <!-- Ongoing Projects Table -->
+                <div class="project-section" id="ongoing-section" data-category="ongoing">
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center bg-orange-50 rounded-full px-6 py-3 mb-6">
+                            <i class="fas fa-clock text-orange-600 mr-3"></i>
+                            <span class="text-orange-600 font-semibold uppercase tracking-wider text-sm">Currently Under Execution</span>
                         </div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+                            <span class="bg-gradient-to-r from-blue-custom to-blue-light bg-clip-text text-transparent">
+                                Major Works Under Execution
+                            </span>
+                        </h3>
                     </div>
 
-                    <!-- All Turnkey Projects -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="turnkey-projects">
-                        <!-- All turnkey projects will be generated -->
-                    </div>
-                </div>
-
-                <!-- Revamping Projects - Masonry Layout -->
-                <div class="mb-16 project-subsection" data-subcategory="revamping">
-                    <div
-                        class="bg-gradient-to-r from-blue-custom to-blue-light rounded-3xl p-8 md:p-12 text-white mb-8 flex items-center justify-between">
-                        <div>
-                            <h4 class="text-2xl font-bold text-gray-800 text-white flex items-center">
-                                <i class="fas fa-tools  mr-3"></i>
-                                Revamping & Retrofitting Projects
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                        <div class="table-header px-8 py-6">
+                            <h4 class="text-2xl font-bold text-white flex items-center">
+                                <i class="fas fa-play-circle mr-3"></i>
+                                Ongoing Projects
                             </h4>
-                            <p class="text-gray-600 mt-2 text-white">Modernization and upgrade of existing electrical
-                                systems</p>
                         </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold text-white">16</div>
-                            <div class="text-blue-100 text-sm">Projects</div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 border-b border-gray-200">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                            <i class="fas fa-building mr-2"></i>Client Name
+                                        </th>
+                                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                            <i class="fas fa-cogs mr-2"></i>Project Type
+                                        </th>
+                                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                            <i class="fas fa-info-circle mr-2"></i>Description
+                                        </th>
+                                        <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                            <i class="fas fa-chart-line mr-2"></i>Status
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="ongoing-table-body">
+                                    <!-- Ongoing projects will be populated here -->
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="revamping-projects">
-                        <!-- Revamping projects will be generated -->
                     </div>
                 </div>
 
-                <!-- Maintenance Contracts - List Layout -->
-                <div class="mb-16 project-subsection" data-subcategory="maintenance">
-                    <div class="bg-blue-50 rounded-2xl p-8">
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-800 flex items-center">
-                                    <i class="fas fa-wrench text-blue-custom mr-3"></i>
-                                    Annual Maintenance Contracts
-                                </h4>
-                                <p class="text-gray-600 mt-2">Ongoing maintenance and support services</p>
+                <!-- Completed Projects Table -->
+                <div class="project-section" id="completed-section" data-category="completed">
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center bg-green-50 rounded-full px-6 py-3 mb-6">
+                            <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                            <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">Successfully Completed</span>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+                            <span class="bg-gradient-to-r from-blue-custom to-blue-light bg-clip-text text-transparent">
+                                Major Works Executed (2020-2025)
+                            </span>
+                        </h3>
+                    </div>
+
+                    <!-- Turnkey Projects Table -->
+                    <div class="mb-12 project-subsection" data-subcategory="turnkey">
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                            <div class="table-header px-8 py-6">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-2xl font-bold text-white flex items-center">
+                                        <i class="fas fa-industry mr-3"></i>
+                                        Turnkey Projects
+                                    </h4>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-white">19</div>
+                                        <div class="text-blue-100 text-sm">Projects</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-blue-custom">8</div>
-                                <div class="text-gray-500 text-sm">Contracts</div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-building mr-2"></i>Client Name
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-calendar-alt mr-2"></i>Year
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-check-circle mr-2"></i>Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="turnkey-table-body">
+                                        <!-- Turnkey projects will be populated here -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="maintenance-projects">
-                            <!-- Maintenance projects will be generated -->
+                    <!-- Revamping Projects Table -->
+                    <div class="mb-12 project-subsection" data-subcategory="revamping">
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                            <div class="table-header px-8 py-6">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-2xl font-bold text-white flex items-center">
+                                        <i class="fas fa-tools mr-3"></i>
+                                        Revamping & Retrofitting Projects
+                                    </h4>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-white">16</div>
+                                        <div class="text-blue-100 text-sm">Projects</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-building mr-2"></i>Client Name
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-wrench mr-2"></i>Type
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-check-circle mr-2"></i>Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="revamping-table-body">
+                                        <!-- Revamping projects will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Specialized Projects - Card Layout -->
-                <div class="project-subsection" data-subcategory="specialized">
-                    <h4 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-                        <i class="fas fa-cogs text-blue-custom mr-3"></i>
-                        Specialized Solutions
-                    </h4>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="specialized-projects">
-                        <!-- Specialized projects will be generated -->
+                    <!-- Maintenance Contracts Table -->
+                    <div class="mb-12 project-subsection" data-subcategory="maintenance">
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                            <div class="table-header px-8 py-6">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-2xl font-bold text-white flex items-center">
+                                        <i class="fas fa-wrench mr-3"></i>
+                                        Annual Maintenance Contracts
+                                    </h4>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-white">8</div>
+                                        <div class="text-blue-100 text-sm">Contracts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-building mr-2"></i>Client Name
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-tools mr-2"></i>Service Type
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-check-circle mr-2"></i>Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="maintenance-table-body">
+                                        <!-- Maintenance projects will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Ongoing Projects Section - Timeline Layout -->
-            <div class="mb-20 project-section" id="ongoing-section" data-category="ongoing">
-                <div class="text-center mb-16">
-                    <div class="inline-flex items-center bg-orange-50 rounded-full px-6 py-3 mb-6">
-                        <i class="fas fa-clock text-orange-600 mr-3"></i>
-                        <span class="text-orange-600 font-semibold uppercase tracking-wider text-sm">Currently Under
-                            Execution</span>
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-6">
-                        <span class="bg-gradient-to-r from-blue-custom to-blue-light bg-clip-text text-transparent">
-                            Major Works Under Execution
-                        </span>
-                    </h3>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Current projects in progress, showcasing our active engagement with industry leaders
-                    </p>
-                </div>
-
-                <!-- Timeline Layout for Ongoing Projects -->
-                <div class="relative">
-                    <!-- Timeline Line -->
-                    <div
-                        class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400 to-blue-custom hidden md:block">
-                    </div>
-
-                    <div class="space-y-8" id="ongoing-projects">
-                        <!-- Ongoing project items will be generated by JavaScript -->
+                    <!-- Specialized Projects Table -->
+                    <div class="project-subsection" data-subcategory="specialized">
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                            <div class="table-header px-8 py-6">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-2xl font-bold text-white flex items-center">
+                                        <i class="fas fa-cogs mr-3"></i>
+                                        Specialized Solutions
+                                    </h4>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-white">6</div>
+                                        <div class="text-blue-100 text-sm">Projects</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-building mr-2"></i>Client Name
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-tachometer-alt mr-2"></i>Specialization
+                                            </th>
+                                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900 uppercase tracking-wider">
+                                                <i class="fas fa-check-circle mr-2"></i>Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="specialized-table-body">
+                                        <!-- Specialized projects will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Client Showcase -->
-            <div class=" rounded-3xl p-12 text-blue-custom relative overflow-hidden mb-20">
-
-
+            <div class="rounded-3xl p-12 text-blue-custom relative overflow-hidden mb-20">
                 <div class="relative z-10 text-center">
                     <h3 class="text-3xl md:text-4xl font-bold mb-6 text-blue-custom">Trusted by Industry Leaders</h3>
                     <p class="text-xl text-blue-light mb-8 max-w-3xl mx-auto">
@@ -658,23 +734,23 @@
                     <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
                         <div class="bg-blue-custom/10 rounded-lg p-4">
                             <i class="fas fa-industry text-3xl mb-2"></i>
-                            <p class="font-semibold  md:text-xs max-sm:text-xs ">Manufacturing</p>
+                            <p class="font-semibold md:text-xs max-sm:text-xs">Manufacturing</p>
                         </div>
                         <div class="bg-blue-custom/10 rounded-lg p-4">
                             <i class="fas fa-flask text-3xl mb-2"></i>
-                            <p class="font-semibold  md:text-xs max-sm:text-xs ">Chemical</p>
+                            <p class="font-semibold md:text-xs max-sm:text-xs">Chemical</p>
                         </div>
                         <div class="bg-blue-custom/10 rounded-lg p-4">
                             <i class="fas fa-pills text-3xl mb-2"></i>
-                            <p class="font-semibold  md:text-xs max-sm:text-xs ">Pharmaceutical</p>
+                            <p class="font-semibold md:text-xs max-sm:text-xs">Pharmaceutical</p>
                         </div>
                         <div class="bg-blue-custom/10 rounded-lg p-4">
                             <i class="fas fa-building text-3xl mb-2"></i>
-                            <p class="font-semibold  md:text-xs max-sm:text-xs ">Infrastructure</p>
+                            <p class="font-semibold md:text-xs max-sm:text-xs">Infrastructure</p>
                         </div>
                         <div class="bg-blue-custom/10 rounded-lg p-4">
                             <i class="fas fa-oil-can text-3xl mb-2"></i>
-                            <p class="font-semibold  md:text-xs max-sm:text-xs ">Oil & Gas</p>
+                            <p class="font-semibold md:text-xs max-sm:text-xs">Oil & Gas</p>
                         </div>
                     </div>
                 </div>
@@ -715,9 +791,6 @@
 
         <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
             <!-- Main Footer Content -->
-            <div class="flex items-center justify-center mb-20">
-                <img src="./logos/OKA.png" alt="OK Agencies Logo" class="w-96 rounded" />
-            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
                 <!-- Company Links -->
                 <div class="animate-slide-in-left" style="animation-delay: 0.1s;">
@@ -766,7 +839,6 @@
                         Contacts
                     </h4>
                     <ul class="space-y-3">
-                       
                         <li><a href="tel:+91 9619866401"
                                 class="text-gray-300 hover:text-yellow-500 transition-colors text-sm flex items-center gap-2 group">
                                 <i
@@ -836,7 +908,7 @@
     </footer>
 
     <script>
-        // Updated project data
+        // Project data
         const projectData = {
             ongoing: [
                 { name: "Sadhana Nitrochem Limited", description: "Electrical revamping work", type: "ongoing", category: "revamping" },
@@ -906,259 +978,180 @@
             ]
         };
 
-        // Function to create ongoing project timeline item
-        function createOngoingProjectItem(project, index) {
-            const icons = {
-                revamping: 'fa-tools',
-                metering: 'fa-tachometer-alt',
-                maintenance: 'fa-wrench',
-                specialized: 'fa-cogs'
-            };
-
-            const colors = {
-                revamping: 'bg-orange-100 text-orange-800',
-                metering: 'bg-blue-100 text-blue-800',
-                maintenance: 'bg-green-100 text-green-800',
-                specialized: 'bg-purple-100 text-purple-800'
-            };
-
-            return `
-                <div class="relative flex items-start space-x-6 project-item reveal-on-scroll" 
-                     data-category="${project.category}" 
-                     data-type="${project.type}"
-                     data-client="${project.name.toLowerCase()}"
-                     style="animation-delay: ${index * 0.1}s;">
-                    <!-- Timeline Dot -->
-                    <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-lg hidden md:flex">
-                        <i class="fas ${icons[project.category]} text-white text-xl"></i>
-                    </div>
-                    
-                    <!-- Content -->
-                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="flex-1">
-                                <h5 class="text-xl font-bold text-gray-800 mb-2">${project.name}</h5>
-                                <p class="text-gray-600 mb-3">${project.description}</p>
-                                <div class="flex items-center gap-3">
-                                    <span class="px-3 py-1 ${colors[project.category]} rounded-full text-xs font-medium">
-                                        ${project.category.charAt(0).toUpperCase() + project.category.slice(1)}
-                                    </span>
-                                    <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-medium flex items-center gap-1">
-                                        <i class="fas fa-clock"></i>
-                                        In Progress
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text-right ml-4">
-                                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-play text-orange-600"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="border-t border-gray-100 pt-4">
-                            <div class="flex items-center justify-between text-sm text-gray-600">
-                                <span class="flex items-center gap-1">
-                                    <i class="fas fa-building"></i>
-                                    Active Project
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    2024-25
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to create featured project card
-        function createFeaturedProjectCard(project, index) {
-            return `
-        <div class="project-item bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 reveal-on-scroll"
-             data-category="${project.category}" 
-             data-type="${project.type}"
-             data-client="${project.name.toLowerCase()}"
-             style="animation-delay: ${(index % 6) * 0.1}s;">
-            <div class="flex items-start justify-between mb-4">
-                <div class="flex-1">
-                    <h5 class="text-lg font-bold text-gray-800 mb-2">${project.name}</h5>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium flex items-center gap-1">
-                            <i class="fas fa-check-circle"></i>
-                            Completed
-                        </span>
-                        <span class="text-xs text-gray-500">${project.year}</span>
-                    </div>
-                </div>
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-industry text-blue-600"></i>
-                </div>
-            </div>
+        // Function to create table rows with animations
+        function createTableRow(project, columns, index = 0) {
+            const row = document.createElement('tr');
+            row.className = `table-row project-item hover:bg-gray-50 transition-all duration-300 cursor-pointer`;
+            row.setAttribute('data-category', project.category);
+            row.setAttribute('data-type', project.type);
+            row.setAttribute('data-client', project.name.toLowerCase());
             
-            <div class="border-t border-gray-100 pt-4">
-                <div class="flex items-center justify-between text-sm text-gray-600">
-                    <span class="flex items-center gap-1">
-                        <i class="fas fa-building"></i>
-                        Turnkey Project
-                    </span>
-                    <span class="flex items-center gap-1">
-                        <i class="fas fa-map-marker-alt"></i>
-                        India
-                    </span>
-                </div>
-            </div>
-        </div>
-    `;
-        }
-
-        // Function to create compact project item
-        function createCompactProjectItem(project) {
-            return `
-                <div class="project-item flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                     data-category="${project.category}" 
-                     data-type="${project.type}"
-                     data-client="${project.name.toLowerCase()}">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-check text-blue-600 text-sm"></i>
-                        </div>
-                        <div>
-                            <h6 class="font-semibold text-gray-800">${project.name}</h6>
-                            <p class="text-xs text-gray-500">${project.year}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to create revamping project card
-        function createRevampingProjectCard(project, index) {
-            const isACB = project.subcategory === 'acb';
-            return `
-                <div class="project-item bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 reveal-on-scroll"
-                     data-category="${project.category}" 
-                     data-type="${project.type}"
-                     data-client="${project.name.toLowerCase()}"
-                     style="animation-delay: ${index * 0.1}s;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex-1">
-                            <h5 class="text-lg font-bold text-gray-800 mb-2">${project.name}</h5>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium flex items-center gap-1">
-                                    <i class="fas fa-check-circle"></i>
-                                    Completed
+            let rowContent = '';
+            
+            columns.forEach(column => {
+                let cellContent = '';
+                
+                switch(column) {
+                    case 'name':
+                        cellContent = `
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                   
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-900">${project.name}</div>
+                                    </div>
+                                </div>
+                            </td>
+                        `;
+                        break;
+                    case 'year':
+                        cellContent = `
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    ${project.year}
                                 </span>
-                                ${isACB ? '<span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">ACB Retrofitting</span>' : ''}
-                            </div>
-                        </div>
-                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-tools text-orange-600"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-gray-100 pt-4">
-                        <div class="flex items-center justify-between text-sm text-gray-600">
-                            <span class="flex items-center gap-1">
-                                <i class="fas fa-wrench"></i>
-                                ${isACB ? 'ACB Retrofitting' : 'Revamping'}
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i class="fas fa-map-marker-alt"></i>
-                                India
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to create maintenance project item
-        function createMaintenanceProjectItem(project) {
-            return `
-                <div class="project-item flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-all"
-                     data-category="${project.category}" 
-                     data-type="${project.type}"
-                     data-client="${project.name.toLowerCase()}">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-wrench text-blue-600"></i>
-                        </div>
-                        <div>
-                            <h6 class="font-semibold text-gray-800">${project.name}</h6>
-                            <p class="text-sm text-gray-600">Annual Maintenance Contract</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-                            Active
-                        </span>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to create specialized project card
-        function createSpecializedProjectCard(project) {
-            return `
-                <div class="project-item bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 reveal-on-scroll"
-                     data-category="${project.category}" 
-                     data-type="${project.type}"
-                     data-client="${project.name.toLowerCase()}">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex-1">
-                            <h5 class="text-lg font-bold text-gray-800 mb-2">${project.name}</h5>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium flex items-center gap-1">
-                                    <i class="fas fa-check-circle"></i>
-                                    Completed
+                            </td>
+                        `;
+                        break;
+                    case 'description':
+                        cellContent = `
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">${project.description}</div>
+                            </td>
+                        `;
+                        break;
+                    case 'type':
+                        const typeIcons = {
+                            revamping: 'fa-tools',
+                            metering: 'fa-tachometer-alt',
+                            maintenance: 'fa-wrench',
+                            specialized: 'fa-cogs'
+                        };
+                        const typeColors = {
+                            revamping: 'bg-orange-100 text-orange-800',
+                            metering: 'bg-blue-100 text-blue-800',
+                            maintenance: 'bg-green-100 text-green-800',
+                            specialized: 'bg-purple-100 text-purple-800'
+                        };
+                        cellContent = `
+                            <td class="px-6 py-4 text-left">
+                                <span class="inline-flex items-start px-3 py-1 rounded-full text-xs font-medium ${typeColors[project.category]}">
+                                    <i class="fas ${typeIcons[project.category]} mr-1"></i>
+                                    ${project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                                 </span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">
-                                    ${project.subcategory === 'metering' ? 'ABT Metering' : 'Specialized'}
+                            </td>
+                        `;
+                        break;
+                    case 'revamping_type':
+                        const isACB = project.subcategory === 'acb';
+                        cellContent = `
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${isACB ? 'bg-purple-100 text-purple-800' : 'bg-orange-100 text-orange-800'}">
+                                    <i class="fas ${isACB ? 'fa-bolt' : 'fa-tools'} mr-1"></i>
+                                    ${isACB ? 'ACB Retrofitting' : 'General Revamping'}
                                 </span>
-                            </div>
-                        </div>
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-tachometer-alt text-purple-600"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-gray-100 pt-4">
-                        <div class="flex items-center justify-end text-sm text-gray-600">
-                            <span class="flex items-center gap-1">
-                                <i class="fas fa-cogs"></i>
-                                Open Access ABT Metering
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            `;
+                            </td>
+                        `;
+                        break;
+                    case 'service_type':
+                        cellContent = `
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <i class="fas fa-wrench mr-1"></i>
+                                    Annual Maintenance
+                                </span>
+                            </td>
+                        `;
+                        break;
+                    case 'specialization':
+                        cellContent = `
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    ABT Metering
+                                </span>
+                            </td>
+                        `;
+                        break;
+                    case 'status':
+                        const statusConfig = project.type === 'ongoing' 
+                            ? { text: 'In Progress', color: 'bg-orange-100 text-orange-800', icon: 'fa-clock' }
+                            : { text: 'Completed', color: 'bg-green-100 text-green-800', icon: 'fa-check-circle' };
+                        
+                        cellContent = `
+                            <td class="px-6 py-4 text-center">
+                                <span class="status-badge inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${statusConfig.color}">
+                                    ${statusConfig.text}
+                                </span>
+                            </td>
+                        `;
+                        break;
+                }
+                
+                rowContent += cellContent;
+            });
+            
+            row.innerHTML = rowContent;
+            return row;
         }
 
-        // Function to render all projects
-        function renderProjects() {
-            // Render ongoing projects
-            document.getElementById('ongoing-projects').innerHTML =
-                projectData.ongoing.map((project, index) => createOngoingProjectItem(project, index)).join('');
+        // Function to populate tables
+        function populateTables() {
+            // Populate ongoing projects table
+            const ongoingTableBody = document.getElementById('ongoing-table-body');
+            ongoingTableBody.innerHTML = '';
+            projectData.ongoing.forEach((project, index) => {
+                const row = createTableRow(project, ['name', 'type', 'description', 'status'], index);
+                ongoingTableBody.appendChild(row);
+            });
 
-            // Render ALL turnkey projects with the same card design
-            document.getElementById('turnkey-projects').innerHTML =
-                projectData.turnkey.map((project, index) => createFeaturedProjectCard(project, index)).join('');
+            // Populate turnkey projects table
+            const turnkeyTableBody = document.getElementById('turnkey-table-body');
+            turnkeyTableBody.innerHTML = '';
+            projectData.turnkey.forEach((project, index) => {
+                const row = createTableRow(project, ['name', 'year', 'status'], index);
+                turnkeyTableBody.appendChild(row);
+            });
 
-            // Remove the other-turnkey section completely
+            // Populate revamping projects table
+            const revampingTableBody = document.getElementById('revamping-table-body');
+            revampingTableBody.innerHTML = '';
+            projectData.revamping.forEach((project, index) => {
+                const row = createTableRow(project, ['name', 'revamping_type', 'status'], index);
+                revampingTableBody.appendChild(row);
+            });
 
-            // Render revamping projects
-            document.getElementById('revamping-projects').innerHTML =
-                projectData.revamping.map((project, index) => createRevampingProjectCard(project, index)).join('');
+            // Populate maintenance projects table
+            const maintenanceTableBody = document.getElementById('maintenance-table-body');
+            maintenanceTableBody.innerHTML = '';
+            projectData.maintenance.forEach((project, index) => {
+                const row = createTableRow(project, ['name', 'service_type', 'status'], index);
+                maintenanceTableBody.appendChild(row);
+            });
 
-            // Render maintenance projects
-            document.getElementById('maintenance-projects').innerHTML =
-                projectData.maintenance.map(project => createMaintenanceProjectItem(project)).join('');
+            // Populate specialized projects table
+            const specializedTableBody = document.getElementById('specialized-table-body');
+            specializedTableBody.innerHTML = '';
+            projectData.specialized.forEach((project, index) => {
+                const row = createTableRow(project, ['name', 'specialization', 'status'], index);
+                specializedTableBody.appendChild(row);
+            });
+        }
 
-            // Render specialized projects
-            document.getElementById('specialized-projects').innerHTML =
-                projectData.specialized.map(project => createSpecializedProjectCard(project)).join('');
+        // Function to animate table rows
+        function animateTableRows() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.table-row').forEach(row => {
+                observer.observe(row);
+            });
         }
 
         // Enhanced filter functionality
@@ -1183,29 +1176,7 @@
             });
         }
 
-        // Update the setupScrollReveal function to be re-callable
-        function setupScrollReveal() {
-            // Disconnect existing observer if it exists
-            if (window.scrollObserver) {
-                window.scrollObserver.disconnect();
-            }
-
-            window.scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                // Reset animation state
-                el.classList.remove('revealed');
-                window.scrollObserver.observe(el);
-            });
-        }
-
-        // Update the filterProjects function to reinitialize animations
+        // Filter projects function
         function filterProjects(filter, searchTerm = '') {
             const projectSections = document.querySelectorAll('.project-section');
             const projectSubsections = document.querySelectorAll('.project-subsection');
@@ -1228,7 +1199,7 @@
                     item.dataset.client.includes(searchTerm.toLowerCase());
 
                 if (matchesFilter && matchesSearch) {
-                    item.style.display = 'block';
+                    item.style.display = 'table-row';
                     hasVisibleItems = true;
 
                     // Show parent section and subsection
@@ -1244,26 +1215,26 @@
 
             // Hide sections that have no visible items
             projectSections.forEach(section => {
-                const visibleItems = section.querySelectorAll('.project-item[style*="display: block"], .project-item:not([style*="display: none"])');
+                const visibleItems = section.querySelectorAll('.project-item[style*="table-row"], .project-item:not([style*="display: none"])');
                 if (visibleItems.length === 0) {
                     section.style.display = 'none';
                 }
             });
 
             projectSubsections.forEach(subsection => {
-                const visibleItems = subsection.querySelectorAll('.project-item[style*="display: block"], .project-item:not([style*="display: none"])');
+                const visibleItems = subsection.querySelectorAll('.project-item[style*="table-row"], .project-item:not([style*="display: none"])');
                 if (visibleItems.length === 0) {
                     subsection.style.display = 'none';
                 }
             });
 
-            // Reinitialize scroll animations after filtering
+            // Reinitialize animations after filtering
             setTimeout(() => {
-                setupScrollReveal();
+                animateTableRows();
             }, 100);
         }
 
-        // Counter animation (same as before)
+        // Counter animation
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
 
@@ -1284,7 +1255,7 @@
             });
         }
 
-        // Scroll reveal animation (same as before)
+        // Scroll reveal animation
         function setupScrollReveal() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1304,13 +1275,14 @@
             // Hide loader
             document.getElementById('globalLoader').classList.add('hidden');
 
-            // Render projects
-            renderProjects();
+            // Populate tables
+            populateTables();
 
             // Setup filters
             setupFilters();
 
-            // Setup scroll reveal
+            // Setup animations
+            animateTableRows();
             setupScrollReveal();
 
             // Animate counters when they come into view
@@ -1328,7 +1300,7 @@
                 statsObserver.observe(statsSection);
             }
 
-            // Navbar functionality (same as before)
+            // Navbar functionality
             let lastScrollTop = 0;
             const mainNavbar = document.getElementById('mainNavbar');
             const scrollThreshold = 100;
@@ -1352,33 +1324,23 @@
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             });
 
-         // Mobile Menu Toggle
+            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
 
-
-
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
-                    // Toggle the 'hidden' class on mobileMenu
                     mobileMenu.classList.toggle('hidden');
 
-                    // Get the current icon element inside the button
                     const icon = mobileMenuBtn.querySelector('i');
-
-                    // Toggle between fa-bars and fa-xmark
                     setTimeout(() => {
                         if (!mobileMenu.classList.contains('hidden')) {
-                            // Menu is visible, show X icon
                             icon.className = 'fas fa-xmark text-xl';
                         } else {
-                            // Menu is hidden, show bars icon
                             icon.className = 'fas fa-bars text-xl';
                         }
                     }, 50);
                 });
-            } else {
-                console.error('Mobile menu button or menu not found in the DOM.');
             }
         });
     </script>
